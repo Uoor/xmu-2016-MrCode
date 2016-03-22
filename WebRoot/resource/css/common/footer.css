@@ -1,0 +1,48 @@
+footer {
+    width: 100%;
+    font-size: 12px;
+    background: #fff;
+}
+
+/*Á´½Ó*/
+
+footer div .url-link {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+footer div .url-link a{
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+}
+
+footer div .url-link span{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+footer div .url-link a:hover{
+    color: #e6642a;
+}
+
+/*Ä©Î²*/
+
+.foot-last {
+    text-align: center;
+    padding-bottom: 10px;
+}
+#company {
+    color: #e6642a;
+    text-decoration: none;
+}
+
+/*Ð¡ÆÁÄ»µÄÒ³½Å*/
+@media screen and (max-width: 768px) {
+
+        .url-link {
+        display: none;
+    }
+
+}

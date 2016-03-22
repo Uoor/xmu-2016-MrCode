@@ -1,0 +1,232 @@
+/*
+		CSS for Mobile Header
+*/
+
+/*-------------------------------第一栏-------------------------------*/
+.mynav-fl,					/*隐藏“重新定位”、“盘中餐首页”，“订餐首页”*/
+.pc-mynav-fr {				/*隐藏pc端右上角的导航*/
+	display: none;
+}
+.first_head {
+	background: #FE8752;	/*页眉第一栏的背景色*/
+	color: #fff !important;	/*统一字体是白色*/
+	height: 44px;			/*定义高度*/
+	line-height: 44px;		/*内部内容垂直居中*/
+}
+.first_head .container {
+	padding: 0;				/*消除首行container的内边距*/
+}
+#city {
+	padding: 12px 15px;
+	height: 44px;
+	overflow-y: hidden;
+}
+#city:hover {
+	background-color: #e6642a;
+}
+.mynav.fl {
+	display: inline-block;	/*城市名字所在一行不独占一行*/
+}
+.m-mynav-fr {
+	display: inline-block;	/*展示出mobile端的右上角导航下拉菜单*/
+	float: right;
+}
+.m-mynav-fl {
+	display: inline-block;	/*展示出mobile端的右上角导航下拉菜单*/
+	float: left;
+}
+/*logo*/
+img.logo,
+.panZhongCanLogo {
+	position: absolute;				/*让logo能显示在第一栏，并且水平居中*/
+	top: 4px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	height: 36px;
+	width: auto;
+}
+/*左上角、右上角“用户图标”*/
+.m-mynav-fl button,
+.m-mynav-fl button:hover,
+.m-mynav-fl button:focus,
+.m-mynav-fl button:active,
+.m-mynav-fr button,
+.m-mynav-fr button:hover,
+.m-mynav-fr button:focus,
+.m-mynav-fr button:active {
+	background: none !important;	/*修改bootstrap给btn的样式*/
+	color: #fff !important;
+	border: none !important;
+	line-height: 30px;
+	margin: 0;
+}
+
+/*-------------------------------以上是：第一栏-------------------------------*/
+
+/*-------------------------------第二栏-------------------------------*/
+/*不带有“立即订餐”的页头的第二栏*/
+.second_head {
+	padding: 0;						/*消除container带来的左右边距*/
+	box-shadow: 2px 2px 2px #ddd;
+}
+/*带有“立即订餐”的页头的第二栏*/
+.second-nav {
+	padding: 0;
+	background-color: #fedb81;
+}
+.bottom-header {
+	margin: 0;
+}
+/*---搜索区域---*/
+#search-area {
+	width: 100%;
+	background-color: #eee;
+	height: 40px;
+	text-align: center;
+}
+#select {
+	position: absolute;				/*让美食、餐馆显示在输入框内部左边*/
+	top: 49px;
+	left: 5%;
+	color: #e6642a;
+}
+.searchbox_li {
+	/* background:#fff; */
+	padding: 5px;
+}
+.searchbox_li_none {
+	display: none;					/*隐藏美食、餐馆未选中的选项*/
+}
+.searchbox_li_hide {
+	background-color: #fff;
+	border-radius: 3px;
+	box-shadow: 2px 2px 2px #aaa;
+}
+#search_input {
+	margin-top: 5px;
+	padding-left: 55px;				/*开始输入的地方在“美食”或“餐馆”右边*/
+	border: none;
+	height: 30px;
+	width: 95%;
+	border-radius: 15px;
+}
+#search_btn {
+	position: absolute;				/*让搜索按钮显示在输入框内部右边*/
+	top: 48px;
+	right: 5%;
+	padding: 10px;
+	border: none;
+	background: none;
+	color: #888;
+}
+/*---end:搜索区域---*/
+/*热门关键词*/
+.hot-query-box {
+	display: none;					/*打开页面时隐藏*/
+	position: absolute;				/*浮动出来*/
+	top: 84px;
+	left: 0;
+	width: 100%;
+	background-color: #eee;
+	z-index: 50;					/*浮动在上层*/
+	padding: 5px;
+}
+.hot-link {
+	padding: 10px;
+}
+/*----立即订餐----*/
+#pc-goto-order {
+	display: none;					/*隐藏起pc端上的立即订餐*/
+}
+#m-goto-order {
+	display: block !important;		/*显示Mobile端的立即订餐*/
+}
+.goto-order {
+	width: 100%;
+	text-align: center !important;
+	padding: 5px;
+}
+
+.head-btn{
+    background:#fecc5f;
+    background:-webkit-gradient(linear,left top,left bottom,color-stop(#feda71,0),color-stop(#febb4a,1));
+    background:-webkit-linear-gradient(top, #feda71 0%, #febb4a 100%);
+    background:-moz-linear-gradient(top, #feda71 0%, #febb4a 100%);
+    background:-o-linear-gradient(top, #feda71 0%, #febb4a 100%);
+    background:linear-gradient(top, #feda71 0%, #febb4a 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#feda71', endColorstr='#febb4a',GradientType=0 );
+    border:1px solid #f5b74e;
+    border-color:#f5b74e #e5a73e #d6982f;
+    -webkit-box-shadow:0 1px 1px #d3d3d3, inset 0 1px 0 #fee395;
+    -moz-box-shadow:0 1px 1px #d3d3d3, inset 0 1px 0 #fee395;
+    box-shadow:0 1px 1px #d3d3d3, inset 0 1px 0 #fee395;
+    padding:0px 80px 0px 20px;
+    height:38px;
+    display:inline-block;
+    position:relative;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    /* margin:10px; */
+    overflow:hidden;
+    -webkit-transition:all 0.3s linear;
+    -moz-transition:all 0.3s linear;
+    -o-transition:all 0.3s linear;
+    transition:all 0.3s linear;
+}
+.head-btn-text{
+    padding-top:5px;
+    display:block;
+    font-size:18px;
+    white-space:nowrap;
+    color:#381D0A;;
+    text-shadow:0 1px 0 #fedd9b;
+    -webkit-transition:all 0.3s linear;
+    -moz-transition:all 0.3s linear;
+    -o-transition:all 0.3s linear;
+    transition:all 0.3s linear;
+}
+
+.head-btn-icon-right{
+    position:absolute;
+    right:0px;
+    top:0px;
+    height:100%;
+    width:52px;
+    border-left:1px solid #f5b74e;
+    -webkit-box-shadow:1px 0px 1px rgba(255,255,255,0.4) inset;
+    -moz-box-shadow:1px 0px 1px rgba(255,255,255,0.4) inset;
+    box-shadow:1px 0px 1px rgba(255,255,255,0.4) inset;
+}
+.head-btn-icon-right span{
+    width:38px;
+    height:38px;
+    opacity:0.7;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin:-20px 0px 0px -20px;
+    background:transparent url(../../image/customer/orderStep/arrow_right.png) no-repeat 50% 55%;
+    -webkit-transition:all 0.3s linear;
+    -moz-transition:all 0.3s linear;
+    -o-transition:all 0.3s linear;
+    transition:all 0.3s linear;
+}
+.head-btn:hover{
+    height:38px;
+    -webkit-box-shadow:0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 5px rgba(0,0,0,0.4);
+    -moz-box-shadow:0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 5px rgba(0,0,0,0.4);
+    box-shadow:0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 5px rgba(0,0,0,0.4);
+    text-decoration: none;
+}
+.head-btn:hover .head-btn-text{
+    color:#fff;
+}
+.head-btn:focus{
+    height:38px;
+    -webkit-box-shadow:0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 5px rgba(0,0,0,0.4);
+    -moz-box-shadow:0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 5px rgba(0,0,0,0.4);
+    box-shadow:0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 5px rgba(0,0,0,0.4);
+    text-decoration: none;
+}

@@ -1,0 +1,83 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@include file="/common/common.jsp" %>
+<script type="text/javascript">
+<!--
+function gotoPage(currentPage){
+    	/* alert("${ctx}/replyController/toList.do?id=${topic.id}&currentPage="+currentPage); */
+    		/* window.location.href="${ctx}/topicController/toList.do?id=${forum.id}&currentPage="+currentPage; */
+    		
+    		$(document.forms[0]).append("<input type='hidden' name='currentPage' value='1'/>");
+    		document.forms[0].currentPage.value = currentPage;
+    		document.forms[0].submit();
+    	}
+</script>
+
+ <div class="pagin"  >
+    	<div class="message">共<i class="blue">${pageBean.dataSize }</i>条记录，当前显示<!--第&nbsp;<i class="blue">2&nbsp;</i>页-->
+		<select onchange="gotoPage(this.value)">
+			<c:forEach begin="1" end="${pageBean.pageNum }" varStatus="status">
+				<c:if test="${status.count != pageBean.currentPage }">
+					<option value="${status.count }">第${status.count }页</option>
+				</c:if>
+				<c:if test="${status.count == pageBean.currentPage }">
+					<option value="${status.count }" selected="selected">第${status.count }页</option>
+				</c:if>
+			</c:forEach>
+        	
+        	
+        </select></div>
+        <!-- <li class="paginItem"><a href="javascript:;">1</a></li> 
+        	 <li class="paginItem more"><a href="javascript:;">...</a></li>
+        	 <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
+        -->
+        <ul class="paginList" >
+        <!-- 往前一页 -->
+        <c:if test="${pageBean.currentPage eq 1 }">
+        	<li class="paginItem"><a href="javascript:;" >上一页</a></li>
+        </c:if>
+        <c:if test="${pageBean.currentPage ne 1 }">
+        	<li class="paginItem"><a href="javascript:;" onclick="gotoPage(${pageBean.currentPage-1 })">上一页</a></li>
+        </c:if>	
+        <!-- 第一页 -->
+        <!-- 总页数大于5，当前页大于3 -->
+        <c:if test="${pageBean.pageNum>5 && pageBean.currentPage>3 }">
+        	<li class="paginItem"><a href="javascript:;" onclick="gotoPage(1)">1</a></li>
+        </c:if>
+        <!-- 前省略号 -->
+        <!-- 总页数大于6， 当前页大于4 -->
+        <c:if test="${pageBean.pageNum>6 && pageBean.currentPage>4 }">
+        	<li class="paginItem more"><a href="javascript:;">...</a></li>
+        </c:if>
+        <c:forEach begin="${pageBean.beginIndex }" end="${pageBean.endIndex }" varStatus="status">
+        	<c:if test="${pageBean.currentPage ne status.index }">
+        		<li class="paginItem"><a href="javascript:;" onclick="gotoPage(${status.index })">${status.index }</a></li>
+        	</c:if>
+        	<c:if test="${pageBean.currentPage eq status.index }">
+        		<li class="paginItem current"><a href="javascript:;">${pageBean.currentPage}</a></li>
+        	</c:if>
+        	
+        </c:forEach>
+        <!-- 后省略号 -->
+        <!-- 总页数大于6，当前页小于9 -->
+        <c:if test="${pageBean.pageNum>6 && pageBean.currentPage<pageBean.pageNum-2-1 }">
+        	<li class="paginItem more"><a href="javascript:;">...</a></li>
+        </c:if>
+        <!-- 最后一页 -->
+        <!-- 总页数大于5，当前页小于pageNum-2 -->
+        <c:if test="${pageBean.pageNum>5 && pageBean.currentPage<pageBean.pageNum-2 }">
+        	<li class="paginItem"><a href="javascript:;" onclick="gotoPage(${pageBean.pageNum })">${pageBean.pageNum }</a></li>
+        </c:if>
+        
+        
+        <!-- 往后一页 -->
+        <c:if test="${pageBean.currentPage eq pageBean.pageNum }">
+        	<li class="paginItem"><a href="javascript:;">下一页</a></li>
+        </c:if>
+        <c:if test="${pageBean.currentPage ne pageBean.pageNum }">
+        	<li class="paginItem"><a href="javascript:;" onclick="gotoPage(${pageBean.currentPage+1 })">下一页</a></li>
+        </c:if>
+        	
+        	
+        </ul>
+        
+    </div>

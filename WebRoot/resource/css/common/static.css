@@ -1,0 +1,215 @@
+/*设置关于我们的样式*/
+.mobile{
+    margin-top:40px;
+    font-size: 20px;
+}
+.mobile-special{
+    color:#33ccff;
+}
+.aboutus-content{
+    margin:0 40px;
+}
+.content-word{
+    padding-left:15px;
+}
+/*设置旅游攻略的样式*/
+.decration-no-style-special{
+    border: 1px solid #eee;
+    height:290px;
+}
+.listitem-image-no-special{
+    height:150px;
+}
+/*设置交通指南的样式*/
+.traffic-word{
+    display:inline-table;
+    margin-left: 10px;
+}
+.traffic-modal{
+    display:inline-block;
+    color:#0099ff;
+}
+.traffic-maintain{
+    margin-left:2em;
+    margin-top: 2em;
+}
+/*完善信息页面的设置*/
+.information-name{
+    font-style: inherit;
+    color: #0099ff;
+
+}
+.choose-style{
+   padding:5px;
+    margin-left:3px;
+}
+.choose-style-i{
+    padding-left:5px;
+}
+.choose-style-span{
+    font-size:20px;
+    margin-left:5px;
+}
+.choose-style-p{
+    font-size:18px;
+}
+.back_order{
+    color: #fff;
+}
+.back_to_order{
+    text-align: center;
+}
+
+
+/*设置码券列表*/
+.ticket-item{
+    height:100px;
+    background-color:#ffffcc;
+    margin-top: 10px;
+    border: 5px solid #ccccff;
+    border-radius: 5px;
+}
+.ticket-name{
+    color:#0099ff;
+    font-size:15px;
+    margin-top: 5px;
+    height: 42px;
+}
+.ticket-money{
+    color: orangered;
+}
+.ticket-money-body{
+    margin-top:10px;
+    font-size:20px;
+
+}
+.ticket-num-body{
+   font-size: 20px;
+    height:50px;
+    margin-top: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+.ticket-num{
+    vertical-align: middle;
+    color: #fff;
+}
+.ticket-num-body-color{
+    background-color: #33ccff;
+}
+.content{
+    margin-bottom: 50px;
+}
+.modal-default{
+    color:#000;
+}
+.modal-right{
+    color:#fff;
+}
+.ticket_order_now{
+    background-color: #33eeff;
+    color: #fff;
+    font-size: 20px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 3px;
+}
+.ticket_order,.ticket_information{
+    text-align:center;
+}
+.ticket_order{
+    margin-bottom: 10px;
+
+}
+.ticket_information{
+    margin-top: 5px;
+}
+.hotel-image{
+    width:100%;
+   height:200px;
+    margin:0px auto;
+    margin-top:5px;
+}
+.modal-body-size{
+    font-size: 18px;
+}
+.ticket_order_detail{
+    color:#33ccff;
+    font-size: 17px;
+}
+.hand-right-style{
+    padding-left: 5px;
+}
+.date{
+    font-size: 14px;
+    color: #ccccff;
+}
+/*设置生成订单页面*/
+.create-order{
+    border:1px dashed #33ccff;
+    font-size:20px;
+    margin: 10px;
+    padding-left: 20px;
+
+}
+.order-item-hotel-name,.order-item-hotel-num,.order-item-hotel-people{
+    padding:5px;
+}
+.create-order-title{
+    color: #3399ff;
+    margin-left:10px;
+}
+.choosen-hotel-num{
+    color:orangered;
+    padding-right:5px;
+}
+.order-submit{
+    text-align: center;
+    margin: 10px;
+}
+.submit-now{
+    background-color: #66ccff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #fff;
+    height: 40px;
+    width: 100%;
+}
+.create_new{
+    background-color: #33ccff;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+.create_new_i{
+    padding-right: 2px;
+}
+.friends_list{
+    font-weight: initial;
+}
+
+/*缴纳押金页面的样式*/
+.paying_content{
+    font-size: 20px;
+    margin: 20px;
+}
+.paying_num{
+    color: orangered;
+}
+.paying_content{
+
+}
+.panel-body{
+    border: 1px dashed #d9edf7;
+}
+.paying_content_word{
+    font-size: 14px;
+    margin: 20px;
+}
+a:hover{
+   text-decoration: none;
+}
+a{
+    color: #000;
+}
