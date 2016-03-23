@@ -17,5 +17,6 @@ public class Const {
 	
 	public static final String RANDOM_IMG = "rand";
 	public static final String ERROR_TIP = "errTip";
-	
+	//登录用户
+	public static final String CUSTOMER = "customer";
 }
