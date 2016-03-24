@@ -25,11 +25,13 @@ public class CustomerServiceImpl extends BaseServiceImpl<Customer>
 	public Customer checkLogin(String field, String password) throws Exception {
 		try {
 			Customer user = (Customer) findUniqueByHql(
-					"from Customer u where u.password=:password and " +
+					"from Customer u where u.password=:password",DataUtils.getMap(
+							"password", password));
+					/*"from Customer u where u.password=:password and " +
 					"(u.phoneNumber=:phone or u.email=:email or u.userName=:userName)",
 					DataUtils.getMap("password", password,
 							"phone", field, "email", field,
-							"userName", field));	
+							"userName", field));*/	
 			return user;
 		} catch (Exception e) {
 			// TODO: handle exception

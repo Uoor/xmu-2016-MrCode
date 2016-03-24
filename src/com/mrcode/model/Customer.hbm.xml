@@ -16,7 +16,7 @@
             </column>
         </property>
         <property name="password" type="java.lang.String">
-            <column name="password" length="30" not-null="true">
+            <column name="password" length="40" not-null="true">
                 <comment>ï¿½ï¿½ï¿½ï¿½</comment>
             </column>
         </property>
