@@ -66,6 +66,7 @@
             <span class="choose-style-span"><input type="radio" class="choose-style" name="choose" value="edit" onclick="changechoose(this)"><i class="fa fa-edit choose-style-i"></i></span>
         </p>
         <!--以下一行是显示上传的框用的是jquery的zyupload插件-->
+        <form  class="form-style" action="${ctx }/customer/addInformation" method="post">
         <div id="demo" class="demo choose-camera"></div>
         <div id="choose-edit" style="margin-bottom: 50px;text-align: center;display:none">
             <div class="control-group input-top" style="margin-top:50px">
@@ -78,6 +79,7 @@
                 <button type="submit" class="login-now">提交</button>
             </div>
         </div>
+        </form>
         <!--一下一个按钮是为了回到码券继续预定-->
         <div class="back_to_order">
             <button  class="login-now"><a class="back_order" href="orderstep1.html">继续预定</a></button>
