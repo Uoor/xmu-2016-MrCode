@@ -16,13 +16,16 @@ import com.opensymphony.xwork2.ActionContext;
 @Namespace("/customer")
 public class AddLinkmanAction extends BaseAction<Customer>{
 	
+	
+	
 	//登录页面
-	@Action(value = "toLogin", results = { @Result(name = "loginUI", location = ViewLocation.View_ROOT
-			+ "login.jsp") })
-	public String toLogin() throws Exception{
-		if(ActionContext.getContext().get("msg")!=null)
-			request.setAttribute("msg", ActionContext.getContext().get("msg"));
-		return "loginUI";
-	}
+		@Action(value = "addLinkman", results = { @Result(name = "addLinkman", location = ViewLocation.View_ROOT
+				+ "information.jsp") })
+		public String toLogin() throws Exception{
+			if(ActionContext.getContext().get("msg")!=null)
+				request.setAttribute("msg", ActionContext.getContext().get("msg"));
+			
+			return "addLinkman";
+		}
 
 }
