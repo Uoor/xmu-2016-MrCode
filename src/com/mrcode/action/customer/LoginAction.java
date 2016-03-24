@@ -25,21 +25,19 @@ public class LoginAction extends BaseAction<Customer>{
 	CustomerService customerService;
 	
 	//登录页面
-	@Action(value = "addLinkman", results = { @Result(name = "addLinkman", location = ViewLocation.View_ROOT
-			+ "information.jsp") })
-	public String toLogin() throws Exception{
-		if(ActionContext.getContext().get("msg")!=null)
-			request.setAttribute("msg", ActionContext.getContext().get("msg"));
-		
-		return "addLinkman";
-	}
+		@Action(value = "toLogin", results = { @Result(name = "loginUI", location = ViewLocation.View_ROOT
+				+ "login.jsp") })
+		public String toLogin() throws Exception{
+			if(ActionContext.getContext().get("msg")!=null)
+				request.setAttribute("msg", ActionContext.getContext().get("msg"));
+			return "loginUI";
+		}
 	
 	/**
 	 * 登录
 	 * @return
 	 */
-	@Action(value = "login", results = { @Result(name = "toLogin", type = TYPE_CHAIN, location = "toLogin"),
-			@Result(name = "toIndex", location = "/WEB-INF/" +"index.jsp")})
+	@Action(value = "login", results = { @Result(name = "toLogin", type = TYPE_CHAIN, location = "toLogin")})
 	public String login() throws Exception{
 		// 获取数据
 		String loginName = getParameter("loginName");

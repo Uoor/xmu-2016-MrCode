@@ -70,9 +70,9 @@
     <!-- Add packages here -->
 	
 	<package name="customers" namespace="/" extends="default">
-		<!--<global-results>
+		<global-results>
 			<result name="toIndex" type="redirectAction">toIndex</result>
 			<result name="toLogin" type="redirectAction">toLogin</result>
-		</global-results>-->
+		</global-results>
 	</package>
 </struts>

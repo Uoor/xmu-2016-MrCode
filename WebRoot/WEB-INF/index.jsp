@@ -75,7 +75,7 @@
     };
 </script>
 <div class="content" style="height:50%">
-    <a href="hotel.html">
+    <a href="${ctx }/toOrder">
         <div class="img" style="background:url(${rctx }/image/13809673822754.png) center no-repeat; background-size:contain;"></div>
         <div class="text">酒店入住</div>
     </a>
