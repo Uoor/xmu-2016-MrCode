@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.mrcode.service.CustomerService;
+import com.mrcode.utils.Const;
 import com.mrcode.utils.DigestUtil;
 import com.mrcode.base.BaseAction;
 import com.mrcode.common.ViewLocation;
@@ -43,7 +44,9 @@ public class CustomerAction extends BaseAction<Customer>{
 		String loginName = getParameter("loginName");
 		String password = getParameter("password");
 		
-		if(customerService.checkLogin(loginName, DigestUtil.encryptPWD(password))!=null){
+		Customer customer = null;
+		if((customer = customerService.checkLogin(loginName, DigestUtil.encryptPWD(password)))!=null){
+			session.put(Const.CUSTOMER, customer);
 			return "toIndex";
 		}
 		
