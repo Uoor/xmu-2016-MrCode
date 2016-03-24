@@ -3,3 +3,4 @@
 .myhibernatedata
 .settings/*
 *.class
+.classpath
