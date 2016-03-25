@@ -14,7 +14,7 @@
             <column name="customerId" />
         </many-to-one>
         <property name="identityCard" type="java.lang.String">
-            <column name="identityCard" length="30" />
+            <column name="identityCard" length="40" />
         </property>
         <property name="phoneNumber" type="java.lang.String">
             <column name="phoneNumber" length="30" />
