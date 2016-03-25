@@ -6,7 +6,7 @@ import com.mrcode.base.BaseDaoImpl;
 import com.mrcode.dao.RoomtypeDao;
 import com.mrcode.model.Roomtype;
 
-@Repository("RoomtypeDaoImpl")
+@Repository("roomtypeDaoImpl")
 public class RoomtypeDaoImpl extends BaseDaoImpl<Roomtype> implements RoomtypeDao{
 
 }

@@ -6,7 +6,7 @@ import com.mrcode.base.BaseDaoImpl;
 import com.mrcode.dao.MrcodeorderDao;
 import com.mrcode.model.Mrcodeorder;
 
-@Repository("MrcodeorderDaoImpl")
+@Repository("mrcodeorderDaoImpl")
 public class MrcodeorderDaoImpl extends BaseDaoImpl<Mrcodeorder>
 	implements MrcodeorderDao{
 

@@ -6,7 +6,7 @@ import com.mrcode.base.BaseDaoImpl;
 import com.mrcode.dao.PictureDao;
 import com.mrcode.model.Picture;
 
-@Repository("PictureDaoImpl")
+@Repository("pictureDaoImpl")
 public class PictureDaoImpl extends BaseDaoImpl<Picture> implements PictureDao{
 
 }

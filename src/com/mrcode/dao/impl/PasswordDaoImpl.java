@@ -6,7 +6,7 @@ import com.mrcode.base.BaseDaoImpl;
 import com.mrcode.dao.PasswordDao;
 import com.mrcode.model.Password;
 
-@Repository("PasswordDaoImpl")
+@Repository("passwordDaoImpl")
 public class PasswordDaoImpl extends BaseDaoImpl<Password> implements PasswordDao{
 
 }
