@@ -1,0 +1,48 @@
+.form-style{
+    text-align: center;
+    margin: 0 20px;
+}
+.control-group{
+    margin-top: 20px;
+    font-size:15px;
+}
+.login-in-input{
+    background: none repeat scroll 0 0 #F9F9F9;
+    padding: 8px 0px 8px 4px;
+    border: 1px solid #ccc;
+    width:85%;
+    border-radius: 5px;
+}
+
+.input-top{
+    margin-top:50px;
+}
+.wrap-words{
+    width:92%;
+    padding-left:7.5%;
+}
+.check-remember{
+    width: 100px;
+    padding-left: 0px;
+}
+.no-login-href{
+    color:#0099ff;
+}
+.fl{
+    float: left;
+}
+.forget-password{
+    color:#33ccff;
+}
+.checkbox-word{
+    margin:5px;
+}
+.login-now{
+    background-color: #66ccff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    color: #fff;
+    width: 70%;
+    height: 40px;
+}

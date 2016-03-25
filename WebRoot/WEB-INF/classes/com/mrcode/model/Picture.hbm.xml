@@ -14,7 +14,7 @@
             <column name="roomTypeId" />
         </many-to-one>
         <property name="url" type="java.lang.String">
-            <column name="url" length="30" />
+            <column name="url" length="100" />
         </property>
     </class>
 </hibernate-mapping>

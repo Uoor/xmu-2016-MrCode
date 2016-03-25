@@ -19,6 +19,7 @@
     <!-- 引用初始化JS -->
     <script src="${rctx }/js/jq22.js"></script>
     <!--对上传图片的样式的设置-->
+    <script type="text/javascript" src="${rctx }/js/picture_send.js"></script><!--专门用来设置图片上传功能的原生js-->
     <script type="text/javascript" src="${rctx }/js/yj_style.js"></script>
     <!--&lt;!&ndash;日期输入框&ndash;&gt;-->
     <!--<script src="js/bootstrap-datepicker.js"></script>-->
@@ -66,14 +67,23 @@
             <span class="choose-style-span"><input type="radio" class="choose-style" name="choose" value="edit" onclick="changechoose(this)"><i class="fa fa-edit choose-style-i"></i></span>
         </p>
         <!--以下一行是显示上传的框用的是jquery的zyupload插件-->
-        <form  class="form-style" action="${ctx }/customer/addInformation" method="post">
-        <div id="demo" class="demo choose-camera"></div>
+        <form  class="form-style" action="${ctx }/customer/addInformation"  enctype="multipart/form-data" method="post">
+         <!--以下实现图片上传功能-->
+        <div id="choose-picture">
+            <div id="imagePreview"></div>
+
+            
+                <p><input id="imageInput"  type="file" name="imageInput" onchange="loadImageFile();" /><br />
+                </p>
+             <button type="submit" class="login-now">提交图片</button>
+        </div>
+        <!--以上实现图片上传功能-->
         <div id="choose-edit" style="margin-bottom: 50px;text-align: center;display:none">
             <div class="control-group input-top" style="margin-top:50px">
-                <input type="text" class="login-in-input" placeholder="请输入身份证号">
+                <input type="text" name="identityCard" id="checkidcard" class="login-in-input" placeholder="请输入身份证号">
             </div>
             <div class="control-group">
-                <input type="text" class="login-in-input" placeholder="请输入姓名">
+                <input type="text" name="truename" class="login-in-input" placeholder="请输入姓名">
             </div>
             <div class="control-group">
                 <button type="submit" class="login-now">提交</button>
@@ -100,6 +110,22 @@
     </p>
 
 </div>
-
+	<script>
+	$("#checkidcard").blur(function(){
+		var idnum = $("#checkidcard").val();
+		//alert(idnum);
+		isCardID(idnum);
+		
+	})
+	function isCardID(sId){ 
+		//alert("!!!"+sid);  
+		var reg=/^[1-9]{1}[0-9]{14}$|^[1-9]{1}[0-9]{16}([0-9]|[xX])$/;
+		if(reg.test(sId))
+		{}
+		else{alert("请输入正确的身份证格式");}
+ 		
+} 
+ 
+	</script>
 </body>
 </html>
