@@ -31,8 +31,8 @@
                 <comment>ï¿½Æµï¿½id</comment>
             </column>
         </property>
-        <property name="userd" type="java.lang.Integer">
-            <column name="userd">
+        <property name="used" type="java.lang.Integer">
+            <column name="used">
                 <comment>ï¿½Ç·ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½1ï¿½ï¿½ï¿½Ç£ï¿½2ï¿½ï¿½ï¿½ï¿½</comment>
             </column>
         </property>

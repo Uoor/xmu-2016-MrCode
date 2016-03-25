@@ -18,7 +18,7 @@ public class Grouppurchasevoucher  implements java.io.Serializable {
      private Customer customer;
      private String orderCode;
      private Integer hotelId;
-     private Integer userd;
+     private Integer used;
      private Timestamp consumeTime;
      private Float price;
      private Timestamp createTime;
@@ -43,14 +43,14 @@ public class Grouppurchasevoucher  implements java.io.Serializable {
     }
     
     /** full constructor */
-    public Grouppurchasevoucher(Integer id, Roomtype roomtype, Mrcodeorder mrcodeorder, Customer customer, String orderCode, Integer hotelId, Integer userd, Timestamp consumeTime, Float price, Timestamp createTime, String column2, Integer column3) {
+    public Grouppurchasevoucher(Integer id, Roomtype roomtype, Mrcodeorder mrcodeorder, Customer customer, String orderCode, Integer hotelId, Integer used, Timestamp consumeTime, Float price, Timestamp createTime, String column2, Integer column3) {
         this.id = id;
         this.roomtype = roomtype;
         this.mrcodeorder = mrcodeorder;
         this.customer = customer;
         this.orderCode = orderCode;
         this.hotelId = hotelId;
-        this.userd = userd;
+        this.used = used;
         this.consumeTime = consumeTime;
         this.price = price;
         this.createTime = createTime;
@@ -109,12 +109,12 @@ public class Grouppurchasevoucher  implements java.io.Serializable {
         this.hotelId = hotelId;
     }
 
-    public Integer getUserd() {
-        return this.userd;
+    public Integer getUsed() {
+        return this.used;
     }
     
-    public void setUserd(Integer userd) {
-        this.userd = userd;
+    public void setUsed(Integer used) {
+        this.used = used;
     }
 
     public Timestamp getConsumeTime() {
