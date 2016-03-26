@@ -2,7 +2,6 @@
 <!DOCTYPE struts PUBLIC
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
-
 <struts>
 	<!-- 配置为开发模式 -->
     <constant name="struts.devMode" value="true" />
@@ -14,65 +13,28 @@
 	<constant name="struts.multipart.maxSize" value="50000000" />
     <!-- default包 -->
     <package name="default" namespace="/" extends="struts-default">
+        <interceptors>
+    		<!-- 声明拦截器 -->
+    		<interceptor name="checkPrivilege" class="com.mrcode.utils.CheckPrivilegeInterceptor"></interceptor>
+    		<!-- 重新定义默认的拦截器栈 -->
+    		<interceptor-stack name="defaultStack">
+    			<interceptor-ref name="checkPrivilege"></interceptor-ref>
+    			<interceptor-ref name="defaultStack"></interceptor-ref>
+    		</interceptor-stack>
+    	</interceptors>
+	   
 	   <global-results>
-	        
-	        <result name="error">/WEB-INF/view/Error.jsp</result>
+			<result name="toLogin">/WEB-INF/view/loginUI.jsp</result>
+			<result name="noPrivilegeError">/WEB-INF/noPrivilegeError.jsp</result>
+			 <result name="error">/WEB-INF/view/Error.jsp</result>
 			<result name="success">/WEB-INF/view/OK.jsp</result>
-			
-	        <!--<result name="exception" type="chain">exception</result>-->
-	   </global-results>
-	   <!-- 配置异常处理action -->
-	    <!--<global-exception-mappings>
-           <exception-mapping exception="java.sql.SQLException" result="exception"/>
-           <exception-mapping exception="java.lang.Exception" result="exception"/>
-     	</global-exception-mappings>-->
-		<!-- 采用通配符方式 -->
-		<!--<action name="userAction_*" class="com.foodproject.action.user.UserAction" method="{1}">
-			<result name="success">/index.jsp</result>
-		</action>-->
+		</global-results>
     </package>
 	
-	<package name="manage" namespace="/" extends="default">
-		<!--管理员 -->
-		<!--<interceptors>
-		        <interceptor name="admininter" class="cn.wegoteam.shop.util.AdminInteceptor"></interceptor>	
-				<interceptor-stack name="admininterstack">
-					<interceptor-ref name="defaultStack"></interceptor-ref>
-					<interceptor-ref name="admininter"></interceptor-ref>
-				</interceptor-stack> 
-		</interceptors>-->
-		 <!-- 配置默认拦截器栈-->
-		 <!--<default-interceptor-ref name="admininterstack"/>
-	     <global-results>
-			<result name="login" type="chain">preLogin</result>
-			<result name="optresult_success">/WEB-INF/manage/operationresult_success.jsp</result>
-			<result name="optresult_error">/WEB-INF/manage/operationresult_error.jsp</result>
-		</global-results>-->
-		<!-- 上传图片 -->
-		<!--<action name="fileUpload" class="cn.wegoteam.shop.action.FileUploadAction"></action>-->
-	</package>
-	
-	<package name="users" namespace="/" extends="default">
-		<!--用户 -->
-		<!--<interceptors>
-		        <interceptor name="userinter" class="cn.wegoteam.shop.util.UserInteceptor"></interceptor>	
-				<interceptor-stack name="userinterstack">
-					<interceptor-ref name="defaultStack"></interceptor-ref>
-					<interceptor-ref name="userinter"></interceptor-ref>
-				</interceptor-stack> 
-		</interceptors>-->
-		 <!-- 配置默认拦截器栈-->
-		 <!--<default-interceptor-ref name="userinterstack"/>
-		 <global-results>
-			<result name="index">/WEB-INF/view/customer/orderStep/changeAddress.jsp</result>
-		</global-results>-->
-	</package>
-    <!-- Add packages here -->
-	
 	<package name="customers" namespace="/" extends="default">
-		<!--<global-results>
+		<global-results>
 			<result name="toIndex" type="redirectAction">toIndex</result>
 			<result name="toLogin" type="redirectAction">toLogin</result>
-		</global-results>-->
+		</global-results>
 	</package>
 </struts>

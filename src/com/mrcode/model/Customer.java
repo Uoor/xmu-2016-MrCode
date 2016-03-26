@@ -34,8 +34,8 @@ public class Customer  implements java.io.Serializable {
      private String accountNum;
      private Float balance;
      private Float credit;
-     private Integer column3;
-     private Integer column4;
+     private Integer shopLevel;
+     private Integer cusType;
      private Set contactorses = new HashSet(0);
      private Set grouppurchasevouchers = new HashSet(0);
      private Set mrcodeorders = new HashSet(0);
@@ -76,8 +76,8 @@ public class Customer  implements java.io.Serializable {
         this.accountNum = accountNum;
         this.balance = balance;
         this.credit = credit;
-        this.column3 = column3;
-        this.column4 = column4;
+        this.shopLevel = shopLevel;
+        this.cusType = cusType;
         this.contactorses = contactorses;
         this.grouppurchasevouchers = grouppurchasevouchers;
         this.mrcodeorders = mrcodeorders;
@@ -244,21 +244,10 @@ public class Customer  implements java.io.Serializable {
         this.credit = credit;
     }
 
-    public Integer getColumn3() {
-        return this.column3;
+    public Integer getShopLevel() {
+        return this.shopLevel;
     }
     
-    public void setColumn3(Integer column3) {
-        this.column3 = column3;
-    }
-
-    public Integer getColumn4() {
-        return this.column4;
-    }
-    
-    public void setColumn4(Integer column4) {
-        this.column4 = column4;
-    }
 
     public Set getContactorses() {
         return this.contactorses;
@@ -283,6 +272,18 @@ public class Customer  implements java.io.Serializable {
     public void setMrcodeorders(Set mrcodeorders) {
         this.mrcodeorders = mrcodeorders;
     }
+
+	public Integer getCusType() {
+		return cusType;
+	}
+
+	public void setCusType(Integer cusType) {
+		this.cusType = cusType;
+	}
+
+	public void setShopLevel(Integer shopLevel) {
+		this.shopLevel = shopLevel;
+	}
    
 
 

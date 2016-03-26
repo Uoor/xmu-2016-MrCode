@@ -213,3 +213,84 @@ a:hover{
 a{
     color: #000;
 }
+/*选择日期的样式*/
+.date_leave{
+    height:100px;
+    margin: 20px;
+    font-size: 20px;
+    margin-top: 40px;
+}
+.leave_word{
+    color:#33eeff;
+}
+.leave_date,.start_date{
+    border: 1px solid #eee;
+
+}
+.date_leave_input{
+    margin-top: 15px;
+}
+.calendar_style{
+    color: #33ccff;
+}
+
+/*设置时间的页面的下一步的位置*/
+.next_step{
+    text-align: center;
+}
+.next_step_color{
+    color: #fff
+}
+/*设置完成订单页面*/
+.success-title-name{
+    font-weight: bold;
+    font-size:2em;
+    margin-top: 20px;
+    text-align: center;
+    color:coral;
+}
+.success-title-name-detail{
+    margin-left: 5px;
+}
+.content-word-style{
+    color: coral;
+}
+.room-style{
+    border:1px dashed #33ccff;
+    margin-bottom: 10px;
+}
+
+/*设置选房页面*/
+.building-style{
+    color:#0099ff;
+}
+.hotel-floor{
+    font-size: 20px;
+    padding: 10px;
+    padding-left: 40px;
+}
+.image_bigger_style{
+    text-align: center;
+}
+
+#image_bigger{
+    vertical-align: middle;
+    margin: 20px;
+    width: 90%;
+}
+.choose-room{
+    padding-left:20px;
+    padding-right:20px;
+}
+/*上传图片的样式设置*/
+#imagePreview {
+    width:100%;/*用来控制图片的宽度*/
+    height: 200px;/*用来控制图片的高度*/
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale);
+    border:1px dashed #33eeff;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+
+
+}
