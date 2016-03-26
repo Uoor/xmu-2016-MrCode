@@ -46,6 +46,7 @@ public class LoginAction extends BaseAction<Customer>{
 		Customer customer = null;
 		if((customer = customerService.checkLogin(loginName, DigestUtil.encryptPWD(password)))!=null){
 			session.put(Const.CUSTOMER, customer);
+			ActionContext.getContext().getSession().put("CheckPrivilegeSession", customer);
 			System.out.println("登陆成功");
 			return "toIndex";
 		} else {
