@@ -79,9 +79,9 @@
         <div class="img" style="background:url(${rctx }/image/13809673822754.png) center no-repeat; background-size:contain;"></div>
         <div class="text">酒店入住</div>
     </a>
-    <a href="${ctx }/customer/addLinkman">
+    <a href="${ctx }/customer/toAddLinkman">
     <div class="img" style="background:url(${rctx }/image/13809674805918.png) center no-repeat; background-size:contain;"></div>
-    <div class="text">完善信息</div>
+    <div class="text">联系人</div>
     </a>
     <a href="groom.html">
     <div class="img" style="background:url(${rctx }/image/13809674461949.png) center no-repeat; background-size:contain;"></div>
@@ -103,9 +103,9 @@
         <div class="img" style="background:url(${rctx }/image/13809674651404.png) center no-repeat; background-size:contain;"></div>
         <div class="text">交通指南</div>
     </a>
-    <a href="aboutus.html">
+    <a href="${ctx }/customer/perfectInformation">
         <div class="img" style="background:url(${rctx }/image/13809674974016.png) center no-repeat; background-size:contain;"></div>
-        <div class="text">关于我们</div>
+        <div class="text">完善信息</div>
     </a>
     </div>
 <div class="footer" style="position:absolute;bottom:0;width:100%;">

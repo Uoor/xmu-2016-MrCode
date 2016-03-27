@@ -23,25 +23,27 @@ import com.opensymphony.xwork2.ActionContext;
 @Controller
 @ParentPackage("customers")
 @Namespace("/customer")
-public class AddLinkmanAction extends BaseAction<Customer>{
+public class PerfectInformationAction extends BaseAction<Customer>{
 	
 	@Autowired
 	CustomerService customerService;
 	
 	//update ID page
-		@Action(value = "addLinkman", results = { @Result(name = "addLinkman", location = ViewLocation.View_ROOT
+		@Action(value = "perfectInformation", results = { @Result(name = "perfectInformation", location = ViewLocation.View_ROOT
 				+ "information.jsp") })
-		public String addLinkman() throws Exception{
+		public String perfectInformation() throws Exception{
 			if(ActionContext.getContext().get("msg")!=null)
 				request.setAttribute("msg", ActionContext.getContext().get("msg"));
+			Customer cus = (Customer) session.get("customer");
+			request.setAttribute("userName", cus.getUserName());
+			request.setAttribute("phoneNumber",cus.getPhoneNumber());
 			
-			return "addLinkman";
+			return "perfectInformation";
 		}
 		
 		//update ID 
 		
-		@Action(value = "addInformation", results = { @Result(name = "addLinkman", location = ViewLocation.View_ROOT
-				+ "information.jsp") })
+		@Action(value = "addInformation", results = { @Result(name = "toIndex", location =	"/WEB-INF/" +"index.jsp") })
 		public String addInformation() throws Exception{
 			if(ActionContext.getContext().get("msg")!=null)
 				request.setAttribute("msg", ActionContext.getContext().get("msg"));
@@ -89,7 +91,7 @@ public class AddLinkmanAction extends BaseAction<Customer>{
 			
 			}
 			
-			return "addLinkman";
+			return "toIndex";
 		}
 
 }

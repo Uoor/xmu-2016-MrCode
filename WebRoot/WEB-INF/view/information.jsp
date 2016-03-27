@@ -60,8 +60,8 @@
 </div>
 <div class="content">
     <div class="aboutus-content">
-        <p class="mobile choose-style-p"><i class=" mobile-special information-name">用户名：</i><span class="content-word">code-sir</span></p>
-        <p class="mobile choose-style-p"><i class=" mobile-special information-name">手机号：</i><span class="content-word">18805062345</span> </p>
+        <p class="mobile choose-style-p"><i class=" mobile-special information-name">用户名：</i><span class="content-word">${userName}</span></p>
+        <p class="mobile choose-style-p"><i class=" mobile-special information-name">手机号：</i><span class="content-word">${phoneNumber}</span> </p>
         <p class="mobile choose-style-p" id="choose-type"><i class=" mobile-special information-name">身份证填写：</i>
             <span class="choose-style-span"><input type="radio" class="choose-style " name="choose" checked="true" value="camera" onclick="changechoose(this)"><i class="fa fa-camera choose-style-i"></i></span>
             <span class="choose-style-span"><input type="radio" class="choose-style" name="choose" value="edit" onclick="changechoose(this)"><i class="fa fa-edit choose-style-i"></i></span>
