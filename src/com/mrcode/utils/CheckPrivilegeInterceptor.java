@@ -39,9 +39,7 @@ public class CheckPrivilegeInterceptor  extends AbstractInterceptor {
 				}
 				
 				
-				
-					
-				return "toLogin";
+				return invocation.invoke();
 				
 		
 	} //intercept
