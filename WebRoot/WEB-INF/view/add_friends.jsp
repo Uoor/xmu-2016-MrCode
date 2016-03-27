@@ -82,25 +82,27 @@
                         添加联系人
                     </h4>
                 </div>
+                <form action = "${ctx }/customer/addLinkman" method = "post">
                 <div class="modal-body">
                     <div class="order-item-hotel-name">
-                        <input class="login-in-input" placeholder="姓名" id="friends_name"/>
+                        <input class="login-in-input" placeholder="姓名" name="userName" id="friends_name"/>
                     </div>
                     <div class="order-item-hotel-name">
-                        <input class="login-in-input" placeholder="电话" id="friends_phone">
+                        <input class="login-in-input" placeholder="电话" name="phoneNumber" id="friends_phone">
                     </div>
                     <div class="order-item-hotel-name">
-                        <input class="login-in-input" placeholder="身份证" id="friends_id">
+                        <input class="login-in-input" placeholder="身份证" name="idCard" id="friends_id">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">
                         <a href="orderstep3.html" class="modal-default">取消</a>
                     </button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">
-                        <a class="modal-right"  onclick="add_friends_2(this)">确定</a>
+                    <button type="submit" class="btn btn-primary" >
+                        	确定
                     </button>
                 </div>
+                </form>
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
     </div>
