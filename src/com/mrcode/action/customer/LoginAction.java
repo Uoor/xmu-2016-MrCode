@@ -37,7 +37,7 @@ public class LoginAction extends BaseAction<Customer>{
 	 * 登录
 	 * @return
 	 */
-	@Action(value = "login", results = { @Result(name = "toLogin", type = TYPE_CHAIN, location = "toLogin")})
+	@Action(value = "login")
 	public String login() throws Exception{
 		// 获取数据
 		String loginName = getParameter("loginName");
