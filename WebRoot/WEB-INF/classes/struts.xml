@@ -24,7 +24,6 @@
     	</interceptors>
 	   
 	   <global-results>
-			<result name="toLogin">/WEB-INF/view/loginUI.jsp</result>
 			<result name="noPrivilegeError">/WEB-INF/noPrivilegeError.jsp</result>
 			 <result name="error">/WEB-INF/view/Error.jsp</result>
 			<result name="success">/WEB-INF/view/OK.jsp</result>
