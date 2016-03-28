@@ -8,7 +8,7 @@
     <class name="com.mrcode.model.Roomtype" table="roomtype" catalog="mrcode">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="assigned" />
+            <generator class="native" />
         </id>
         <property name="typeName" type="java.lang.String">
             <column name="typeName" length="30" not-null="true">
@@ -16,7 +16,7 @@
             </column>
         </property>
         <property name="price" type="java.lang.Float">
-            <column name="price" precision="12" scale="0">
+            <column name="price" precision="12" scale="10">
                 <comment>ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½Û¸ï¿½</comment>
             </column>
         </property>
@@ -25,9 +25,11 @@
                 <comment>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</comment>
             </column>
         </property>
-        <property name="hotelId" type="java.lang.Integer">
-            <column name="hotelId" />
-        </property>
+        <many-to-one name="hotel" class="com.mrcode.model.Hotel" fetch="select">
+            <column name="hotelId">
+                <comment></comment>
+            </column>
+        </many-to-one>
         <property name="column1" type="java.lang.String">
             <column name="Column_1" length="30" />
         </property>

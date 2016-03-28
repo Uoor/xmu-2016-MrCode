@@ -21,21 +21,22 @@
 <script src="${rctx }/js/bootstrap.min.js"></script>
 <script src="${rctx }/js/check.js"></script>
 <script src="${rctx }/js/cookie.js"></script>
-<script src="${rctx }/js/media.js"></script>
+<%-- <script src="${rctx }/js/media.js"></script> --%>
 <script src="${rctx }/js/jquery.mmenu.min.all.js"></script>
-<script src="${rctx }/js/yj_style.js"></script>
+<script src="${rctx }/js/yj_style.js"></script><!--关于删除和选择房间的js也在这个文件里面-->
 
+<script src="${rctx }/js/bootstrap-datepicker.js"></script>
 <!-- common css -->
 <link rel="stylesheet" href="${rctx }/css/common/bootstrap.min.css"/> <!-- 影响百度地图api的地图的label显示  -->
- <link rel="stylesheet" type="text/css" href="${rctx }/css/font-awesome.min.css"/>
 <link rel="stylesheet" href="${rctx }/css/common/font-awesome.min.css"/>
 <link rel="stylesheet" href="${rctx }/css/common/font.css"/>
 <link rel="stylesheet" href="${rctx }/css/common/common.css"/>
+<link rel="stylesheet" href="${rctx }/css/common/bootstrap-datepicker.min.css"/>
 <link type="text/css" rel="stylesheet" href="${rctx }/css/static.css">
+<link type="text/css" rel="stylesheet" href="${rctx }/css/login.css">
 <link rel="stylesheet" href="${rctx }/css/common/jquery.mmenu.all.css"/>
-<link rel="stylesheet" href="${rctx }/css/common/footer.css" type="text/css">
+<%-- <link rel="stylesheet" href="${rctx }/css/common/footer.css" type="text/css"> --%>
  <link type="text/css" rel="stylesheet" href="${rctx }/css/yj_supply_css.css">
-   <link type="text/css" rel="stylesheet" href="${rctx }/css/login.css">
 <%-- <link rel="stylesheet" href="${rctx }/css/common/header.css" type="text/css"> --%>
 <script type="text/javascript">
 	//禁止页面右键菜单

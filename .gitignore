@@ -1,5 +1,2 @@
-.project
-.mymetadata
-.myhibernatedata
-.settings/*
 *.class
+*.bak

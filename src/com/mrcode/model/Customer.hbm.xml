@@ -8,7 +8,7 @@
     <class name="com.mrcode.model.Customer" table="customer" catalog="mrcode">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="assigned" />
+            <generator class="native" />
         </id>
         <property name="userName" type="java.lang.String">
             <column name="userName" length="30" not-null="true">
@@ -16,7 +16,7 @@
             </column>
         </property>
         <property name="password" type="java.lang.String">
-            <column name="password" length="30" not-null="true">
+            <column name="password" length="40" not-null="true">
                 <comment>ï¿½ï¿½ï¿½ï¿½</comment>
             </column>
         </property>
@@ -31,7 +31,7 @@
             </column>
         </property>
         <property name="identityCard" type="java.lang.String">
-            <column name="identityCard" length="30">
+            <column name="identityCard" length="40">
                 <comment>ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½</comment>
             </column>
         </property>
@@ -51,12 +51,12 @@
             </column>
         </property>
         <property name="identityPic" type="java.lang.String">
-            <column name="identityPic" length="30">
+            <column name="identityPic" length="100">
                 <comment>ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½Æ¬</comment>
             </column>
         </property>
         <property name="perfectInformation" type="java.lang.Integer">
-            <column name="perfectInformation">
+            <column name="perfectInformation" default="0">
                 <comment>ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢</comment>
             </column>
         </property>
@@ -96,20 +96,20 @@
             </column>
         </property>
         <property name="balance" type="java.lang.Float">
-            <column name="balance" precision="12" scale="0">
+            <column name="balance" precision="12" scale="20">
                 <comment>ï¿½ï¿½ï¿½</comment>
             </column>
         </property>
         <property name="credit" type="java.lang.Float">
-            <column name="credit" precision="12" scale="0">
+            <column name="credit" precision="12" scale="10">
                 <comment>ï¿½ï¿½ï¿½ï¿½</comment>
             </column>
         </property>
-        <property name="column3" type="java.lang.Integer">
-            <column name="Column_3" />
+        <property name="shopLevel" type="java.lang.Integer">
+            <column name="shopLevel" />
         </property>
-        <property name="column4" type="java.lang.Integer">
-            <column name="Column_4" />
+        <property name="cusType" type="java.lang.Integer">
+            <column name="cusType" />
         </property>
         <set name="contactorses" inverse="true">
             <key>

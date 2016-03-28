@@ -47,7 +47,7 @@
 
 </div>
 <div class="content">
-    <form class="form-style" action="${ctx }/customer/login">
+    <form class="form-style" action="${ctx }/customer/login" method="post">
         <div class="control-group input-top" style="margin-top:50px">
          <input type="text" name="loginName" class="login-in-input" placeholder="请输入手机号/邮箱/登录名">
         </div>
@@ -75,7 +75,7 @@
 </div>
 <div class="footer">
     <p class="footer-bottom">
-        <a href="index.html">首页</a>
+        <a href="${ctx }/customer/toIndex">首页</a>
         <span class="footer_vertical_line">|</span>
         <a href="groom.html">推荐</a>
         <span class="footer_vertical_line">|</span>

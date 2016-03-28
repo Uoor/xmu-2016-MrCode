@@ -11,9 +11,7 @@
 	<property name="dialect">
 		org.hibernate.dialect.MySQLDialect
 	</property>
-	<property name="connection.url">
-		jdbc:mysql://localhost:3306/mrcode
-	</property>
+	<property name="connection.url">jdbc:mysql://43.241.221.176:3306/mrcode</property>
 	<property name="connection.username">root</property>
 	<property name="connection.password">root</property>
 	<property name="connection.driver_class">

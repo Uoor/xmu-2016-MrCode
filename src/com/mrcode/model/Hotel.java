@@ -11,7 +11,11 @@ import java.util.Set;
 public class Hotel  implements java.io.Serializable {
 
 
-    // Fields    
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 7205491109700039087L;
+	// Fields    
 
      private Integer id;
      private String userName;
@@ -24,9 +28,10 @@ public class Hotel  implements java.io.Serializable {
      private String remark;
      private Integer column3;
      private Integer column4;
-     private Set floors = new HashSet(0);
-
-
+     private Set floors = new HashSet();
+     private Set grouppurchasevouchers = new HashSet();
+     private Set roomtypes = new HashSet();
+     
     // Constructors
 
     /** default constructor */
@@ -61,7 +66,23 @@ public class Hotel  implements java.io.Serializable {
         return this.id;
     }
     
-    public void setId(Integer id) {
+    public Set getGrouppurchasevouchers() {
+		return grouppurchasevouchers;
+	}
+
+	public void setGrouppurchasevouchers(Set grouppurchasevouchers) {
+		this.grouppurchasevouchers = grouppurchasevouchers;
+	}
+
+	public Set getRoomtypes() {
+		return roomtypes;
+	}
+
+	public void setRoomtypes(Set roomtypes) {
+		this.roomtypes = roomtypes;
+	}
+
+	public void setId(Integer id) {
         this.id = id;
     }
 

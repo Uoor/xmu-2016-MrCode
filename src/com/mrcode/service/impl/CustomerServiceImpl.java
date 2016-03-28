@@ -29,7 +29,7 @@ public class CustomerServiceImpl extends BaseServiceImpl<Customer>
 					"(u.phoneNumber=:phone or u.email=:email or u.userName=:userName)",
 					DataUtils.getMap("password", password,
 							"phone", field, "email", field,
-							"userName", field));	
+							"userName", field));
 			return user;
 		} catch (Exception e) {
 			// TODO: handle exception
