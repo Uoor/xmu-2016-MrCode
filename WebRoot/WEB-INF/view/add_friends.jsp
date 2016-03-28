@@ -47,21 +47,56 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">联系人列表</h3>
                 </div>
+               <c:forEach items="${contsList}" var="contsList">
                 <div class="panel-body" >
-                    <i class="fa fa-pencil search-style" data-target="#rewrite_friends" data-toggle="modal" onclick="change_name(this)"></i>
-                    <span class="add_friends_name">张三</span>
-                    <i class='fa fa-times times-style' onclick='delete_room(this)'></i>
+                    <i class="fa fa-pencil search-style" data-target="#rewrite_friends${contsList.id }" data-toggle="modal" ></i>
+                    <span class="add_friends_name">${contsList.name }</span>
+                    <a class='fa fa-times times-style' href="${ctx}/customer/delLinkman?id=${contsList.id} "></a>
+                    
+                    <!-- 模态框（Modal）修改联系人 -->
+                    <div class="modal fade" id="rewrite_friends${contsList.id }" tabindex="-1" role="dialog"
+				         aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 100px;">
+				        <div class="modal-dialog">
+				            <div class="modal-content">
+				                <div class="modal-header">
+				                    <button type="button" class="close"
+				                            data-dismiss="modal" aria-hidden="true">
+				                        &times;
+				                    </button>
+				                    <h4 class="modal-title">
+				                        修改联系人信息
+				                    </h4>
+				                </div>
+				                 <form action = "${ctx }/customer/editLinkman?id=${contsList.id}" method = "post">
+				                <div class="modal-body">
+				                    <div class="order-item-hotel-name">
+				                       <span>姓名：</span> 
+				                       <input class="login-in-input add_friends_input" id="rewrite_friends_phone" name= "name" value=" ${contsList.name }">
+				                    </div>
+				                    <div class="order-item-hotel-name">
+				                        <span class="add_friends_phone">电话：</span>
+				                         <input class="login-in-input add_friends_input" id="rewrite_friends_phone" name= "phoneNumber" value=" ${contsList.phoneNumber }">
+				                   
+				                    </div>
+				                    <div class="order-item-hotel-name">
+				                        <span>证件号：</span> 
+				                        <input class="login-in-input add_friends_input"  id="rewrite_friends_id" name= "identityCard" value = "${contsList.identityCard }">
+				                    </div>
+				                </div>
+				                <div class="modal-footer">
+				                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">
+				                        <a href="orderstep3.html" class="modal-default">取消</a>
+				                    </button>
+				                    <button type="submit" class="btn btn-primary"  aria-hidden="true">
+				                        <a class="modal-right">确定</a>
+				                    </button>
+				                </div>
+				                </form>
+				            </div><!-- /.modal-content -->
+				        </div><!-- /.modal -->
+				    </div>
                 </div>
-                <div class="panel-body">
-                    <i class="fa fa-pencil search-style" data-target="#rewrite_friends" data-toggle="modal" onclick="change_name(this)"></i>
-                    <span class="add_friends_name">莱斯</span>
-                    <i class='fa fa-times times-style' onclick='delete_room(this)'></i>
-                </div>
-                <div class="panel-body">
-                    <i class="fa fa-pencil search-style" data-target="#rewrite_friends" data-toggle="modal" onclick="change_name(this)"></i>
-                    <span class="add_friends_name">李四</span>
-                    <i class='fa fa-times times-style' onclick='delete_room(this)'></i>
-                </div>
+               </c:forEach>
             </div>
         </div>
         <div class="control-group add_friends_now">
@@ -91,14 +126,14 @@
                         <input class="login-in-input" placeholder="电话" name="phoneNumber" id="friends_phone">
                     </div>
                     <div class="order-item-hotel-name">
-                        <input class="login-in-input" placeholder="身份证" name="idCard" id="friends_id">
+                        <input class="login-in-input" placeholder="身份证" name="identityCard" id="friends_id">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">
                         <a href="orderstep3.html" class="modal-default">取消</a>
                     </button>
-                    <button type="submit" class="btn btn-primary" >
+                    <button type="submit" class="btn btn-primary" id="confirm_button" >
                         	确定
                     </button>
                 </div>
@@ -106,42 +141,9 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
     </div>
-    <!-- 模态框（Modal）修改联系人 -->
-    <div class="modal fade" id="rewrite_friends" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 100px;">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close"
-                            data-dismiss="modal" aria-hidden="true">
-                        &times;
-                    </button>
-                    <h4 class="modal-title">
-                        修改联系人信息
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <div class="order-item-hotel-name">
-                       <span>姓名：</span> <span  id="rewrite_friends_name">张三</span>
-                    </div>
-                    <div class="order-item-hotel-name">
-                        <span class="add_friends_phone">电话：</span> <input class="login-in-input add_friends_input" placeholder="18805606123" id="rewrite_friends_phone">
-                    </div>
-                    <div class="order-item-hotel-name">
-                        <span>证件号：</span> <input class="login-in-input add_friends_input" placeholder="43534645645687852355" id="rewrite_friends_id">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">
-                        <a href="orderstep3.html" class="modal-default">取消</a>
-                    </button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">
-                        <a class="modal-right">确定</a>
-                    </button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal -->
-    </div>
+    
+    
+    
 
 </div>
 <div class="footer">
@@ -157,6 +159,29 @@
     </p>
 
 </div>
+<script>
 
+$("#friends_phone").blur(function(){
+	var phone = $("#friends_phone").val();
+	if(!(/^1[3|4|5|8]\d{9}$/.test(phone))){
+     alert("输入的手机号格式不正确");
+     $("#friends_phone").focus();
+   }
+})
+$("#confirm_button").click(function(){
+	var name = null;
+	name = $("#friends_name").val();
+	var phone = $("#friends_phone").val();
+	var id = $("#friends_id").val();
+	alert(name);
+	if(name==null||typeof(name)=="undefined" || name=="")
+	{
+    	alert("姓名不允许为空");
+    	$("#friends_name").focus();
+	}
+	return false;
+})
+
+</script>
 </body>
 </html>
