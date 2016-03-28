@@ -229,6 +229,7 @@ a{
 }
 .date_leave_input{
     margin-top: 15px;
+    text-align: center;
 }
 .calendar_style{
     color: #33ccff;
@@ -240,6 +241,12 @@ a{
 }
 .next_step_color{
     color: #fff
+}
+.next_step a:hover{
+    color:#fff
+}
+.login-now a:hover{
+    color:#fff;
 }
 /*设置完成订单页面*/
 .success-title-name{
@@ -274,13 +281,30 @@ a{
 }
 
 #image_bigger{
-    vertical-align: middle;
+    /*vertical-align: middle;*/
     margin: 20px;
     width: 90%;
 }
 .choose-room{
     padding-left:20px;
     padding-right:20px;
+}
+.choose-room-span{
+    padding-left:0px;
+    padding-right:0px;
+    font-size:14px;
+}
+.choose-room-panel-body{
+    padding:0px;
+}
+.choose-room-checkbox{
+    padding-left: 5px;
+}
+.times-style{
+    float:right;
+}
+.choose-room-next-step{
+    margin-bottom: 80px;
 }
 /*上传图片的样式设置*/
 #imagePreview {
@@ -290,7 +314,55 @@ a{
     border:1px dashed #33eeff;
     margin-bottom: 20px;
     margin-top: 20px;
+}
+
+/*设置指示放大的样式*/
+.click_for_bigger{
+    /*margin-bottom: 10px;*/
+}
+
+/*设置添加联系人页面的样式*/
+.add_friends_now{
+    text-align: center;
+}
+.add_friends_now_word{
+    width: 90%;
+}
+.search-style{
+    color:#33eeff;
+    margin-right: 5px;
+}
+.add_friends_input{
+    width: 70%;
+}
+.add_friends_phone{
+    margin-right: 14px;
+}
 
 
+/*日期输入框*/
+.input-date-sp {
+    border: #ddd solid 1px;
+    height: 34px;
+    padding-left: 10px;
+    border-radius: 4px;
+}
+.input-date-sp:hover,
+.input-date-sp:focus {
+    border-color: #33ccff;
+}
+.datepicker table tr td.active {
+    background-image: none !important;
+    background-color: #6699ff !important;
+}
 
+/*按钮*/
+.btn-sp {
+    border-color:#33ccff;
+    color:#33ccff;
+}
+.btn-sp:hover {
+    border-color:#33ccff;
+    background-color:#33ccff;
+    color: #fff;
 }

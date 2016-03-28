@@ -29,11 +29,12 @@ public class GrouppurchasevoucherServiceImpl extends BaseServiceImpl<Grouppurcha
 	public List<Grouppurchasevoucher> getByCust(Customer customer)
 			throws Exception {
 		// TODO 查询本消费者的所有团购券
-		String hql = "from Grouppurchasevoucher gp left join fetch gp.roomtype where "
-				+" gp.customer=:customer";
+		String hql = "from Grouppurchasevoucher gp left join fetch gp.roomtype tp " +
+				"left join fetch tp.hotel where gp.customer=:customer and gp.used=0";
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("customer", customer);
-		List<Grouppurchasevoucher> gps = this.getBaseDao().findByHql(hql, param, null, "gp.roomtype, gp.createTime");
+		List<Grouppurchasevoucher> gps = this.getBaseDao().findByHql(
+				hql, param, null, "gp.roomtype, gp.createTime");
 		
 		return gps;
 	}

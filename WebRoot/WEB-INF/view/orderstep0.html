@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html>
 <head>
-    <title>登录</title>
+    <title>选择时间</title>
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="this is my page">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -17,29 +17,21 @@
     <link type="text/css" rel="stylesheet" href="css/jquery.mmenu.all.css" />
     <link type="text/css" rel="stylesheet" href="css/common.css">
     <script type="text/javascript" src="js/jquery.mmenu.min.all.js"></script>
-    <script type="text/javascript" src="js/yj_style.js"></script>
-    <!--设置页面的样式-->
-    <link type="text/css" rel="stylesheet" href="css/login.css"/>
-    <!--&lt;!&ndash;日期输入框&ndash;&gt;-->
-    <!--<script src="js/bootstrap-datepicker.js"></script>-->
-    <!--<script src="js/locales/bootstrap-datepicker.zh-CN.js"></script>-->
-    <!--<link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.min.css">-->
-    <!--&lt;!&ndash;轮播,搜索，商品列表&ndash;&gt;-->
-    <!--<link rel="stylesheet" type="text/css" href="css/yj_supply_css.css">-->
-    <!--<script src="js/yj_supply.js"></script>-->
-    <!--&lt;!&ndash;轮播&ndash;&gt;-->
-    <!--&lt;!&ndash;前三种&ndash;&gt;-->
-    <!--<script src="js/jquery.luara.0.0.1.min.js"></script>-->
-    <!--&lt;!&ndash;第四种和第五种&ndash;&gt;-->
-    <!--<script src="js/unslider.min.js"></script>-->
-
+    <link type="text/css" rel="stylesheet" href="css/static.css">
+    <link type="text/css" rel="stylesheet" href="css/login.css">
+    <!--日期输入框-->
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/locales/bootstrap-datepicker.zh-CN.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.min.css">
+    <script src="js/m_supply.js"></script><!--用来设置时间的格式，和获取时间-->
 
 </head>
 <body>
+
 <div class="head">
     <div class="header">
         <a href="#menu" class="header-a"><i class="fa fa-reorder head-style"></i></a>
-        <span class="header-word">登录</span>
+        <span class="header-word">选择时间</span>
         <a href="index.html"><i class="fa fa-home head-style home-style"></i></a>
     </div>
 
@@ -57,33 +49,29 @@
     </nav>
 
 </div>
+
 <div class="content">
-    <form class="form-style">
-        <div class="control-group input-top" style="margin-top:50px">
-         <input type="text" class="login-in-input" placeholder="请输入手机号/邮箱/登录名">
+    <!--<h3>日期输入框</h3>-->
+    <div class="date_leave">
+        <span class="leave_word">入住时间：</span>
+        <div class="date_leave_input">
+            <!--选择日期使用了datepicker插件-->
+            <input type="text" placeholder="点击输入日期" readonly class="input-date-sp">
         </div>
-        <div class="control-group">
-         <input type="password" class="login-in-input" placeholder="请输入密码">
+    </div>
+    <div class="date_leave">
+        <span class="leave_word">离开时间：</span>
+        <div class="date_leave_input">
+            <!--选择日期使用了datepicker插件-->
+            <input type="text" placeholder="点击输入日期" readonly class="input-date-sp">
         </div>
-        <div class="control-group">
-            <div class="wrap-words">
-                <label class="check-remember fl">
-                    <input type="checkbox"><span class="checkbox-word">记住账号</span>
-                </label>
+    </div>
+    <div class="control-group next_step  choose-room-next-step">
+        <button class="login-now"><a href="orderstep1.html" class="next_step_color">下一步</a></button>
+    </div>
 
-                    <span class="forget-password">忘记密码？</span>
-
-            </div>
-        </div>
-        <div class="control-group">
-            <button class="login-now">立即登录</button>
-        </div>
-        <div class="control-group">
-            <span class="no-login-word">还没账号？</span>
-            <span class="no-login-href">立即注册</span>
-        </div>
-    </form>
 </div>
+
 <div class="footer">
     <p class="footer-bottom">
         <a href="index.html">首页</a>
@@ -97,6 +85,36 @@
     </p>
 
 </div>
-
+<script>
+    //在是IPhone5的时候隐藏码先生
+    window.onload = function()
+    {
+        var pheight= document.documentElement.clientHeight;
+        if(pheight<=600){
+            $(".footer-top").hide();
+        }
+    }
+    //设置侧边栏
+    $(function() {
+        $('nav#menu').mmenu({
+            extensions	: [ 'effect-slide-menu', 'pageshadow' ],
+            searchfield	: true,
+            counters	: true,
+            navbars		: [
+                {
+                    position	: 'top'
+                }, {
+                    position	: 'bottom',
+                    content		: [ '<a href="http://mmenu.frebsite.nl">Visit website</a>' ]
+                }
+            ]
+        });
+    });
+    $(function(){
+        $(".mm-search").remove();
+        $(".mm-title").text("首页");
+        $(".mm-navbar-bottom").hide();
+    });
+</script>
 </body>
 </html>

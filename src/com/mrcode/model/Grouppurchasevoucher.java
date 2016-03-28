@@ -12,12 +12,16 @@ public class Grouppurchasevoucher  implements java.io.Serializable {
 
     // Fields    
 
-     private Integer id;
+     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8637564334874905879L;
+	private Integer id;
      private Roomtype roomtype;
      private Mrcodeorder mrcodeorder;
      private Customer customer;
      private String orderCode;
-     private Integer hotelId;
+     private Hotel hotel;
      private Integer used;
      private Timestamp consumeTime;
      private Float price;
@@ -33,23 +37,23 @@ public class Grouppurchasevoucher  implements java.io.Serializable {
     }
 
 	/** minimal constructor */
-    public Grouppurchasevoucher(Integer id, Roomtype roomtype, Mrcodeorder mrcodeorder, Customer customer, String orderCode, Integer hotelId) {
+    public Grouppurchasevoucher(Integer id, Roomtype roomtype, Mrcodeorder mrcodeorder, Customer customer, String orderCode, Hotel hotel) {
         this.id = id;
         this.roomtype = roomtype;
         this.mrcodeorder = mrcodeorder;
         this.customer = customer;
         this.orderCode = orderCode;
-        this.hotelId = hotelId;
+        this.hotel = hotel;
     }
     
     /** full constructor */
-    public Grouppurchasevoucher(Integer id, Roomtype roomtype, Mrcodeorder mrcodeorder, Customer customer, String orderCode, Integer hotelId, Integer used, Timestamp consumeTime, Float price, Timestamp createTime, String column2, Integer column3) {
+    public Grouppurchasevoucher(Integer id, Roomtype roomtype, Mrcodeorder mrcodeorder, Customer customer, String orderCode, Hotel hotel, Integer used, Timestamp consumeTime, Float price, Timestamp createTime, String column2, Integer column3) {
         this.id = id;
         this.roomtype = roomtype;
         this.mrcodeorder = mrcodeorder;
         this.customer = customer;
         this.orderCode = orderCode;
-        this.hotelId = hotelId;
+        this.hotel = hotel;
         this.used = used;
         this.consumeTime = consumeTime;
         this.price = price;
@@ -101,12 +105,12 @@ public class Grouppurchasevoucher  implements java.io.Serializable {
         this.orderCode = orderCode;
     }
 
-    public Integer getHotelId() {
-        return this.hotelId;
+    public Hotel getHotel() {
+        return this.hotel;
     }
     
-    public void setHotelId(Integer hotelId) {
-        this.hotelId = hotelId;
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
     }
 
     public Integer getUsed() {
