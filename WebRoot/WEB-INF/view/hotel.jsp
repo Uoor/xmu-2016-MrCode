@@ -65,111 +65,79 @@
 </div>
 <div class="content" >
     <div class="list-group">
-        <div class="list-group-item ticket-item">
-            <div class="col-xs-7" >
-                <div class="ticket-name" >
-                    <span class="hotel-name">假日酒店</span>
-                    <span class="room-type">总统套房</span>
-                </div>
-                <div class="ticket_order_detail" data-target="#information" data-toggle="modal">
-                    <span class="">详情</span>
-                    <span class="date">有效期至<span class="available_period">2016-5-1</span></span>
-                </div>
-
-            </div>
-            <div class="col-xs-2" >
-                <div class="ticket-num-body">
-                    X<span>2</span>
-
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <div class="ticket_order ticket-num-body"  data-toggle="modal" data-target="#myModal">
-                    <button class="ticket_order_now" >使用<i class="fa fa-angle-double-right hand-right-style"></i></button>
-                </div>
-
-            </div>
-        </div>
-        <div class="list-group-item ticket-item">
-            <div class="col-xs-7" >
-                <div class="ticket-name" >
-                    <span class="hotel-name">假日酒店</span>
-                    <span class="room-type">总统套房</span>
-                </div>
-                <div class="ticket_order_detail" data-target="#information" data-toggle="modal">
-                    <span class="">详情</span>
-                    <span class="date">有效期至<span class="available_period">2016-5-1</span></span>
-                </div>
-
-            </div>
-            <div class="col-xs-2" >
-                <div class="ticket-num-body">
-                    X<span>2</span>
-
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <div class="ticket_order ticket-num-body"  data-toggle="modal" data-target="#myModal">
-                    <button class="ticket_order_now" >使用<i class="fa fa-angle-double-right hand-right-style"></i></button>
-                </div>
-
-            </div>
-        </div>
-        <div class="list-group-item ticket-item">
-            <div class="col-xs-7" >
-                <div class="ticket-name" >
-                    <span class="hotel-name">假日酒店</span>
-                    <span class="room-type">总统套房</span>
-                </div>
-                <div class="ticket_order_detail" data-target="#information" data-toggle="modal">
-                    <span class="">详情</span>
-                    <span class="date">有效期至<span class="available_period">2016-5-1</span></span>
-                </div>
-
-            </div>
-            <div class="col-xs-2" >
-                <div class="ticket-num-body">
-                    X<span>2</span>
-
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <div class="ticket_order ticket-num-body"  data-toggle="modal" data-target="#myModal">
-                    <button class="ticket_order_now" >使用<i class="fa fa-angle-double-right hand-right-style"></i></button>
-                </div>
-
-            </div>
-        </div>
-        <div class="list-group-item ticket-item">
-            <div class="col-xs-7" >
-                <div class="ticket-name" >
-                    <span class="hotel-name">假日酒店</span>
-                    <span class="room-type">总统套房</span>
-                </div>
-                <div class="ticket_order_detail" data-target="#information" data-toggle="modal">
-                    <span class="">详情</span>
-                    <span class="date">有效期至<span class="available_period">2016-5-1</span></span>
-                </div>
-
-            </div>
-            <div class="col-xs-2" >
-                <div class="ticket-num-body">
-                    X<span>2</span>
-
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <div class="ticket_order ticket-num-body"  data-toggle="modal" data-target="#myModal">
-                    <button class="ticket_order_now" >使用<i class="fa fa-angle-double-right hand-right-style"></i></button>
-                </div>
-
-            </div>
-        </div>
-
-
+        <c:forEach items="${rgMap }" var="item">
+	        <div class="list-group-item ticket-item">
+	            <div class="col-xs-7" >
+	                <div class="ticket-name" >
+	                    <span class="hotel-name">${item.key.hotel.name }</span>
+	                    <span class="room-type">${item.key.typeName }</span>
+	                </div>
+	                <div class="ticket_order_detail" data-target="#information${item.key.id }" data-toggle="modal">
+	                    <span class="">详情</span>
+	                   <!--  <span class="date">有效期至<span class="available_period">2016-5-1</span></span> -->
+	                </div>
+	            </div>
+	            <div class="col-xs-2" >
+	                <div class="ticket-num-body">
+	                    X<span><c:out value="${fn:length(item.value)}"></c:out></span>
+	
+	                </div>
+	            </div>
+	            <div class="col-xs-3">
+	                <c:if test="${customer.perfectInformation!=1 }">
+	                	<div class="ticket_order ticket-num-body" param="${item.key.id}" data-toggle="modal" onclick="updateType(this)" data-target="#myModal">
+	                </c:if>
+	                <c:if test="${customer.perfectInformation==1 }">
+	                	<div class="ticket_order ticket-num-body toNext" param="${item.key.id}" data-toggle="modal">
+	                </c:if>
+	                    <button class="ticket_order_now" >使用<i class="fa fa-angle-double-right hand-right-style"></i></button>
+	                </div>
+	            </div>
+	            <!-- 模态框（Modal） -->
+		        <div class="modal fade" id="information${item.key.id }" tabindex="-1" role="dialog"
+		             aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 40px;">
+		            <div class="modal-dialog">
+		                <div class="modal-content">
+		                    <div class="modal-header">
+		                        <button type="button" class="close"
+		                                data-dismiss="modal" aria-hidden="true">
+		                            &times;
+		                        </button>
+		                        <h4 class="modal-title" id="myModalLabel">
+		                            酒店详情
+		                        </h4>
+		                    </div>
+		                    <div class="modal-body modal-body-size">
+		                        <div class="hotel-image" style="background: url('image/index1.jpg') center no-repeat;background-size:contain; ">
+		
+		                        </div>
+		                        <div>
+		                            <span>房间类型：</span><span>${item.key.typeName }</span>
+		                        </div>
+		                        <div>
+		                            <span>单价：</span><span>${item.key.price }</span>元
+		                        </div>
+		                        <!-- <div>
+		                            <span>房间数：</span><span>2</span>个
+		                        </div> -->
+		                        <div>
+		                            <span>有效期至：</span><span>2016-5-1</span>
+		                        </div>
+		                        <div>
+		                            <span>网络：</span><span>wifi,宽带</span>
+		                        </div>
+		                    </div>
+		                    <div class="modal-footer">
+		                        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">
+		                            <a  class="modal-right">确定</a>
+		                        </button>
+		                    </div>
+		                </div><!-- /.modal-content -->
+		            </div><!-- /.modal -->
+		        </div>
+	        </div>
+        </c:forEach>
     </div>
-
-
 
     <!-- 模态框（Modal） -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -190,58 +158,17 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default">
-                        <a href="orderstep1.html" class="modal-default">否</a>
+                        <a href="javascript:;" class="modal-default toNext">否</a>
                     </button>
                     <button type="button" class="btn btn-primary">
-                        <a href="information.html" class="modal-right">是</a>
+                        <a href="${ctx }/customer/perfectInformation" class="modal-right">是</a>
                     </button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
     </div>
 
-        <!-- 模态框（Modal） -->
-        <div class="modal fade" id="information" tabindex="-1" role="dialog"
-             aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 40px;">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close"
-                                data-dismiss="modal" aria-hidden="true">
-                            &times;
-                        </button>
-                        <h4 class="modal-title" id="myModalLabel">
-                            酒店详情
-                        </h4>
-                    </div>
-                    <div class="modal-body modal-body-size">
-                        <div class="hotel-image" style="background: url('image/index1.jpg') center no-repeat;background-size:contain; ">
-
-                        </div>
-                        <div>
-                            <span>房间类型：</span><span>总统套房</span>
-                        </div>
-                        <div>
-                            <span>单价：</span><span>500</span>元
-                        </div>
-                        <div>
-                            <span>房间数：</span><span>2</span>个
-                        </div>
-                        <div>
-                            <span>有效期至：</span><span>2016-5-1</span>
-                        </div>
-                        <div>
-                            <span>网络：</span><span>wifi,宽带</span>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">
-                            <a  class="modal-right">确定</a>
-                        </button>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal -->
-        </div>
+        
 </div>
 <div class="footer">
     <p class="footer-bottom">
@@ -258,4 +185,17 @@
 </div>
 
 </body>
+<script>
+	var typeId;
+	
+	$(".toNext").click(function(){
+		if(typeof(typeId) == "undefined"){
+			typeId = $(this).attr("param");
+		}
+		location.href="${ctx}/order/toFirst?typeId="+typeId;
+	})
+	function updateType(thiz){
+		typeId = $(thiz).attr("param");
+	}
+</script>
 </html>

@@ -13,11 +13,15 @@ public class Roomtype  implements java.io.Serializable {
 
     // Fields    
 
-     private Integer id;
+     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 5526584811202240227L;
+	private Integer id;
      private String typeName;
      private Float price;
      private String remark;
-     private Integer hotelId;
+     private Hotel hotel;
      private String column1;
      private String column2;
      private Integer column4;
@@ -39,12 +43,12 @@ public class Roomtype  implements java.io.Serializable {
     }
     
     /** full constructor */
-    public Roomtype(Integer id, String typeName, Float price, String remark, Integer hotelId, String column1, String column2, Integer column4, Set grouppurchasevouchers, Set rooms, Set pictures) {
+    public Roomtype(Integer id, String typeName, Float price, String remark, Hotel hotel, String column1, String column2, Integer column4, Set grouppurchasevouchers, Set rooms, Set pictures) {
         this.id = id;
         this.typeName = typeName;
         this.price = price;
         this.remark = remark;
-        this.hotelId = hotelId;
+        this.hotel = hotel;
         this.column1 = column1;
         this.column2 = column2;
         this.column4 = column4;
@@ -88,12 +92,12 @@ public class Roomtype  implements java.io.Serializable {
         this.remark = remark;
     }
 
-    public Integer getHotelId() {
-        return this.hotelId;
+    public Hotel getHotel() {
+        return this.hotel;
     }
     
-    public void setHotelId(Integer hotelId) {
-        this.hotelId = hotelId;
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
     }
 
     public String getColumn1() {

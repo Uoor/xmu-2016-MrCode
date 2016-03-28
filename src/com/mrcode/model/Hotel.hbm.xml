@@ -27,12 +27,12 @@
             </column>
         </property>
         <property name="longitude" type="java.lang.Float">
-            <column name="longitude" precision="12" scale="0">
+            <column name="longitude" precision="12" scale="10">
                 <comment>ï¿½ï¿½ï¿½ï¿½</comment>
             </column>
         </property>
         <property name="latitude" type="java.lang.Float">
-            <column name="latitude" precision="12" scale="0">
+            <column name="latitude" precision="12" scale="10">
                 <comment>Î³ï¿½ï¿½</comment>
             </column>
         </property>
@@ -59,6 +59,22 @@
                 </column>
             </key>
             <one-to-many class="com.mrcode.model.Floor" />
+        </set>
+        <set name="grouppurchasevouchers" inverse="true">
+            <key>
+                <column name="hotelId" not-null="true">
+                    <comment>ï¿½ï¿½ï¿½ï¿½Æµï¿½</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mrcode.model.Grouppurchasevoucher" />
+        </set>
+        <set name="roomtypes" inverse="true">
+            <key>
+                <column name="hotelId" not-null="true">
+                    <comment>ï¿½ï¿½ï¿½ï¿½Æµï¿½</comment>
+                </column>
+            </key>
+            <one-to-many class="com.mrcode.model.Roomtype" />
         </set>
     </class>
 </hibernate-mapping>

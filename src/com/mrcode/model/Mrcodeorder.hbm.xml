@@ -26,7 +26,7 @@
             </column>
         </property>
         <property name="depositPrice" type="java.lang.Float">
-            <column name="depositPrice" precision="12" scale="0">
+            <column name="depositPrice" precision="12" scale="20">
                 <comment>Ñºï¿½ï¿½ï¿½ï¿½</comment>
             </column>
         </property>
@@ -56,7 +56,7 @@
             </column>
         </property>
         <property name="refund" type="java.lang.Float">
-            <column name="refund" precision="12" scale="0">
+            <column name="refund" precision="12" scale="10">
                 <comment>ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ï¿½ï¿½</comment>
             </column>
         </property>

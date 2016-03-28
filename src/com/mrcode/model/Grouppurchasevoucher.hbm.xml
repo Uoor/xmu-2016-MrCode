@@ -26,13 +26,13 @@
                 <comment>ï¿½Å¹ï¿½È¯ï¿½ï¿½</comment>
             </column>
         </property>
-        <property name="hotelId" type="java.lang.Integer">
+        <many-to-one name="hotel" class="com.mrcode.model.Hotel">
             <column name="hotelId" not-null="true">
                 <comment>ï¿½Æµï¿½id</comment>
             </column>
-        </property>
-        <property name="userd" type="java.lang.Integer">
-            <column name="userd">
+        </many-to-one>
+        <property name="used" type="java.lang.Integer">
+            <column name="used" default="0">
                 <comment>ï¿½Ç·ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½1ï¿½ï¿½ï¿½Ç£ï¿½2ï¿½ï¿½ï¿½ï¿½</comment>
             </column>
         </property>
@@ -42,7 +42,7 @@
             </column>
         </property>
         <property name="price" type="java.lang.Float">
-            <column name="price" precision="12" scale="0">
+            <column name="price" precision="12" scale="10">
                 <comment>ï¿½Û¸ï¿½</comment>
             </column>
         </property>
