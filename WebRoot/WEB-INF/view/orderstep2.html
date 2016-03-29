@@ -42,13 +42,13 @@
     <div class="header">
         <a href="#menu" class="header-a"><i class="fa fa-reorder head-style"></i></a>
         <span class="header-word">生成订单</span>
-        <a href="index.html"><i class="fa fa-home head-style home-style"></i></a>
+        <a href="${ctx }/customer/toIndex"><i class="fa fa-home head-style home-style"></i></a>
     </div>
 
     <nav id="menu">
         <ul>
             <li class="menu-li-head"><a href="hotel.html">酒店入住 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="information.html">完善信息 <i class="fa fa-angle-double-right"></i></a></li>
+            <li class="menu-li-head"><a href="${ctx }/customer/perfectInformation">完善信息 <i class="fa fa-angle-double-right"></i></a></li>
             <li class="menu-li-head"><a href="hotel.html">房间管理 <i class="fa fa-angle-double-right"></i></a></li>
             <li class="menu-li-head"><a href="groom.html">猜你喜欢 <i class="fa fa-angle-double-right"></i></a></li>
             <li class="menu-li-head"><a href="restaurant.html">餐馆美食 <i class="fa fa-angle-double-right"></i></a></li>
@@ -123,7 +123,7 @@
             </div>
         </div>
     </div>
-    <div class="order-submit" data-toggle="modal" data-target="#paying">
+    <div class="order-submit choose-room-next-step" data-toggle="modal" data-target="#paying">
         <button class="submit-now">提交订单</button>
     </div>
 
@@ -158,7 +158,7 @@
 
         <!-- 模态框（Modal） -->
         <div class="modal fade" id="create_friends" tabindex="-1" role="dialog"
-             aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 40px;">
+             aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 100px;">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -177,6 +177,9 @@
                         <div class="order-item-hotel-name">
                         <input class="login-in-input" placeholder="电话" id="friends_phone">
                         </div>
+                        <div class="order-item-hotel-name">
+                            <input class="login-in-input" placeholder="身份证" id="friends_id">
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">
@@ -192,7 +195,7 @@
 </div>
 <div class="footer">
     <p class="footer-bottom">
-        <a href="index.html">首页</a>
+        <a href="${ctx }/customer/toIndex">首页</a>
         <span class="footer_vertical_line">|</span>
         <a href="groom.html">推荐</a>
         <span class="footer_vertical_line">|</span>

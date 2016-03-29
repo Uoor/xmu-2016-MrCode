@@ -21,16 +21,8 @@
     <link type="text/css" rel="stylesheet" href="css/static.css">
     <link type="text/css" rel="stylesheet" href="css/login.css">
     <!--设置上传图片功能-->
-    <!-- 引用控制层插件样式 -->
-    <link rel="stylesheet" href="css/zyUpload.css" type="text/css">
-    <!-- 引用核心层插件 -->
-    <script src="js/zyFile.js"></script>
-    <!-- 引用控制层插件 -->
-    <script src="js/zyUpload.js"></script>
-    <!-- 引用初始化JS -->
-    <script src="js/jq22.js"></script>
-    <!--对上传图片的样式的设置-->
-    <script type="text/javascript" src="js/yj_style.js"></script>
+    <script type="text/javascript" src="js/picture_send.js"></script><!--专门用来设置图片上传功能的原生js-->
+    <script type="text/javascript" src="js/yj_style.js"></script><!--用来在切换上传方式的时候的div的隐藏和实现上传功能没有关系-->
     <!--&lt;!&ndash;日期输入框&ndash;&gt;-->
     <!--<script src="js/bootstrap-datepicker.js"></script>-->
     <!--<script src="js/locales/bootstrap-datepicker.zh-CN.js"></script>-->
@@ -51,13 +43,13 @@
     <div class="header">
         <a href="#menu" class="header-a"><i class="fa fa-reorder head-style"></i></a>
         <span class="header-word">完善信息</span>
-        <a href="index.html"><i class="fa fa-home head-style home-style"></i></a>
+        <a href="${ctx }/customer/toIndex"><i class="fa fa-home head-style home-style"></i></a>
     </div>
 
     <nav id="menu">
         <ul>
             <li class="menu-li-head"><a href="hotel.html">酒店入住 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="information.html">完善信息 <i class="fa fa-angle-double-right"></i></a></li>
+            <li class="menu-li-head"><a href="${ctx }/customer/perfectInformation">完善信息 <i class="fa fa-angle-double-right"></i></a></li>
             <li class="menu-li-head"><a href="hotel.html">房间管理 <i class="fa fa-angle-double-right"></i></a></li>
             <li class="menu-li-head"><a href="groom.html">猜你喜欢 <i class="fa fa-angle-double-right"></i></a></li>
             <li class="menu-li-head"><a href="restaurant.html">餐馆美食 <i class="fa fa-angle-double-right"></i></a></li>
@@ -76,8 +68,16 @@
             <span class="choose-style-span"><input type="radio" class="choose-style " name="choose" checked="true" value="camera" onclick="changechoose(this)"><i class="fa fa-camera choose-style-i"></i></span>
             <span class="choose-style-span"><input type="radio" class="choose-style" name="choose" value="edit" onclick="changechoose(this)"><i class="fa fa-edit choose-style-i"></i></span>
         </p>
-        <!--以下一行是显示上传的框用的是jquery的zyupload插件-->
-        <div id="demo" class="demo choose-camera"></div>
+        <!--以下实现图片上传功能-->
+        <div id="choose-picture">
+            <div id="imagePreview"></div>
+
+            <form name="uploadForm" style="clear:both;">
+                <p><input id="imageInput" type="file" name="myPhoto" onchange="loadImageFile();" /><br />
+                </p>
+            </form>
+        </div>
+        <!--以上实现图片上传功能-->
         <div id="choose-edit" style="margin-bottom: 50px;text-align: center;display:none">
             <div class="control-group input-top" style="margin-top:50px">
                 <input type="text" class="login-in-input" placeholder="请输入身份证号">
@@ -91,14 +91,14 @@
         </div>
         <!--一下一个按钮是为了回到码券继续预定-->
         <div class="back_to_order">
-            <button  class="login-now"><a class="back_order" href="orderstep1.html">继续预定</a></button>
+            <button  class="login-now"><a class="back_order" href="orderstep0.html">继续预定</a></button>
         </div>
     </div>
 
 </div>
 <div class="footer">
     <p class="footer-bottom">
-        <a href="index.html">首页</a>
+        <a href="${ctx }/customer/toIndex">首页</a>
         <span class="footer_vertical_line">|</span>
         <a href="groom.html">推荐</a>
         <span class="footer_vertical_line">|</span>

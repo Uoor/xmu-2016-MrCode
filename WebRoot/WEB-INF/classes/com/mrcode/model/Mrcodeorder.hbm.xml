@@ -8,7 +8,7 @@
     <class name="com.mrcode.model.Mrcodeorder" table="mrcodeorder" catalog="mrcode">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="assigned" />
+            <generator class="native" />
         </id>
         <many-to-one name="customer" class="com.mrcode.model.Customer" fetch="select">
             <column name="customerId">
@@ -26,7 +26,7 @@
             </column>
         </property>
         <property name="depositPrice" type="java.lang.Float">
-            <column name="depositPrice" precision="12" scale="0">
+            <column name="depositPrice" precision="12" scale="20">
                 <comment>Ñºï¿½ï¿½ï¿½ï¿½</comment>
             </column>
         </property>
@@ -56,7 +56,7 @@
             </column>
         </property>
         <property name="refund" type="java.lang.Float">
-            <column name="refund" precision="12" scale="0">
+            <column name="refund" precision="12" scale="10">
                 <comment>ï¿½ï¿½ï¿½ï¿½ï¿½Ë¿ï¿½ï¿½ï¿½</comment>
             </column>
         </property>

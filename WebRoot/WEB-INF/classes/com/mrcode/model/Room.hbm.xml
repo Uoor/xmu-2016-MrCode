@@ -8,7 +8,7 @@
     <class name="com.mrcode.model.Room" table="room" catalog="mrcode">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="assigned" />
+            <generator class="native" />
         </id>
         <many-to-one name="roomtype" class="com.mrcode.model.Roomtype" fetch="select">
             <column name="roomTypeId">

@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,13 +39,13 @@
     <div class="header">
         <a href="#menu" class="header-a"><i class="fa fa-reorder head-style"></i></a>
         <span class="header-word">关于我们</span>
-        <a href="index.html"><i class="fa fa-home head-style home-style"></i></a>
+        <a href="${ctx }/customer/toIndex"><i class="fa fa-home head-style home-style"></i></a>
     </div>
 
     <nav id="menu">
         <ul>
             <li class="menu-li-head"><a href="hotel.html">酒店入住 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="information.html">完善信息 <i class="fa fa-angle-double-right"></i></a></li>
+            <li class="menu-li-head"><a href="${ctx }/customer/perfectInformation">完善信息 <i class="fa fa-angle-double-right"></i></a></li>
             <li class="menu-li-head"><a href="hotel.html">房间管理 <i class="fa fa-angle-double-right"></i></a></li>
             <li class="menu-li-head"><a href="groom.html">猜你喜欢 <i class="fa fa-angle-double-right"></i></a></li>
             <li class="menu-li-head"><a href="restaurant.html">餐馆美食 <i class="fa fa-angle-double-right"></i></a></li>
@@ -99,7 +97,7 @@
     </div>
     <!-- example_04 end -->
     <div class="aboutus-content">
-        <p class="mobile"><i class="fa fa-phone mobile-special"></i><span class="content-word">18805063234</span></p>
+        <p class="mobile"><span class="fa fa-phone mobile-special"></span><span class="content-word">18805063234</span></p>
         <p class="mobile"><i class="fa fa-envelope mobile-special"></i><span class="content-word">www.masir@qq.com</span> </p>
         <p class="mobile"><i class="fa fa-tag  mobile-special"></i><span class="content-word">厦门大学厦大学生公寓</span></p>
     </div>
@@ -107,7 +105,7 @@
 </div>
 <div class="footer">
     <p class="footer-bottom">
-        <a href="index.html">首页</a>
+        <a href="${ctx }/customer/toIndex">首页</a>
         <span class="footer_vertical_line">|</span>
         <a href="groom.html">推荐</a>
         <span class="footer_vertical_line">|</span>

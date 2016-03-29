@@ -34,7 +34,7 @@ public class CheckPrivilegeInterceptor  extends AbstractInterceptor {
 						return invocation.invoke();
 					} else {
 						//如果不是，则转为登陆页面
-						return "noPrivilegeError";
+						return "toLogin";
 						}
 				}
 				

@@ -18,6 +18,10 @@
     <link type="text/css" rel="stylesheet" href="css/common.css">
     <script type="text/javascript" src="js/jquery.mmenu.min.all.js"></script>
     <script type="text/javascript" src="js/yj_style.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/NewGlobal.css">
+    <!--提示框插件-->
+    <script type="text/javascript" src="js/xcConfirm.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/xcConfirm.css">
     <!--&lt;!&ndash;日期输入框&ndash;&gt;-->
     <!--<script src="js/bootstrap-datepicker.js"></script>-->
     <!--<script src="js/locales/bootstrap-datepicker.zh-CN.js"></script>-->
@@ -33,18 +37,18 @@
 
 
 </head>
-<body>
+<body style="background-color: #fff">
 <div class="head">
     <div class="header">
         <a href="#menu" class="header-a"><i class="fa fa-reorder head-style"></i></a>
         <span class="header-word">房间管理</span>
-        <a href="index.html"><i class="fa fa-home head-style home-style"></i></a>
+        <a href="${ctx }/customer/toIndex"><i class="fa fa-home head-style home-style"></i></a>
     </div>
 
     <nav id="menu">
         <ul>
             <li class="menu-li-head"><a href="hotel.html">酒店入住 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="information.html">完善信息 <i class="fa fa-angle-double-right"></i></a></li>
+            <li class="menu-li-head"><a href="${ctx }/customer/perfectInformation">完善信息 <i class="fa fa-angle-double-right"></i></a></li>
             <li class="menu-li-head"><a href="hotel.html">房间管理 <i class="fa fa-angle-double-right"></i></a></li>
             <li class="menu-li-head"><a href="groom.html">猜你喜欢 <i class="fa fa-angle-double-right"></i></a></li>
             <li class="menu-li-head"><a href="restaurant.html">餐馆美食 <i class="fa fa-angle-double-right"></i></a></li>
@@ -55,12 +59,65 @@
     </nav>
 
 </div>
-<div class="content">
+
+<div class="content" style="margin-top: 20px;" >
+
+    <div class="container">
+        <div style="padding:0 5px 0 0;">
+
+            <ul class="unstyled defaultlist pt20">
+                <li class="f" id="send_back">
+                    <a>
+                        <h3>退房服务</h3>
+                        <figure class="jp_icon"></figure>
+                    </a>
+                </li>
+                <li class="h" id="clean">
+                    <a>
+                        <h3>清洁房间</h3>
+                        <figure class="jd_icon"></figure>
+                    </a>
+                </li>
+            </ul>
+            <ul class="unstyled defaultlist">
+                <li class="a">
+                    <a href="purse.html">
+                        <h3>商品购买</h3>
+                        <figure class="hb_icon"></figure>
+                    </a>
+
+                </li>
+                <li class="p" id="wash">
+                    <a >
+                        <h3> 衣服清洗</h3>
+                        <figure class="mp_icon"></figure>
+                    </a>
+                </li>
+            </ul>
+            <ul class="unstyled defaultlist">
+                <li class="t">
+                    <a href="groom.html">
+                        <h3>送餐服务</h3>
+                        <figure class="hcp_icon"></figure>
+                    </a>
+                </li>
+
+                <li class="m" id="call">
+                    <a >
+                        <h3> 呼叫总台</h3>
+                        <figure class="wdxc_icon"></figure>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
 
 </div>
 <div class="footer">
+    <p class="footer-top">&COPY;码先生团队</p>
     <p class="footer-bottom">
-        <a href="index.html">首页</a>
+        <a href="${ctx }/customer/toIndex">首页</a>
         <span class="footer_vertical_line">|</span>
         <a href="groom.html">推荐</a>
         <span class="footer_vertical_line">|</span>
