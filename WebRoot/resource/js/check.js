@@ -79,7 +79,7 @@ function checkUsername(username){
 //手机号码验证
 function checkMobile(obj){
 	 var 
-	 re = /^(((13[0-9])|(15([0-3]|[5-9]))|(18[0,5-9]))\d{8})|(0\d{2}-\d{8})|(0\d{3}-\d{7})$/
+	 re = /^(((13[0-9])|(15([0-3]|[5-9]))|(18[0-9]))\d{8})|(0\d{2}-\d{8})|(0\d{3}-\d{7})$/
 	    if (re.test(obj)) {
 	        return true;
 	    } else {

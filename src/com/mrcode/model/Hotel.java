@@ -166,11 +166,11 @@ public class Hotel  implements java.io.Serializable {
         this.column4 = column4;
     }
 
-    public Set getFloors() {
+    public Set<Floor> getFloors() {
         return this.floors;
     }
     
-    public void setFloors(Set floors) {
+    public void setFloors(Set<Floor> floors) {
         this.floors = floors;
     }
    

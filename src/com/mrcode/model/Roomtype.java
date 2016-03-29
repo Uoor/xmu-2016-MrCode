@@ -25,9 +25,9 @@ public class Roomtype  implements java.io.Serializable {
      private String column1;
      private String column2;
      private Integer column4;
-     private Set grouppurchasevouchers = new HashSet(0);
-     private Set rooms = new HashSet(0);
-     private Set pictures = new HashSet(0);
+     private Set grouppurchasevouchers = new HashSet();
+     private Set rooms = new HashSet();
+     private Set pictures = new HashSet();
 
 
     // Constructors

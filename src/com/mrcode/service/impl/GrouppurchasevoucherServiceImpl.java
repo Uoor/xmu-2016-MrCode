@@ -30,7 +30,7 @@ public class GrouppurchasevoucherServiceImpl extends BaseServiceImpl<Grouppurcha
 			throws Exception {
 		// TODO 查询本消费者的所有团购券
 		String hql = "from Grouppurchasevoucher gp left join fetch gp.roomtype tp " +
-				"left join fetch tp.hotel where gp.customer=:customer and gp.used=0";
+				" left join fetch tp.pictures left join fetch tp.hotel where gp.customer=:customer and gp.used=0";
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("customer", customer);
 		List<Grouppurchasevoucher> gps = this.getBaseDao().findByHql(
