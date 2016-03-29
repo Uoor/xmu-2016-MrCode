@@ -12,8 +12,8 @@
     <link type="text/css"  rel="stylesheet" href="${rctx }/css/static.css">
     <!--提示框插件-->
     <script type="text/javascript" src="${rctx }/js/xcConfirm.js"></script>
+    <script type="text/javascript" src="${rctx }/js/check.js"></script>
     <link type="text/css" rel="stylesheet" href="${rctx }/css/xcConfirm.css">
-
 </head>
 <body>
 <div class="head">
@@ -22,7 +22,7 @@
         <span class="header-word">我的联系人</span>
         <a href="index.html"><i class="fa fa-home head-style home-style"></i></a>
     </div>
-
+<!-- 
     <nav id="menu">
         <ul>
             <li class="menu-li-head"><a href="hotel.html">酒店入住 <i class="fa fa-angle-double-right"></i></a></li>
@@ -35,7 +35,7 @@
             <li class="menu-li-head"><a href="aboutus.html">关于我们 <i class="fa fa-angle-double-right"></i></a></li>
         </ul>
     </nav>
-
+ -->
 </div>
 <div class="content">
     <div class="paying_information add_friends_list" >
@@ -160,26 +160,43 @@
 
 </div>
 <script>
-
+var f1=0;
+var f2=0;
+var f3=0;
+$("#friends_name").blur(function(){
+	var name = $("#friends_name").val();
+	if(!(/^([\u4e00-\u9fa5]+|([a-z]+\s?)+)$/.test(name))){
+     alert("输入的姓名格式不正确");
+     $("#friends_name").focus();
+     return;
+   }
+   f1=1;
+})
 $("#friends_phone").blur(function(){
 	var phone = $("#friends_phone").val();
 	if(!(/^1[3|4|5|8]\d{9}$/.test(phone))){
      alert("输入的手机号格式不正确");
      $("#friends_phone").focus();
+     return;
    }
+   f2=1;
 })
-$("#confirm_button").click(function(){
-	var name = null;
-	name = $("#friends_name").val();
-	var phone = $("#friends_phone").val();
+$("#friends_id").blur(function(){
 	var id = $("#friends_id").val();
-	alert(name);
-	if(name==null||typeof(name)=="undefined" || name=="")
+	if(!IdentityCodeValid(id)){
+     alert("输入身份证号格式不正确");
+     return;
+   }
+   f3=1;
+})
+
+$("#confirm_button").click(function(){
+	if(f1==0||f2==0||f3==0)
 	{
-    	alert("姓名不允许为空");
-    	$("#friends_name").focus();
-	}
+	alert("请核对您所输入的信息");
 	return false;
+	}
+	
 })
 
 </script>
