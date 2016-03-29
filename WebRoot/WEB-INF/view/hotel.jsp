@@ -1,28 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head><%@ include file="/common/common.jsp" %>
-    <title>码券列表</title>
-    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-    <meta http-equiv="description" content="this is my page">
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--bootstrap-->
-    <!--&lt;!&ndash;日期输入框&ndash;&gt;-->
-    <!--<script src="js/bootstrap-datepicker.js"></script>-->
-    <!--<script src="js/locales/bootstrap-datepicker.zh-CN.js"></script>-->
-    <!--<link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.min.css">-->
-    <!--&lt;!&ndash;轮播,搜索，商品列表&ndash;&gt;-->
-    <!--<link rel="stylesheet" type="text/css" href="css/yj_supply_css.css">-->
-    <!--<script src="js/yj_supply.js"></script>-->
-    <!--&lt;!&ndash;轮播&ndash;&gt;-->
-    <!--&lt;!&ndash;前三种&ndash;&gt;-->
-    <!--<script src="js/jquery.luara.0.0.1.min.js"></script>-->
-    <!--&lt;!&ndash;第四种和第五种&ndash;&gt;-->
-    <!--<script src="js/unslider.min.js"></script>-->
-
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<!-- 系统根路径 -->
+<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<!-- 系统资源根路径 -->
+<c:set var="rctx" value="${ctx }/resource"></c:set>
+<!-- 系统页面根路径 -->
+<c:set var="vctx" value="${ctx }/WEB-INF/view"></c:set>
+<!-- 测试用jsp使用的根路径 -->
+<c:set var="tctx" value="/WEB-INF/view/"></c:set>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<%@ include file="/common/common.jsp" %>
+<title>码券列表</title>
+<script type="text/javascript" src="${rctx }/js/yj_style.js"></script>
 </head>
 <style>
     .col-xs-2{
@@ -88,12 +83,12 @@
 	                	<div class="ticket_order ticket-num-body" param="${item.key.id}" data-toggle="modal" onclick="updateType(this)" data-target="#myModal">
 	                </c:if>
 	                <c:if test="${customer.perfectInformation==1 }">
-	                	<div class="ticket_order ticket-num-body toNext" param="${item.key.id}" data-toggle="modal">
+	                	<div class="ticket_order ticket-num-body toNext" param="${item.key.id}">
 	                </c:if>
 	                    <button class="ticket_order_now" >使用<i class="fa fa-angle-double-right hand-right-style"></i></button>
-	                </div>
-	            </div>
-	            <!-- 模态框（Modal） -->
+	                   </div>
+	           </div>
+	           <!-- 模态框（Modal） -->
 		        <div class="modal fade" id="information${item.key.id }" tabindex="-1" role="dialog"
 		             aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 40px;">
 		            <div class="modal-dialog">
@@ -108,7 +103,7 @@
 		                        </h4>
 		                    </div>
 		                    <div class="modal-body modal-body-size">
-		                        <div class="hotel-image" style="background: url('image/index1.jpg') center no-repeat;background-size:contain; ">
+		                        <div class="hotel-image" style="background: url('${rctx }/image/index1.jpg') center no-repeat;background-size:contain; ">
 		
 		                        </div>
 		                        <div>

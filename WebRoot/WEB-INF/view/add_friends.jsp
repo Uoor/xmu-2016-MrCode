@@ -1,42 +1,45 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-<head><%@ include file="/common/common.jsp" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<!-- 系统根路径 -->
+<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<!-- 系统资源根路径 -->
+<c:set var="rctx" value="${ctx }/resource"></c:set>
+<!-- 系统页面根路径 -->
+<c:set var="vctx" value="${ctx }/WEB-INF/view"></c:set>
+<!-- 测试用jsp使用的根路径 -->
+<c:set var="tctx" value="/WEB-INF/view/"></c:set>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<%@ include file="/common/common.jsp" %>
     <title>我的联系人</title>
-    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<%--     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="this is my page">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--bootstrap-->
-    <link type="text/css"  rel="stylesheet" href="${rctx }/css/static.css">
+    <link type="text/css"  rel="stylesheet" href="${rctx }/css/static.css"> --%>
+    <script type="text/javascript" src="${rctx }/js/yj_style.js"></script>
+    <link type="text/css" rel="stylesheet" href="${rctx }/css/login.css">
     <!--提示框插件-->
     <script type="text/javascript" src="${rctx }/js/xcConfirm.js"></script>
     <link type="text/css" rel="stylesheet" href="${rctx }/css/xcConfirm.css">
-
 </head>
 <body>
 <div class="head">
     <div class="header">
         <a href="#menu" class="header-a"><i class="fa fa-reorder head-style"></i></a>
-        <span class="header-word">我的联系人</span>
+        <span class="header-word">联系人</span>
         <a href="index.html"><i class="fa fa-home head-style home-style"></i></a>
     </div>
-
-    <nav id="menu">
-        <ul>
-            <li class="menu-li-head"><a href="hotel.html">酒店入住 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="information.html">完善信息 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="hotel.html">房间管理 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="groom.html">猜你喜欢 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="restaurant.html">餐馆美食 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="visiting.html">游玩攻略 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="traffic.html">交通指南 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="aboutus.html">关于我们 <i class="fa fa-angle-double-right"></i></a></li>
-        </ul>
-    </nav>
+     <%@ include file="header.jsp" %>
 
 </div>
+
 <div class="content">
     <div class="paying_information add_friends_list" >
         <!--<div class="paying_content">-->
@@ -146,19 +149,7 @@
     
 
 </div>
-<div class="footer">
-    <p class="footer-bottom">
-        <a href="index.html">首页</a>
-        <span class="footer_vertical_line">|</span>
-        <a href="groom.html">推荐</a>
-        <span class="footer_vertical_line">|</span>
-        <a href="management.html">管理</a>
-        <span class="footer_vertical_line">|</span>
-        <a href="aboutus.html">我们团队</a>
-
-    </p>
-
-</div>
+<%@ include file="footer.jsp" %>
 <script>
 
 $("#friends_phone").blur(function(){

@@ -1,17 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<!-- 系统根路径 -->
+<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
+<!-- 系统资源根路径 -->
+<c:set var="rctx" value="${ctx }/resource"></c:set>
+<!-- 系统页面根路径 -->
+<c:set var="vctx" value="${ctx }/WEB-INF/view"></c:set>
+<!-- 测试用jsp使用的根路径 -->
+<c:set var="tctx" value="/WEB-INF/view/"></c:set>
 <head>
-<meta charset="utf-8">
-<%@ include file="/common/common.jsp" %>
-<title>码团——酒店入住系统</title>
+<meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>码团——酒店入住系统</title>
 
 <link type="text/css" rel="stylesheet" href="${rctx }/css/index.css" />
 <script type="text/javascript" src="${rctx }/js/jquery-1.2.6.pack.js"></script>
 <script type="text/javascript" src="${rctx }/js/g.base.js"></script>
 <script type="text/javascript" src="${rctx }/js/iscroll.js"></script>
+<script type="text/javascript" src="${rctx }/js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="${rctx }/js/common.js"></script>
+<script type="text/javascript" src="${rctx }/js/yj_style.js"></script>
 
 <script type="text/javascript">
     var myScroll;
@@ -27,9 +39,7 @@
         });
     }
     document.addEventListener('DOMContentLoaded', loaded, false);
-    $(function(){
-
-    })
+   
 </script>
 
 </head>
@@ -74,7 +84,7 @@
         document.getElementById("scroller").style.cssText = " width:" + document.body.clientWidth * count + "px";
     };
 </script>
-<div class="content" style="height:50%">
+<div class="content">
     <a href="${ctx }/toOrder">
         <div class="img" style="background:url(${rctx }/image/13809673822754.png) center no-repeat; background-size:contain;"></div>
         <div class="text">酒店入住</div>
