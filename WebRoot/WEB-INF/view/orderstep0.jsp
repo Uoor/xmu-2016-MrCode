@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -11,28 +11,20 @@
 <c:set var="vctx" value="${ctx }/WEB-INF/view"></c:set>
 <!-- 测试用jsp使用的根路径 -->
 <c:set var="tctx" value="/WEB-INF/view/"></c:set>
-<!DOCTYPE html>
-<html>
 <head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<%@ include file="/common/common.jsp" %>
     <title>选择时间</title>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="${rctx }/js/m_supply.js"></script>
-    <!--日期输入框-->
-    <script src="${rctx }/js/locales/bootstrap-datepicker.zh-CN.js"></script>
-    <script src="${rctx }/js/jquery.mmenu.min.all.js"></script>
-	<script src="${rctx }/js/bootstrap-datepicker.js"></script>
-	<script src="${rctx }/js/jquery-2.1.3.min.js"></script>
-	<script src="${rctx }/js/bootstrap.min.js"></script>
-	<!-- common css -->
-	<link rel="stylesheet" href="${rctx }/css/common/bootstrap.min.css"/> <!-- 影响百度地图api的地图的label显示  -->
-	<link rel="stylesheet" href="${rctx }/css/common/font-awesome.min.css"/>
-	<link rel="stylesheet" href="${rctx }/css/common/font.css"/>
-	<link rel="stylesheet" href="${rctx }/css/common/common.css"/>
-	<link rel="stylesheet" href="${rctx }/css/common/bootstrap-datepicker.min.css"/>
-	<link type="text/css" rel="stylesheet" href="${rctx }/css/static.css">
+   
+	<!-- special css -->
 	<link type="text/css" rel="stylesheet" href="${rctx }/css/login.css">
-	<link rel="stylesheet" href="${rctx }/css/common/jquery.mmenu.all.css"/>
+	 <!--日期输入框-->
+    <script src="${rctx }/js/bootstrap-datepicker.js"></script>
+    <script src="${rctx }/js/bootstrap-datepicker.zh-CN.js"></script>
+    <link rel="stylesheet" href="${rctx }/css/bootstrap-datepicker.min.css"/>
+    <script src="${rctx }/js/m_supply.js"></script>
 </head>
 <body>
 
@@ -42,7 +34,6 @@
         <span class="header-word">选择时间</span>
         <a href="index.html"><i class="fa fa-home head-style home-style"></i></a>
     </div>
-
     <nav id="menu">
         <ul>
             <li class="menu-li-head"><a href="hotel.html">酒店入住 <i class="fa fa-angle-double-right"></i></a></li>
@@ -55,7 +46,6 @@
             <li class="menu-li-head"><a href="aboutus.html">关于我们 <i class="fa fa-angle-double-right"></i></a></li>
         </ul>
     </nav>
-
 </div>
 
 <div class="content">
@@ -80,7 +70,6 @@
 	    </div>
 	</form>
 </div>
-
 <div class="footer">
     <p class="footer-bottom">
         <a href="index.html">首页</a>

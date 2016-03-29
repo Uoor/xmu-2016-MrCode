@@ -1,19 +1,19 @@
 /*基于bootstrap的应用与采购平台的style*/
 /*
 颜色：
-绿色：#80ae3a
+绿色：#33ccff
 深绿色：#6c9a25
 浅绿色：#98c750
 */
 
 /*按钮*/
 .btn-sp {
-    border-color: #80ae3a;
-    color: #80ae3a;
+    border-color: #33ccff;
+    color: #33ccff;
 }
 .btn-sp:hover {
-    border-color: #80ae3a;
-    background-color: #80ae3a;
+    border-color: #33ccff;
+    background-color: #33ccff;
     color: #fff;
 }
 
@@ -26,7 +26,7 @@
 }
 .input-date-sp:hover,
 .input-date-sp:focus {
-    border-color: #80ae3a;
+    border-color: #33ccff;
 }
 .datepicker table tr td.active {
     background-image: none !important;
