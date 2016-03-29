@@ -89,29 +89,20 @@
                     <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="302" onclick="add_room(this)"><span class="choose-room-checkbox">302</span></label></p>
                     <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="303" onclick="add_room(this)"><span class="choose-room-checkbox">303</span></label></p>
                     <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="304" onclick="add_room(this)"><span class="choose-room-checkbox">304</span></label></p>
-                </div>
-                <div class="panel-body choose-room-panel-body">
                     <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="305" onclick="add_room(this)"><span class="choose-room-checkbox">305</span></label></p>
                     <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="306" onclick="add_room(this)"><span class="choose-room-checkbox">306</span></label></p>
                     <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="307" onclick="add_room(this)"><span class="choose-room-checkbox">307</span></label></p>
-                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="308" onclick="add_room(this)"><span class="choose-room-checkbox">308</span></label></p>
-                </div>
-                <div class="panel-body choose-room-panel-body">
-                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="309" onclick="add_room(this)"><span class="choose-room-checkbox">309</span></label></p>
-                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="310" onclick="add_room(this)"><span class="choose-room-checkbox">310</span></label></p>
-                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="311" onclick="add_room(this)"><span class="choose-room-checkbox">311</span></label></p>
-                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="312" onclick="add_room(this)"><span class="choose-room-checkbox">312</span></label></p>
-                </div>
-                <div class="panel-body choose-room-panel-body">
                     <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="313" onclick="add_room(this)"><span class="choose-room-checkbox">313</span></label></p>
                     <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="314" onclick="add_room(this)"><span class="choose-room-checkbox">314</span></label></p>
                     <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="315" onclick="add_room(this)"><span class="choose-room-checkbox">315</span></label></p>
                     <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="316" onclick="add_room(this)"><span class="choose-room-checkbox">316</span></label></p>
-                </div>
-
-                <div class="panel-body choose-room-panel-body">
+                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="308" onclick="add_room(this)"><span class="choose-room-checkbox">308</span></label></p>
+                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="309" onclick="add_room(this)"><span class="choose-room-checkbox">309</span></label></p>
+                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="310" onclick="add_room(this)"><span class="choose-room-checkbox">310</span></label></p>
+                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="311" onclick="add_room(this)"><span class="choose-room-checkbox">311</span></label></p>
+                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="312" onclick="add_room(this)"><span class="choose-room-checkbox">312</span></label></p>
                     <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="317" onclick="add_room(this)"><span class="choose-room-checkbox">317</span></label></p>
-                </div>
+                </div>              
             </div>
         </div>
         <div class="paying_content remember-room" id="choosen_room_list">
