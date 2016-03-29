@@ -36,15 +36,17 @@
 </div>
 <div class="content choose-floor" >
     <div class="choose-floor-div">
-        <div class="hotel-floor col-xs-6">
-            <input type="radio" class="choose-style " name="choose-floor" value="floor3" onclick="know_floor(this)">
-            <span class="floor-style">
-                <i class="fa fa-building building-style"></i>
-            </span>
-            <span class="floor-num" id="f3">
-                三楼
-            </span>
-        </div>
+         <c:forEach items="${frMap }" var="item">
+	        <div class="hotel-floor col-xs-6">
+	            <input type="radio" class="choose-style " name="choose-floor" value="floor3" onclick="know_floor(this)">
+	            <span class="floor-style">
+	                <i class="fa fa-building building-style"></i>
+	            </span>
+	            <span class="floor-num" id="f3">
+	               ${item.key.floorNumber }楼
+	            </span>
+	        </div>
+        </c:forEach>
         <div class="hotel-floor col-xs-6">
             <input type="radio" class="choose-style " name="choose-floor" value="floor4" onclick="know_floor(this)">
             <span class="floor-style">

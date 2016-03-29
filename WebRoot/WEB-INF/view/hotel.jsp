@@ -103,9 +103,10 @@
 		                        </h4>
 		                    </div>
 		                    <div class="modal-body modal-body-size">
-		                        <div class="hotel-image" style="background: url('${rctx }/image/index1.jpg') center no-repeat;background-size:contain; ">
-		
-		                        </div>
+		                         <c:forEach items="${item.key.pictures }" var="pic">
+			                        <div class="hotel-image" style="background: url('${ctx}${pic }') center no-repeat;background-size:contain; ">
+									</div>
+		                        </c:forEach>
 		                        <div>
 		                            <span>房间类型：</span><span>${item.key.typeName }</span>
 		                        </div>

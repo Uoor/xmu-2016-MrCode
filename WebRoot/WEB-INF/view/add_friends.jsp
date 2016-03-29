@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+  <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -24,7 +24,8 @@
     <!--bootstrap-->
     <link type="text/css"  rel="stylesheet" href="${rctx }/css/static.css"> --%>
     <script type="text/javascript" src="${rctx }/js/yj_style.js"></script>
-    <link type="text/css" rel="stylesheet" href="${rctx }/css/login.css">
+    <link type="text/css" rel="stylesheet" href="${rctx }/css/login.css">    
+    <script type="text/javascript" src="${rctx }/js/check.js"></script>
     <!--提示框插件-->
     <script type="text/javascript" src="${rctx }/js/xcConfirm.js"></script>
     <link type="text/css" rel="stylesheet" href="${rctx }/css/xcConfirm.css">
@@ -149,28 +150,57 @@
     
 
 </div>
-<%@ include file="footer.jsp" %>
-<script>
+<div class="footer">
+    <p class="footer-bottom">
+        <a href="index.html">首页</a>
+        <span class="footer_vertical_line">|</span>
+        <a href="groom.html">推荐</a>
+        <span class="footer_vertical_line">|</span>
+        <a href="management.html">管理</a>
+        <span class="footer_vertical_line">|</span>
+        <a href="aboutus.html">我们团队</a>
 
+    </p>
+
+</div>
+<script>
+var f1=0;
+var f2=0;
+var f3=0;
+$("#friends_name").blur(function(){
+	var name = $("#friends_name").val();
+	if(!(/^([\u4e00-\u9fa5]+|([a-z]+\s?)+)$/.test(name))){
+     alert("输入的姓名格式不正确");
+     $("#friends_name").focus();
+     return;
+   }
+   f1=1;
+})
 $("#friends_phone").blur(function(){
 	var phone = $("#friends_phone").val();
 	if(!(/^1[3|4|5|8]\d{9}$/.test(phone))){
      alert("输入的手机号格式不正确");
      $("#friends_phone").focus();
+     return;
    }
+   f2=1;
 })
-$("#confirm_button").click(function(){
-	var name = null;
-	name = $("#friends_name").val();
-	var phone = $("#friends_phone").val();
+$("#friends_id").blur(function(){
 	var id = $("#friends_id").val();
-	alert(name);
-	if(name==null||typeof(name)=="undefined" || name=="")
+	if(!IdentityCodeValid(id)){
+     alert("输入身份证号格式不正确");
+     return;
+   }
+   f3=1;
+})
+
+$("#confirm_button").click(function(){
+	if(f1==0||f2==0||f3==0)
 	{
-    	alert("姓名不允许为空");
-    	$("#friends_name").focus();
-	}
+	alert("请核对您所输入的信息");
 	return false;
+	}
+	
 })
 
 </script>
