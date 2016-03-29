@@ -41,13 +41,13 @@
     <div class="header">
         <a href="#menu" class="header-a"><i class="fa fa-reorder head-style"></i></a>
         <span class="header-word">码券列表</span>
-        <a href="index.html"><i class="fa fa-home head-style home-style"></i></a>
+        <a href="${ctx }/customer/toIndex"><i class="fa fa-home head-style home-style"></i></a>
     </div>
 
     <nav id="menu">
         <ul>
             <li class="menu-li-head"><a href="hotel.html">酒店入住 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="information.html">完善信息 <i class="fa fa-angle-double-right"></i></a></li>
+            <li class="menu-li-head"><a href="${ctx }/customer/perfectInformation">完善信息 <i class="fa fa-angle-double-right"></i></a></li>
             <li class="menu-li-head"><a href="hotel.html">房间管理 <i class="fa fa-angle-double-right"></i></a></li>
             <li class="menu-li-head"><a href="groom.html">猜你喜欢 <i class="fa fa-angle-double-right"></i></a></li>
             <li class="menu-li-head"><a href="restaurant.html">餐馆美食 <i class="fa fa-angle-double-right"></i></a></li>
@@ -103,9 +103,10 @@
 		                        </h4>
 		                    </div>
 		                    <div class="modal-body modal-body-size">
-		                        <div class="hotel-image" style="background: url('${rctx }/image/index1.jpg') center no-repeat;background-size:contain; ">
-		
-		                        </div>
+		                         <c:forEach items="${item.key.pictures }" var="pic">
+			                        <div class="hotel-image" style="background: url('${ctx}${pic }') center no-repeat;background-size:contain; ">
+									</div>
+		                        </c:forEach>
 		                        <div>
 		                            <span>房间类型：</span><span>${item.key.typeName }</span>
 		                        </div>
@@ -167,7 +168,7 @@
 </div>
 <div class="footer">
     <p class="footer-bottom">
-        <a href="index.html">首页</a>
+        <a href="${ctx }/customer/toIndex">首页</a>
         <span class="footer_vertical_line">|</span>
         <a href="groom.html">推荐</a>
         <span class="footer_vertical_line">|</span>

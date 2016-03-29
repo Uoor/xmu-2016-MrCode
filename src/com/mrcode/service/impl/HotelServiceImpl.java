@@ -20,4 +20,5 @@ public class HotelServiceImpl extends BaseServiceImpl<Hotel>
 	public void setBaseDao(BaseDaoImpl<Hotel> baseDao){
 		super.setBaseDao(baseDao);
 	}
+
 }
