@@ -1,16 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
-<!-- 系统根路径 -->
-<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
-<!-- 系统资源根路径 -->
-<c:set var="rctx" value="${ctx }/resource"></c:set>
-<!-- 系统页面根路径 -->
-<c:set var="vctx" value="${ctx }/WEB-INF/view"></c:set>
-<!-- 测试用jsp使用的根路径 -->
-<c:set var="tctx" value="/WEB-INF/view/"></c:set>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
@@ -33,7 +23,7 @@
     <div class="list-group-no">
         <a href="#" class="list-group-item-no">
             <div class="listitem-group-decration-no" style="border:1px solid #eee;height: 290px">
-                <div  class="listitem-image-no listitem-image-no-special" style="background-image: url('image/visit1.jpg')">
+                <div  class="listitem-image-no listitem-image-no-special" style="background-image: url('${rctx }/image/visit1.jpg')">
                 </div>
                 <div class="listitem-info-no">
                     <div class="listitem-describation-title">
@@ -50,7 +40,7 @@
         </a>
         <a href="#" class="list-group-item-no">
             <div class="listitem-group-decration-no" style="border:1px solid #eee;height:290px">
-                <div  class="listitem-image-no listitem-image-no-special" style="background-image: url('image/visit2.jpg')">
+                <div  class="listitem-image-no listitem-image-no-special" style="background-image: url('${rctx }/image/visit2.jpg')">
                 </div>
                 <div class="listitem-info-no">
                     <div class="listitem-describation-title">
@@ -67,7 +57,7 @@
         </a>
         <a href="#" class="list-group-item-no">
             <div class="listitem-group-decration-no decration-no-style-special" >
-                <div  class="listitem-image-no listitem-image-no-special" style="background-image: url('image/visit3.jpg')">
+                <div  class="listitem-image-no listitem-image-no-special" style="background-image: url('${rctx }/image/visit3.jpg')">
                 </div>
                 <div class="listitem-info-no">
                     <div class="listitem-describation-title">
@@ -84,7 +74,7 @@
         </a>
         <a href="#" class="list-group-item-no">
             <div class="listitem-group-decration-no decration-no-style-special">
-                <div  class="listitem-image-no listitem-image-no-special" style="background-image: url('image/visit5.jpg')">
+                <div  class="listitem-image-no listitem-image-no-special" style="background-image: url('${rctx }/image/visit5.jpg')">
                 </div>
                 <div class="listitem-info-no">
                     <div class="listitem-describation-title">

@@ -1,16 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ taglib prefix="s" uri="/struts-tags" %>
-<!-- 系统根路径 -->
-<c:set var="ctx" value="${pageContext.request.contextPath}"></c:set>
-<!-- 系统资源根路径 -->
-<c:set var="rctx" value="${ctx }/resource"></c:set>
-<!-- 系统页面根路径 -->
-<c:set var="vctx" value="${ctx }/WEB-INF/view"></c:set>
-<!-- 测试用jsp使用的根路径 -->
-<c:set var="tctx" value="/WEB-INF/view/"></c:set>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
@@ -43,13 +33,13 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img src="image/food1.jpg" alt="..." class="carsousel-image">
+                <img src="${rctx }/image/food1.jpg" alt="..." class="carsousel-image">
             </div>
             <div class="item">
-                <img src="image/groom1.jpg" alt="..." class="carsousel-image">
+                <img src="${rctx }/image/groom1.jpg" alt="..." class="carsousel-image">
             </div>
             <div class="item">
-                <img src="image/food2.jpg" alt="..." class="carsousel-image">
+                <img src="${rctx }/image/food2.jpg" alt="..." class="carsousel-image">
             </div>
      
         </div>
@@ -68,7 +58,7 @@
     <div class="list-group"  href="#" >
 
         <a class="list-group-item"  href="#">
-            <div class="listitem-image" style="background-image: url('image/food3.jpeg')">
+            <div class="listitem-image" style="background-image: url('${rctx }/image/food3.jpeg')">
             </div>
 
             <div class="listitem-info">
@@ -85,7 +75,7 @@
         </a>
 
         <a class="list-group-item"  href="#">
-            <div class="listitem-image" style="background-image: url('image/food4.jpg')">
+            <div class="listitem-image" style="background-image: url('${rctx }/image/food4.jpg')">
             </div>
 
             <div class="listitem-info">
@@ -102,7 +92,7 @@
         </a>
 
         <a class="list-group-item"  href="#">
-            <div class="listitem-image" style="background-image: url('image/index3.jpg');margin-bottom: 50px">
+            <div class="listitem-image" style="background-image: url('${rctx }/image/index3.jpg');margin-bottom: 50px">
             </div>
 
             <div class="listitem-info">
