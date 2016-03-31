@@ -126,4 +126,25 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
         
 		return "stepSecondUI";
 	}
+	
+	@Action(value = "toThird", results = { @Result(name = "stepThirdUI", location = ViewLocation.View_ROOT
+			+ "orderstep2.jsp") })
+	public String toThird() throws Exception{
+		
+		return "stepThirdUI";
+	}
+	
+	@Action(value = "toFourth", results = { @Result(name = "stepFourthUI", location = ViewLocation.View_ROOT
+			+ "orderstep3.jsp") })
+	public String toFourth() throws Exception{
+		
+		return "stepFourthUI";
+	}
+	
+	@Action(value = "toFifth", results = { @Result(name = "stepFifthUI", location = ViewLocation.View_ROOT
+			+ "orderstep4.jsp") })
+	public String toFifth() throws Exception{
+		
+		return "stepFifthUI";
+	}
 }
