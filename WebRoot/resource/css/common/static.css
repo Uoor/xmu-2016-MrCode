@@ -282,8 +282,9 @@ a{
 
 #image_bigger{
     /*vertical-align: middle;*/
-    margin: 20px;
+    /*margin: 20px;*/
     width: 90%;
+    height: 180px;
 }
 .choose-room{
     padding-left:20px;
@@ -303,9 +304,10 @@ a{
 .times-style{
     float:right;
 }
-.choose-room-next-step{
+#choose-room-next-step{
     margin-bottom: 80px;
 }
+
 /*上传图片的样式设置*/
 #imagePreview {
     width:100%;/*用来控制图片的宽度*/
@@ -319,6 +321,7 @@ a{
 /*设置指示放大的样式*/
 .click_for_bigger{
     /*margin-bottom: 10px;*/
+    text-align: center;
 }
 
 /*设置添加联系人页面的样式*/
