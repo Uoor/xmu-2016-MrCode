@@ -25,13 +25,13 @@ public class LoginAction extends BaseAction<Customer>{
 	CustomerService customerService;
 	
 	//登录页面
-		@Action(value = "toLogin", results = { @Result(name = "loginUI", location = ViewLocation.View_ROOT
-				+ "login.jsp") })
-		public String toLogin() throws Exception{
-			if(ActionContext.getContext().get("msg")!=null)
-				request.setAttribute("msg", ActionContext.getContext().get("msg"));
-			return "loginUI";
-		}
+	@Action(value = "toLogin", results = { @Result(name = "loginUI", location = ViewLocation.View_ROOT
+			+ "login.jsp") })
+	public String toLogin() throws Exception{
+		if(ActionContext.getContext().get("msg")!=null)
+			request.setAttribute("msg", ActionContext.getContext().get("msg"));
+		return "loginUI";
+	}
 	
 	/**
 	 * 登录
@@ -46,7 +46,6 @@ public class LoginAction extends BaseAction<Customer>{
 		Customer customer = null;
 		if((customer = customerService.checkLogin(loginName, DigestUtil.encryptPWD(password)))!=null){
 			session.put(Const.CUSTOMER, customer);
-			ActionContext.getContext().getSession().put("CheckPrivilegeSession", customer);
 			System.out.println("登陆成功");
 			return "toIndex";
 		} else {

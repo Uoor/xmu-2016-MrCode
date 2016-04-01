@@ -221,7 +221,8 @@ a{
     margin-top: 40px;
 }
 .leave_word{
-    color:#33eeff;
+        color: #00ABBB;
+    font-weight: 700;
 }
 .leave_date,.start_date{
     border: 1px solid #eee;
