@@ -24,7 +24,7 @@ public class Floor  implements java.io.Serializable {
      private String column2;
      private Integer column3;
      private Integer column4;
-     private Set rooms = new HashSet(0);
+     private Set<Room> rooms = new HashSet<Room>();
 
 
     // Constructors

@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
+import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +21,8 @@ import com.mrcode.service.GrouppurchasevoucherService;
 import com.mrcode.utils.Const;
 
 @Controller
-@Namespace("/")
+@ParentPackage("customers")
+@Namespace("/customer")
 public class IndexAction extends BaseAction<Customer>{
 
 	@Autowired

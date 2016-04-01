@@ -22,7 +22,7 @@ public class Roomtype  implements java.io.Serializable {
      private Float price;
      private String remark;
      private Hotel hotel;
-     private String column1;
+     private String typeId;
      private String column2;
      private Integer column4;
      private Set grouppurchasevouchers = new HashSet();
@@ -43,13 +43,13 @@ public class Roomtype  implements java.io.Serializable {
     }
     
     /** full constructor */
-    public Roomtype(Integer id, String typeName, Float price, String remark, Hotel hotel, String column1, String column2, Integer column4, Set grouppurchasevouchers, Set rooms, Set pictures) {
+    public Roomtype(Integer id, String typeName, Float price, String remark, Hotel hotel, String typeId, String column2, Integer column4, Set grouppurchasevouchers, Set rooms, Set pictures) {
         this.id = id;
         this.typeName = typeName;
         this.price = price;
         this.remark = remark;
         this.hotel = hotel;
-        this.column1 = column1;
+        this.typeId = typeId;
         this.column2 = column2;
         this.column4 = column4;
         this.grouppurchasevouchers = grouppurchasevouchers;
@@ -100,12 +100,12 @@ public class Roomtype  implements java.io.Serializable {
         this.hotel = hotel;
     }
 
-    public String getColumn1() {
-        return this.column1;
+    public String getTypeId() {
+        return this.typeId;
     }
     
-    public void setColumn1(String column1) {
-        this.column1 = column1;
+    public void setTypeId(String typeId) {
+        this.typeId = typeId;
     }
 
     public String getColumn2() {
