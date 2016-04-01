@@ -49,4 +49,12 @@ public class IndexAction extends BaseAction<Customer>{
 		
 		return "orderUI";
 	}
+	
+	
+	@Action(value="toAboutus", results={@Result(name="aboutus", location=ViewLocation.View_ROOT+
+			"aboutus.jsp")})
+	public String toAboutus() throws Exception{
+		
+		return "aboutus";
+	}
 }
