@@ -280,7 +280,6 @@ a{
 .image_bigger_style{
     text-align: center;
 }
-
 #image_bigger{
     /*vertical-align: middle;*/
     /*margin: 20px;*/
@@ -369,4 +368,8 @@ a{
     border-color:#33ccff;
     background-color:#33ccff;
     color: #fff;
+}
+
+a:hover,a:focus{
+	text-decoration:none;
 }
