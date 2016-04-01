@@ -60,9 +60,9 @@
 	                            房间展示
 	                        </h4>
 	                    </div>
-	                    <div class="modal-body">
-	                        <div class="image_bigger_contain">
-	                            <img src="image/floor3.jpg">
+	                    <div class="modal-body" class="image_bigger_contain">
+	                        <div >
+	                            <img id="image_bigger" src="${rctx }/image/floor3.jpg" >
 	                        </div>
 	                        <div class="click_for_bigger">
 	                            <i class="fa fa-hand-o-up"></i>点击图片即可放大图片
@@ -73,10 +73,10 @@
 	                                </div>
 	                                <div class="panel-body choose-room-panel-body" >
 	                                    <c:forEach items="${item.value }" var="room">
-	                                    	<p class="choose-room-span col-xs-3">
+	                                    	<p class="choose-room-span col-xs-4">
 	                                    		<label>
-	                                    			<input type="checkbox" value="${room.id }" onclick="add_room(this)">
-	                                    			<span class="choose-room-checkbox">${room.roomNumber }</span>
+	                                    			<input type="checkbox" class="choose_room_input" value="${room.id }">
+	                                    			<span class="choose-room-checkbox">${room.roomNumber }</span>	                                    			
 	                                    		</label>
 	                                    	</p>
 	                               		</c:forEach>     
@@ -86,7 +86,7 @@
 	                    </div>
 	                    <div class="modal-footer">
 	                        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">
-	                            <a class="modal-right">确定</a>
+	                            <a class="modal-right" onclick="add_room(this)">确定</a>
 	                        </button>
 	                    </div>
 	                </div><!-- /.modal-content -->
