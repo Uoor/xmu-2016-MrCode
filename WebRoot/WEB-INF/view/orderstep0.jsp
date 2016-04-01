@@ -39,20 +39,20 @@
 </div>
 
 <div class="content">
-	<form action="${ctx }/order/toSecond" method="post">
+	<form action="${ctx }/order/toSecond" method="post" onsubmit="return check()">
 	    <!--<h3>日期输入框</h3>-->
 	    <div class="date_leave">
 	        <span class="leave_word">入住时间：</span>
 	        <div class="date_leave_input">
 	            <!--选择日期使用了datepicker插件-->
-	            <input type="text" name="begin" placeholder="点击输入日期" readonly class="input-date-sp">
+	            <input type="text" name="begin" placeholder="点击输入日期" readonly class="input-date-sp begin">
 	        </div>
 	    </div>
 	    <div class="date_leave">
 	        <span class="leave_word">离开时间：</span>
 	        <div class="date_leave_input">
 	            <!--选择日期使用了datepicker插件-->
-	            <input type="text" name="end" placeholder="点击输入日期" readonly class="input-date-sp">
+	            <input type="text" name="end" placeholder="点击输入日期" readonly class="input-date-sp end">
 	        </div>
 	    </div>
 	    <div class="control-group next_step  choose-room-next-step">
@@ -74,6 +74,29 @@
 
 </div>
 <script>
+	//判断是否选择日期
+	function check(){
+		var begin = $(".begin").val();
+		var end = $(".end").val();
+		if(begin=="" || typeof(begin)=="undefined"){
+			swal("请选择开始日期");
+			return false;
+		}
+		if(end=="" || typeof(end)=="undefined"){
+			swal("请选择结束日期");
+			return false;
+		}
+		if(!checkDateBeginEnd(begin, end)){
+			swal("开始日期不得在结束日期之后");
+			return false;
+		}
+		var dif = DateDiff(begin, end);
+		if(Number(dif)+1 >"${validCount}"){
+			swal("您的团购券只有${validCount}张，选择的天数不能超过${validCount}天");
+			return false;
+		}
+		return true;
+	}
     //在是IPhone5的时候隐藏码先生
     window.onload = function()
     {
@@ -103,6 +126,7 @@
         $(".mm-title").text("首页");
         $(".mm-navbar-bottom").hide();
     });
+ 	
 </script>
 </body>
 </html>

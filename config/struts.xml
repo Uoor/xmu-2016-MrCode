@@ -17,13 +17,14 @@
     		<!-- 声明拦截器 -->
     		<interceptor name="checkPrivilege" class="com.mrcode.utils.CheckPrivilegeInterceptor"></interceptor>
     		<!-- 重新定义默认的拦截器栈 -->
-    		<interceptor-stack name="defaultStack">
+    		<interceptor-stack name="userinterstack">
     			<interceptor-ref name="checkPrivilege"></interceptor-ref>
     			<interceptor-ref name="defaultStack"></interceptor-ref>
     		</interceptor-stack>
     	</interceptors>
-	   
-	   <global-results>
+	   <!-- 配置默认拦截器栈-->
+		<default-interceptor-ref name="userinterstack"/>
+	   	<global-results>
 			<result name="noPrivilegeError">/WEB-INF/noPrivilegeError.jsp</result>
 			 <result name="error">/WEB-INF/view/Error.jsp</result>
 			<result name="success">/WEB-INF/view/OK.jsp</result>

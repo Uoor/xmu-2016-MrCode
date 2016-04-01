@@ -1,5 +1,9 @@
 package com.mrcode.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+
 
 
 /**
@@ -16,7 +20,10 @@ public class Contactors  implements java.io.Serializable {
      private String identityCard;
      private String phoneNumber;
      private String name;
-
+     /**
+ 	 * 码团订单表 ，表示本类与Mrcodeorder的多对多关系  
+ 	 */
+ 	private Set<Mrcodeorder> orders = new HashSet<Mrcodeorder>();
 
     // Constructors
 
@@ -45,7 +52,15 @@ public class Contactors  implements java.io.Serializable {
         return this.id;
     }
     
-    public void setId(Integer id) {
+    public Set<Mrcodeorder> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(Set<Mrcodeorder> orders) {
+		this.orders = orders;
+	}
+
+	public void setId(Integer id) {
         this.id = id;
     }
 

@@ -22,5 +22,11 @@
         <property name="name" type="java.lang.String">
             <column name="name" length="30" />
         </property>
+        
+        <!-- orders,表示本类与Mrcodeorder的多对多关系 -->
+        <set name="orders" table="order_contactor" lazy="false"><!--  order-by="id" -->
+        	<key column="contactorId"></key>
+        	<many-to-many class="com.mrcode.model.Mrcodeorder" column="orderId"></many-to-many>
+        </set> 
     </class>
 </hibernate-mapping>

@@ -15,4 +15,13 @@ public interface GrouppurchasevoucherService extends BaseService<Grouppurchasevo
 	 * @throws Exception
 	 */
 	public List<Grouppurchasevoucher> getByCust(Customer customer) throws Exception;
+	
+	/**
+	 * 查询某房间类型的团购券数量
+	 * @param customer
+	 * @param typeId 房间类型id
+	 * @return
+	 * @throws Exception
+	 */
+	public Integer getTypeCount(Customer customer, Integer typeId) throws Exception;
 }
