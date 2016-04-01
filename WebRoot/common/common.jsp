@@ -31,10 +31,11 @@
 <link rel="stylesheet" href="${rctx }/css/common/font-awesome.min.css"/>
 <link rel="stylesheet" href="${rctx }/css/common/font.css"/>
 <link rel="stylesheet" href="${rctx }/css/common/jquery.mmenu.all.css"/>
-<link rel="stylesheet" href="${rctx }/css/common/common.css"/>
 <link rel="stylesheet" href="${rctx }/css/common/example.css"/>
 <link rel="stylesheet" href="${rctx }/css/common/sweet-alert.css"/>
+<link rel="stylesheet" href="${rctx }/css/yj_supply_css.css">
 <%-- <link rel="stylesheet" href="${rctx }/css/common/bootstrap-datepicker.min.css"/> --%>
+<link rel="stylesheet" href="${rctx }/css/common/common.css"/>
 <link type="text/css" rel="stylesheet" href="${rctx }/css/common/static.css">
 <%-- <link type="text/css" rel="stylesheet" href="${rctx }/css/login.css"> --%>
 <%-- <link rel="stylesheet" href="${rctx }/css/common/footer.css" type="text/css"> --%>
