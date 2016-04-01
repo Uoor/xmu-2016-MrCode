@@ -8,20 +8,6 @@
     <meta http-equiv="description" content="this is my page">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   
-    <!--&lt;!&ndash;日期输入框&ndash;&gt;-->
-    <!--<script src="js/bootstrap-datepicker.js"></script>-->
-    <!--<script src="js/locales/bootstrap-datepicker.zh-CN.js"></script>-->
-    <!--<link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.min.css">-->
-    <!--&lt;!&ndash;轮播,搜索，商品列表&ndash;&gt;-->
-    <!--<link rel="stylesheet" type="text/css" href="css/yj_supply_css.css">-->
-    <!--<script src="js/yj_supply.js"></script>-->
-    <!--&lt;!&ndash;轮播&ndash;&gt;-->
-    <!--&lt;!&ndash;前三种&ndash;&gt;-->
-    <!--<script src="js/jquery.luara.0.0.1.min.js"></script>-->
-    <!--&lt;!&ndash;第四种和第五种&ndash;&gt;-->
-    <!--<script src="js/unslider.min.js"></script>-->
-
 </head>
 <body>
 <div class="head">
@@ -48,7 +34,7 @@
 <div class="content">
     <div class="list-group"  href="#" >
         <a class="list-group-item"  href="#">
-            <div class="listitem-image" style="background-image: url('image/food1.jpg')">
+            <div class="listitem-image" style="background-image: url('${rctx }/image/food1.jpg')">
             </div>
 
             <div class="listitem-info">
@@ -65,7 +51,7 @@
         </a>
 
         <a class="list-group-item"  href="#">
-            <div class="listitem-image" style="background-image: url('image/food2.jpg')">
+            <div class="listitem-image" style="background-image: url('${rctx }/image/food2.jpg')">
             </div>
 
             <div class="listitem-info">
@@ -82,7 +68,7 @@
         </a>
 
         <a class="list-group-item"  href="#">
-            <div class="listitem-image" style="background-image: url('image/food3.jpeg')">
+            <div class="listitem-image" style="background-image: url('${rctx }/image/food3.jpeg')">
             </div>
 
             <div class="listitem-info">
@@ -99,7 +85,7 @@
         </a>
 
         <a class="list-group-item"  href="#">
-            <div class="listitem-image" style="background-image: url('image/food4.jpg')">
+            <div class="listitem-image" style="background-image: url('${rctx }/image/food4.jpg')">
             </div>
 
             <div class="listitem-info">
@@ -116,7 +102,7 @@
         </a>
 
         <a class="list-group-item"  href="#">
-            <div class="listitem-image" style="background-image: url('image/food5.jpg')">
+            <div class="listitem-image" style="background-image: url('${rctx }/image/food5.jpg')">
             </div>
 
             <div class="listitem-info">
@@ -132,7 +118,7 @@
             </div>
         </a>
         <a class="list-group-item"  href="#">
-            <div class="listitem-image" style="background-image: url('image/index3.jpg');margin-bottom: 50px">
+            <div class="listitem-image" style="background-image: url('${rctx }/image/index3.jpg');margin-bottom: 50px">
             </div>
 
             <div class="listitem-info">
