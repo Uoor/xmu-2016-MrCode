@@ -85,7 +85,7 @@
     };
 </script>
 <div class="content">
-    <a href="${ctx }/toOrder">
+    <a href="${ctx }/customer/toOrder">
         <div class="img" style="background:url(${rctx }/image/13809673822754.png) center no-repeat; background-size:contain;"></div>
         <div class="text">酒店入住</div>
     </a>
@@ -101,15 +101,15 @@
         <div class="img" style="background:url(${rctx }/image/13809674319154.png) center no-repeat; background-size:contain;"></div>
         <div class="text">房间管理</div>
     </a>
-    <a href="restaurant.html">
+    <a href="${ctx }/customer/toCateRecommend">
     <div class="img" style="background:url(${rctx }/image/13809674157426.png) center no-repeat; background-size:contain;"></div>
     <div class="text">餐馆美食</div>
     </a>
-    <a href="visiting.html">
+    <a href="${ctx }/customer/toVisitRecommend">
     <div class="img" style="background:url(${rctx }/image/13809673974739.png) center no-repeat; background-size:contain;"></div>
     <div class="text">游玩攻略</div>
     </a>
-    <a href="traffic.html">
+    <a href="${ctx }/customer/toTrafficRecommend">
         <div class="img" style="background:url(${rctx }/image/13809674651404.png) center no-repeat; background-size:contain;"></div>
         <div class="text">交通指南</div>
     </a>
