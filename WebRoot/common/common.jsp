@@ -24,7 +24,7 @@
 <%-- <script src="${rctx }/js/media.js"></script> --%>
 <script src="${rctx }/js/jquery.mmenu.min.all.js"></script>
 <%-- <script src="${rctx }/js/yj_style.js"></script><!--关于删除和选择房间的js也在这个文件里面--> --%>
-
+<script src="${rctx }/js/sweet-alert.min.js"></script>
 <%-- <script src="${rctx }/js/bootstrap-datepicker.js"></script> --%>
 <!-- common css -->
 <link rel="stylesheet" href="${rctx }/css/common/bootstrap.min.css"/> <!-- 影响百度地图api的地图的label显示  -->
@@ -32,6 +32,8 @@
 <link rel="stylesheet" href="${rctx }/css/common/font.css"/>
 <link rel="stylesheet" href="${rctx }/css/common/jquery.mmenu.all.css"/>
 <link rel="stylesheet" href="${rctx }/css/common/common.css"/>
+<link rel="stylesheet" href="${rctx }/css/common/example.css"/>
+<link rel="stylesheet" href="${rctx }/css/common/sweet-alert.css"/>
 <%-- <link rel="stylesheet" href="${rctx }/css/common/bootstrap-datepicker.min.css"/> --%>
 <link type="text/css" rel="stylesheet" href="${rctx }/css/common/static.css">
 <%-- <link type="text/css" rel="stylesheet" href="${rctx }/css/login.css"> --%>

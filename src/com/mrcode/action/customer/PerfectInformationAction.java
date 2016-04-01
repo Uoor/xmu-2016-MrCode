@@ -88,6 +88,7 @@ public class PerfectInformationAction extends BaseAction<Customer>{
 			
 			cus.setIdentityCard(identityCard);
 			cus.setTrueName(truename);
+			customerService.update(cus);
 			
 			}
 			

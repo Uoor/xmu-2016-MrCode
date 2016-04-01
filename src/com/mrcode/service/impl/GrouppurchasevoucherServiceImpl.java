@@ -38,6 +38,16 @@ public class GrouppurchasevoucherServiceImpl extends BaseServiceImpl<Grouppurcha
 		
 		return gps;
 	}
+
+	public Integer getTypeCount(Customer customer, Integer typeId)
+			throws Exception {
+		// TODO 查询某房间类型的团购券数量
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("customer", customer);
+		map.put("id", typeId);
+		return this.getBaseDao().getCount(" where customer=:customer and used=0 and roomtype.id=:id ", map);
+		
+	}
 	
 	
 }

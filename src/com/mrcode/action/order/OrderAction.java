@@ -18,13 +18,16 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.mrcode.service.GrouppurchasevoucherService;
 import com.mrcode.service.RoomService;
 import com.mrcode.service.RoomtypeService;
+import com.mrcode.utils.Const;
 import com.mrcode.utils.DateUtils;
 import com.mrcode.base.BaseAction;
 import com.mrcode.common.ViewLocation;
+import com.mrcode.common.WebApplication;
+import com.mrcode.model.Customer;
 import com.mrcode.model.Floor;
-import com.mrcode.model.Hotel;
 import com.mrcode.model.Mrcodeorder;
 import com.mrcode.model.Room;
 import com.mrcode.model.Roomtype;
@@ -37,15 +40,20 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
 	RoomtypeService roomtypeService;
 	@Autowired
 	RoomService roomService;
+	@Autowired
+	GrouppurchasevoucherService grouppurchasevoucherService;
 	
 	@Action(value = "toFirst", results = { @Result(name = "stepFirstUI", location = ViewLocation.View_ROOT
 			+ "orderstep0.jsp") })
 	public String toFirst() throws Exception{
 		//跳转至入住第一步，选择日期页面
 		
+		Customer customer = (Customer)session.get(Const.CUSTOMER);
 		//获得房间类型
 		Integer typeId = getIntParameter("typeId", -1);
+		Integer validCount = grouppurchasevoucherService.getTypeCount(customer, typeId);
 		session.put("typeId", typeId);
+		session.put("validCount", validCount);
 		
 		return "stepFirstUI";
 	}
@@ -71,8 +79,15 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
 		session.put("begin", begin);
 		session.put("end", end);
 		
+		Integer typeId = null;
 		//查询所订房间类型的具体信息
-		Integer typeId = getIntParameter("typeId", -1);
+		try {
+			typeId = (Integer)session.get("typeId");
+		} catch (Exception e) {
+			// TODO: 未选择团购券,跳转到选择团购券页面
+			WebApplication.getResponse().sendRedirect(WebApplication.getRequest().getContextPath()+"/customer/toOrder");
+		}
+		
 		Roomtype roomtype = roomtypeService.getWithDetail(typeId);
 		
 		//请求酒店可用的房间
@@ -108,7 +123,6 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
         	Room room = roomService.getByRoomNumAndType(((JSONObject)object).getString("rmId"), roomtype);
         	if (room!=null) {
         		room.setState(((JSONObject)object).getInt("rmState"));
-    			roomService.update(room);
     			rooms.add(room);
 			}
         	
@@ -130,6 +144,8 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
 	@Action(value = "toThird", results = { @Result(name = "stepThirdUI", location = ViewLocation.View_ROOT
 			+ "orderstep2.jsp") })
 	public String toThird() throws Exception{
+		
+		
 		
 		return "stepThirdUI";
 	}
