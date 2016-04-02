@@ -29,19 +29,19 @@
         <div class="order-item">
             <div class="order-item-hotel-name">
                 <span class="order-item-title">门店:</span>
-                <span class="choosen-hotel-name">假日酒店</span>
+                <span class="choosen-hotel-name">${roomtype.hotel.name }</span>
             </div>
             <div class="order-item-hotel-name">
                 <span class="order-item-title">房型:</span>
-                <span class="choosen-hotel-name">总统套房</span>
+                <span class="choosen-hotel-name">${roomtype.typeName }</span>
             </div>
             <div class="order-item-hotel-num">
-                <span clas="order-item-title">预定晚数：</span>
-                <span class="choosen-hotel-num">2</span>晚
+                <span clas="order-item-title">预定天数：</span>
+                <span class="choosen-hotel-num">${days }</span>天
             </div>
             <div class="order-item-hotel-num">
                 <span clas="order-item-title">总价：</span>
-                <span class="choosen-hotel-num">500</span>元
+                <span class="choosen-hotel-num">${total }</span>元
             </div>
         </div>
     </div>
@@ -51,39 +51,40 @@
         <!--设置外面的虚线框-->
         <div class="create-order">
             <!--设置里面的内容-->
-            <div class="order-item">
-                <div class="order-item-hotel-name">
-                    <span class="order-item-title">房号:</span>
-                    <span class="choosen-hotel-name">104</span>
-                </div>
-                <div class="order-item-hotel-name">
-                    <span class="order-item-title">入住时间:</span>
-                    <span class="choosen-hotel-name">2016-3-21</span>
-                </div>
-                <div class="order-item-hotel-name">
-                    <span class="order-item-title">离房时间:</span>
-                    <span class="choosen-hotel-name">2016-3-23</span>
-                </div>
-                <div class="order-item-hotel-name">
-                    <span class="order-item-title">联系人信息:</span>
-                    <!--<div class="order-item-hotel-name">-->
-                        <!--<input class="login-in-input" placeholder="姓名"/>-->
-                    <!--</div>-->
-                    <!--<div class="order-item-hotel-name">-->
-                        <!--<input class="login-in-input" placeholder="电话">-->
-                    <!--</div>-->
-                    <label>
-                    <select class="friends_list">
-                        <option value="白雪公主">白雪公主</option>
-                        <option value="小矮人">小矮人</option>
-                        <option value="李二">李二</option>
-                        <option value="张三">张三</option>
-                    </select>
-                    </label>
-                    <button class="create_new" data-target="#create_friends" data-toggle="modal"><i class="fa fa-plus-circle create_new_i"></i>新建</button>
-                </div>
-
-            </div>
+            <c:forEach items="${rooms }" var="room">
+	            <div class="order-item">
+	                <div class="order-item-hotel-name">
+	                    <span class="order-item-title">房号:</span>
+	                    <span class="choosen-hotel-name">${room.roomNumber }</span>
+	                </div>
+	                <div class="order-item-hotel-name">
+	                    <span class="order-item-title">入住时间:</span>
+	                    <span class="choosen-hotel-name"><fmt:formatDate value="${begin }" pattern="yyyy-MM-dd"/></span>
+	                </div>
+	                <div class="order-item-hotel-name">
+	                    <span class="order-item-title">离房时间:</span>
+	                    <span class="choosen-hotel-name"><fmt:formatDate value="${end }" pattern="yyyy-MM-dd"/></span>
+	                </div>
+	                <div class="order-item-hotel-name">
+	                    <span class="order-item-title">选择入住人员:</span>
+	                    <!--<div class="order-item-hotel-name">-->
+	                        <!--<input class="login-in-input" placeholder="姓名"/>-->
+	                    <!--</div>-->
+	                    <!--<div class="order-item-hotel-name">-->
+	                        <!--<input class="login-in-input" placeholder="电话">-->
+	                    <!--</div>-->
+	                    <label>
+	                    <select class="friends_list">
+	                        <option value="0">本人</option>
+	                        <c:forEach items="${contactors }" var="contactor">
+	                        	<option value="${contactor.id }">${contactor.name }</option>
+	                        </c:forEach>
+	                    </select>
+	                    </label>
+	                    <button class="create_new" data-target="#create_friends" data-toggle="modal"><i class="fa fa-plus-circle create_new_i"></i>新建</button>
+	                </div>
+	            </div>
+            </c:forEach>
         </div>
     </div>
     <div class="order-submit" data-toggle="modal" data-target="#paying">
@@ -140,6 +141,9 @@
                         <div class="order-item-hotel-name">
                         <input class="login-in-input" placeholder="电话" id="friends_phone">
                         </div>
+                        <div class="order-item-hotel-name">
+                        <input class="login-in-input" placeholder="身份证号" id="friends_idCard">
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">
@@ -156,4 +160,16 @@
   <%@ include file="footer.jsp" %>
 
 </body>
+<script type="text/javascript">
+	
+	//设置在填写了联系人的信息以后能够把信息加入到下拉框中
+	function add_friends(e){
+	    var name=$("#friends_name").val();
+	    var phone=$("#friends_phone").val();//获取手机号
+	    if(name!=''){
+	    $(".friends_list").append("<option>"+name+"</option>");
+	    }
+	}
+	
+</script>
 </html>

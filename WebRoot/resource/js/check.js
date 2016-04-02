@@ -217,7 +217,7 @@ function isBankAccount(account){
 function checkDateBeginEnd(begin, end){
 	if(begin!='' && begin!='undefined' && 
 			end!='' && end!='undefined'){
-		if(Date.parse(begin)>Date.parse(end)){
+		if(Date.parse(begin)>=Date.parse(end)){
 			return false;
 		}
 	}
