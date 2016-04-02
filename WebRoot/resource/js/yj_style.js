@@ -46,15 +46,6 @@ function changechoose(e){
     }
 }
 
-//设置在填写了联系人的信息以后能够把信息加入到下拉框中
-function add_friends(e){
-    var name=$("#friends_name").val();
-    var phone=$("#friends_phone").val();//获取手机号
-    if(name!=''){
-    $(".friends_list").append("<option>"+name+"</option>");
-    }
-}
-
 //设置房间管理页面的弹窗
 $(function() {
 
@@ -90,52 +81,7 @@ $(function(){
     });
 });
 
-//设置选择房间页面的js
-//用来把选择的房间添加到已选房间的列表中
-function add_room(e){
-	$(".choose_room_input").each(function(){
-		var temp=$(this);//获得当前的其中一个的input
-		var choosen=$(this).prop("checked");//判断是否被选中
-		var room_number=$(this).next().html();//获得房间号
-		if(choosen==true){//如果被选中的话就要判断是不是已经在已选房间中，是的话就不能添加，不是的话就要添加到已选房间中
-			to_record=0;
-			 var room_id=$(this).val();//获得房间的id值
-			 alert(room_id);
-			 $(".room_value_find").each(function(){
-					var tempvalue=$(this).html();
-					if(room_number==tempvalue){
-						to_record=1;
-					}
-				});
-			 if(to_record==0){
-			 $("#panel-body").append(" <div class='panel-body' ><span class='room_value_find'>"+room_number+"</span> " +
-		        "<i class='fa fa-times times-style' onclick='delete_number(this)'></i> </div>");
-			 }else{
-				 $(temp).attr("checked",false);
-				 swal("不能重复选择同一房间");
-			 }
-		}
-	});
-	var room_list=$("#panel-body").children().length;
-	if(room_list>1){
-		 $("#image_bigger_div").show();
-	}
-}
-//用来把点击叉叉时删除房间
-function delete_number(e){
-	$(e).parent().remove();
-	var room_list=$("#panel-body").children().length;
-	if(room_list<=1){
-		 $("#image_bigger_div").hide();
-	}
-	var room_number=$(e).prev().html();
-	$(".choose-room-checkbox").each(function(){
-		var tempnum=$(this).html();
-	    if(tempnum===room_number){
-	    	$(this).prev().attr("checked",false);
-	    }
-	});
-}
+
 //当还没有选房的时候就把选房列表隐藏起来
 $(function(){
     $("#image_bigger_div").hide();

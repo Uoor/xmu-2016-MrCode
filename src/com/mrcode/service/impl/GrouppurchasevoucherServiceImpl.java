@@ -13,7 +13,10 @@ import com.mrcode.base.BaseDaoImpl;
 import com.mrcode.base.BaseServiceImpl;
 import com.mrcode.model.Customer;
 import com.mrcode.model.Grouppurchasevoucher;
+import com.mrcode.model.Roomtype;
 import com.mrcode.service.GrouppurchasevoucherService;
+import com.mrcode.utils.DateUtils;
+import com.mrcode.utils.PageBean;
 
 
 @Service
@@ -30,9 +33,11 @@ public class GrouppurchasevoucherServiceImpl extends BaseServiceImpl<Grouppurcha
 			throws Exception {
 		// TODO 查询本消费者的所有团购券
 		String hql = "from Grouppurchasevoucher gp left join fetch gp.roomtype tp " +
-				" left join fetch tp.pictures left join fetch tp.hotel where gp.customer=:customer and gp.used=0";
+				" left join fetch tp.pictures left join fetch tp.hotel where gp.customer=:customer " +
+				" and gp.used=0 and gp.expiredTime>:now";
 		Map<String, Object> param = new HashMap<String, Object>();
 		param.put("customer", customer);
+		param.put("now", DateUtils.currentTime().toDate());
 		List<Grouppurchasevoucher> gps = this.getBaseDao().findByHql(
 				hql, param, null, "gp.roomtype, gp.createTime");
 		
@@ -45,8 +50,27 @@ public class GrouppurchasevoucherServiceImpl extends BaseServiceImpl<Grouppurcha
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("customer", customer);
 		map.put("id", typeId);
-		return this.getBaseDao().getCount(" where customer=:customer and used=0 and roomtype.id=:id ", map);
+		map.put("now", DateUtils.currentTime().toDate());
+		return this.getBaseDao().getCount(" where customer=:customer and used=0 and roomtype.id=:id " +
+				" and expiredTime>:now", map);
 		
+	}
+
+	public List<Grouppurchasevoucher> getByType(Customer customer,
+			Roomtype roomtype, PageBean pageBean) throws Exception {
+		// TODO 取得本用户最快过期的count张某类型团购券
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("customer", customer);
+		map.put("roomtype", roomtype);
+		map.put("now", DateUtils.currentTime().toDate());
+		String hql = "from Grouppurchasevoucher gp where gp.customer=:customer " +
+				" and gp.used=0 and gp.expiredTime>:now and gp.roomtype=:roomtype ";
+		if (pageBean != null && pageBean.getPageNum() == 0) {
+			pageBean.setDataSize(this.getBaseDao().getCount(" where customer=:customer and used=0" +
+					" and expiredTime>:now and roomtype=:roomtype",map));
+		}
+		List<Grouppurchasevoucher> vouchers = findByHql(hql, map, pageBean, "gp.expiredTime");
+		return vouchers;
 	}
 	
 	

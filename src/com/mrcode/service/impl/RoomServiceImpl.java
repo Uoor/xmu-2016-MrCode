@@ -1,6 +1,7 @@
 package com.mrcode.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -35,5 +36,15 @@ public class RoomServiceImpl extends BaseServiceImpl<Room>
 		map.put("roomNum", roomNum);
 		Room room = findUniqueByHql(hql, map);
 		return room;
+	}
+
+	public List<Room> getByIds(String ids) throws Exception {
+		// TODO 根据房间id获得多个房间
+		if (ids==null || ids.replaceAll(" ", "").equals("")) {
+			return null;
+		}
+		String hql = "from Room r left join fetch r.roomtype where r.id in (" + ids + ")";
+		
+		return this.getBaseDao().findByHql(hql, new HashMap<String, Object>(), null, "r.id");
 	}
 }

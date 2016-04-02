@@ -155,8 +155,26 @@ public class Floor  implements java.io.Serializable {
     public void setRooms(Set rooms) {
         this.rooms = rooms;
     }
-   
 
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		try {
+			Floor f = (Floor)obj;
+			if(f.getId()==this.getId()){
+				return true;
+			}else return false;
+		} catch (Exception e) {
+			// TODO: handle exception
+			return false;
+		}
+	}
+	@Override
+	public int hashCode() {
+		return id;
+	}
+   
+    
 
 
 
