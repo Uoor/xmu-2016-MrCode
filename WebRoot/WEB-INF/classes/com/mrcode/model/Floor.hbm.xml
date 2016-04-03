@@ -21,7 +21,7 @@
             </column>
         </property>
         <property name="planUrl" type="java.lang.String">
-            <column name="planURL" length="30" not-null="true">
+            <column name="planURL" length="30" >
                 <comment>Æ½ï¿½ï¿½Í¼url</comment>
             </column>
         </property>

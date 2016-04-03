@@ -33,7 +33,10 @@ public class Mrcodeorder  implements java.io.Serializable {
      private Integer column5;
      private Set passwords = new HashSet(0);
      private Grouppurchasevoucher grouppurchasevoucher;
-
+     /**
+  	 * 联系人表 ，表示本类与Contactors的多对多关系  
+  	 */
+  	private Set<Contactors> contactors = new HashSet<Contactors>();
 
     // Constructors
 
@@ -77,7 +80,15 @@ public class Mrcodeorder  implements java.io.Serializable {
         return this.id;
     }
     
-    public void setId(Integer id) {
+    public Set<Contactors> getContactors() {
+		return contactors;
+	}
+
+	public void setContactors(Set<Contactors> contactors) {
+		this.contactors = contactors;
+	}
+
+	public void setId(Integer id) {
         this.id = id;
     }
 

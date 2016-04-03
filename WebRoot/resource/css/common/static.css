@@ -221,7 +221,8 @@ a{
     margin-top: 40px;
 }
 .leave_word{
-    color:#33eeff;
+        color: #00ABBB;
+    font-weight: 700;
 }
 .leave_date,.start_date{
     border: 1px solid #eee;
@@ -279,7 +280,6 @@ a{
 .image_bigger_style{
     text-align: center;
 }
-
 #image_bigger{
     /*vertical-align: middle;*/
     /*margin: 20px;*/
@@ -368,4 +368,8 @@ a{
     border-color:#33ccff;
     background-color:#33ccff;
     color: #fff;
+}
+
+a:hover,a:focus{
+	text-decoration:none;
 }

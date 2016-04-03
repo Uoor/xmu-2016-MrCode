@@ -28,6 +28,8 @@ public class IndexAction extends BaseAction<Customer>{
 	@Autowired
 	GrouppurchasevoucherService grouppurchasevoucherService;
 	
+	
+	
 	@Action(value="toOrder", results={@Result(name="orderUI", location=ViewLocation.View_ROOT+
 			"hotel.jsp")})
 	public String toOrder() throws Exception{
@@ -48,5 +50,23 @@ public class IndexAction extends BaseAction<Customer>{
 		request.setAttribute("rgMap", rgMap);
 		
 		return "orderUI";
+	}
+	
+	
+	@Action(value="toAboutus", results={@Result(name="aboutus", location=ViewLocation.View_ROOT+
+			"aboutus.jsp")})
+	public String toAboutus() throws Exception{
+		
+		return "aboutus";
+	}
+	
+	@Action(value="profile", results={@Result(name="profile", location=ViewLocation.View_ROOT+
+			"quit.jsp")})
+	public String profile() throws Exception{
+		Customer customer = (Customer)session.get(Const.CUSTOMER);
+		Customer cus = (Customer) session.get("customer");
+		request.setAttribute("userName", cus.getUserName());
+		request.setAttribute("phoneNumber",cus.getPhoneNumber());
+		return "profile";
 	}
 }

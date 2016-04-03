@@ -81,19 +81,20 @@ public class AddLinkmanAction extends BaseAction<Contactors>{
 	@Action (value= "addLinkman" , results = {@Result(name ="toAddLinkman", type = TYPE_REDIRECT_ACTION,location= "toAddLinkman" )})
 	public String addLinkman() throws Exception {
 		
-	String	userName = getParameter("userName");
-	String phoneNumber = getParameter("phoneNumber");
-	String identityCard =	getParameter("identityCard");
-	
-	System.out.println(userName + phoneNumber + identityCard);
-	Contactors cont = new Contactors();
-	
-	Customer cus = (Customer)session.get("customer");
-	cont.setCustomer(cus);
-	cont.setIdentityCard(identityCard);
-	cont.setName(userName);
-	cont.setPhoneNumber(phoneNumber);
-	contactorsService.save(cont);
+		String	userName = getParameter("userName");
+		String phoneNumber = getParameter("phoneNumber");
+		String identityCard =	getParameter("identityCard");
+		
+		System.out.println(userName + phoneNumber + identityCard);
+		Contactors cont = new Contactors();
+		
+		Customer cus = (Customer)session.get("customer");
+		cont.setCustomer(cus);
+		cont.setIdentityCard(identityCard);
+		cont.setName(userName);
+		cont.setPhoneNumber(phoneNumber);
+		contactorsService.save(cont);
+		
 		return "toAddLinkman";
 		
 	}

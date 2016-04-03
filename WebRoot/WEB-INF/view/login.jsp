@@ -36,7 +36,7 @@
                     <input type="checkbox"><span class="checkbox-word">记住账号</span>
                 </label>
 
-                    <span class="forget-password">忘记密码？</span>
+                    <a href = "${ctx }/customer/toLoginPhone" class="forget-password">动态登陆</a>
 
             </div>
         </div>

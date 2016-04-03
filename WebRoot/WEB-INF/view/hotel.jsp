@@ -107,7 +107,10 @@
 		                            <span>房间数：</span><span>2</span>个
 		                        </div> -->
 		                        <div>
-		                            <span>有效期至：</span><span>2016-5-1</span>
+		                            <span>有效期至：</span>
+		                            <c:forEach items="${item.value }" var="voucher">
+		                            	<span><fmt:formatDate value="${voucher.expiredTime }" pattern="yyyy-MM-dd"/></span>
+		                            </c:forEach>
 		                        </div>
 		                        <div>
 		                            <span>网络：</span><span>wifi,宽带</span>
