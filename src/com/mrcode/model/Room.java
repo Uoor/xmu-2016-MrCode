@@ -21,7 +21,7 @@ public class Room  implements java.io.Serializable {
      private String column1;
      private String column2;
      private Integer column3;
-     private Set roomdates = new HashSet(0);
+     private Set roomdates = new HashSet();
      private Password password;
 
 

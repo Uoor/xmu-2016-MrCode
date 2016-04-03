@@ -31,8 +31,8 @@ public class Mrcodeorder  implements java.io.Serializable {
      private String column3;
      private Integer column4;
      private Integer column5;
-     private Set passwords = new HashSet(0);
-     private Grouppurchasevoucher grouppurchasevoucher;
+     private Set passwords = new HashSet();
+     private Set<Grouppurchasevoucher> grouppurchasevouchers = new HashSet<Grouppurchasevoucher>();
      /**
   	 * 联系人表 ，表示本类与Contactors的多对多关系  
   	 */
@@ -50,8 +50,24 @@ public class Mrcodeorder  implements java.io.Serializable {
         this.orderCode = orderCode;
     }
     
-    /** full constructor */
-    public Mrcodeorder(Integer id, Customer customer, String orderCode, Integer depositAlready, Float depositPrice, Integer hasPay, String voucherNumber, Integer hasComfirm, Timestamp createTime, Timestamp endTime, Float refund, Integer isRefund, String column1, String column2, String column3, Integer column4, Integer column5, Set passwords, Grouppurchasevoucher grouppurchasevoucher) {
+    public Mrcodeorder(Customer customer, String orderCode,
+			Float depositPrice, Timestamp createTime,
+			Set<Grouppurchasevoucher> grouppurchasevouchers) {
+		super();
+		this.customer = customer;
+		this.orderCode = orderCode;
+		if(depositPrice==null || depositPrice<=0){
+			this.depositAlready = 0;
+		}else if(depositPrice > 0){
+			this.depositAlready = 1;
+		}
+		this.depositPrice = depositPrice;
+		this.createTime = createTime;
+		this.grouppurchasevouchers = grouppurchasevouchers;
+	}
+
+	/** full constructor */
+    public Mrcodeorder(Integer id, Customer customer, String orderCode, Integer depositAlready, Float depositPrice, Integer hasPay, String voucherNumber, Integer hasComfirm, Timestamp createTime, Timestamp endTime, Float refund, Integer isRefund, String column1, String column2, String column3, Integer column4, Integer column5, Set passwords, Set<Grouppurchasevoucher> grouppurchasevoucher) {
         this.id = id;
         this.customer = customer;
         this.orderCode = orderCode;
@@ -70,7 +86,7 @@ public class Mrcodeorder  implements java.io.Serializable {
         this.column4 = column4;
         this.column5 = column5;
         this.passwords = passwords;
-        this.grouppurchasevoucher = grouppurchasevoucher;
+        this.grouppurchasevouchers = grouppurchasevouchers;
     }
 
    
@@ -228,12 +244,12 @@ public class Mrcodeorder  implements java.io.Serializable {
         this.passwords = passwords;
     }
 
-    public Grouppurchasevoucher getGrouppurchasevoucher() {
-        return this.grouppurchasevoucher;
+    public Set<Grouppurchasevoucher> getGrouppurchasevouchers() {
+        return this.grouppurchasevouchers;
     }
     
-    public void setGrouppurchasevoucher(Grouppurchasevoucher grouppurchasevoucher) {
-        this.grouppurchasevoucher = grouppurchasevoucher;
+    public void setGrouppurchasevouchers(Set<Grouppurchasevoucher> grouppurchasevouchers) {
+        this.grouppurchasevouchers = grouppurchasevouchers;
     }
    
 
