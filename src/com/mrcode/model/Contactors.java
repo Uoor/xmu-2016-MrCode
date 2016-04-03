@@ -20,6 +20,7 @@ public class Contactors  implements java.io.Serializable {
      private String identityCard;
      private String phoneNumber;
      private String name;
+     private Integer isSelf;
      /**
  	 * 码团订单表 ，表示本类与Mrcodeorder的多对多关系  
  	 */
@@ -48,7 +49,15 @@ public class Contactors  implements java.io.Serializable {
    
     // Property accessors
 
-    public Integer getId() {
+    public Integer getIsSelf() {
+		return isSelf;
+	}
+
+	public void setIsSelf(Integer isSelf) {
+		this.isSelf = isSelf;
+	}
+
+	public Integer getId() {
         return this.id;
     }
     
