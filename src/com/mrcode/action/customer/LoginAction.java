@@ -64,5 +64,16 @@ public class LoginAction extends BaseAction<Customer>{
 	
 		return "index";
 		}
+	
+	/**
+	 * 动态登陆页面
+	 * @return
+	 */
+	@Action(value = "toLoginPhone", results = {
+			@Result(name = "toLoginPhone", location = ViewLocation.View_ROOT +"login_phone.jsp")})
+	public String toLoginPhone() throws Exception{
+	
+		return "toLoginPhone";
+		}
 
 }

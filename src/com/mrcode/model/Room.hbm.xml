@@ -45,6 +45,5 @@
             </key>
             <one-to-many class="com.mrcode.model.Roomdate" />
         </set>
-        <one-to-one name="password" class="com.mrcode.model.Password"></one-to-one>
     </class>
 </hibernate-mapping>

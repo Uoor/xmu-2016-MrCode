@@ -26,7 +26,7 @@ public class Grouppurchasevoucher  implements java.io.Serializable {
      private Timestamp consumeTime;
      private Float price;
      private Timestamp createTime;
-     private String column2;
+     private Timestamp expiredTime;
      private Integer column3;
 
 
@@ -47,7 +47,7 @@ public class Grouppurchasevoucher  implements java.io.Serializable {
     }
     
     /** full constructor */
-    public Grouppurchasevoucher(Integer id, Roomtype roomtype, Mrcodeorder mrcodeorder, Customer customer, String orderCode, Hotel hotel, Integer used, Timestamp consumeTime, Float price, Timestamp createTime, String column2, Integer column3) {
+    public Grouppurchasevoucher(Integer id, Roomtype roomtype, Mrcodeorder mrcodeorder, Customer customer, String orderCode, Hotel hotel, Integer used, Timestamp consumeTime, Float price, Timestamp createTime, Timestamp expiredTime, Integer column3) {
         this.id = id;
         this.roomtype = roomtype;
         this.mrcodeorder = mrcodeorder;
@@ -58,7 +58,7 @@ public class Grouppurchasevoucher  implements java.io.Serializable {
         this.consumeTime = consumeTime;
         this.price = price;
         this.createTime = createTime;
-        this.column2 = column2;
+        this.expiredTime = expiredTime;
         this.column3 = column3;
     }
 
@@ -145,12 +145,12 @@ public class Grouppurchasevoucher  implements java.io.Serializable {
         this.createTime = createTime;
     }
 
-    public String getColumn2() {
-        return this.column2;
+    public Timestamp getExpiredTime() {
+        return this.expiredTime;
     }
     
-    public void setColumn2(String column2) {
-        this.column2 = column2;
+    public void setExpiredTime(Timestamp expiredTime) {
+        this.expiredTime = expiredTime;
     }
 
     public Integer getColumn3() {

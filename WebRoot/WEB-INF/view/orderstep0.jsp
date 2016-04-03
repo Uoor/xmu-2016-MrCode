@@ -79,19 +79,19 @@
 		var begin = $(".begin").val();
 		var end = $(".end").val();
 		if(begin=="" || typeof(begin)=="undefined"){
-			swal("请选择开始日期");
+			swal("请选择入住时间");
 			return false;
 		}
 		if(end=="" || typeof(end)=="undefined"){
-			swal("请选择结束日期");
+			swal("请选择离开时间");
 			return false;
 		}
 		if(!checkDateBeginEnd(begin, end)){
-			swal("开始日期不得在结束日期之后");
+			swal("入住时间必须在离开时间之前");
 			return false;
 		}
 		var dif = DateDiff(begin, end);
-		if(Number(dif)+1 >"${validCount}"){
+		if(Number(dif) >"${validCount}"){
 			swal("您的团购券只有${validCount}张，选择的天数不能超过${validCount}天");
 			return false;
 		}
