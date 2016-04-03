@@ -56,15 +56,15 @@ $(function() {
     $("#wash").click(function(){
         var txt="您已预订衣物清洗服务";
         window.wxc.xcConfirm(txt,window.wxc.xcConfirm.typeEnum.info);
-    })
+    });
     $("#call").click(function(){
         var txt="您已呼叫总台，请稍候";
         window.wxc.xcConfirm(txt,window.wxc.xcConfirm.typeEnum.info);
-    })
+    });
     $("#clean").click(function(){
         var txt="您已预订房间清洁服务，请稍候";
         window.wxc.xcConfirm(txt,window.wxc.xcConfirm.typeEnum.info);
-    })
+    });
 });
 
 
@@ -81,7 +81,13 @@ $(function(){
     });
 });
 
-
+//当选择的时间没有合适的房间的时候就提示重新选择时间
+$(function(){
+	var tempfloor=$(".hotel-floor").length;
+	if(tempfloor==0){
+     swal("没有可选的房间，请重新选择时间");	
+	}
+});
 //当还没有选房的时候就把选房列表隐藏起来
 $(function(){
     $("#image_bigger_div").hide();
