@@ -23,8 +23,10 @@ public class Roomtype  implements java.io.Serializable {
      private String remark;
      private Hotel hotel;
      private String typeId;
+     private String column1;
      private String column2;
      private Integer column4;
+     private Float discount;
      private Set grouppurchasevouchers = new HashSet();
      private Set rooms = new HashSet();
      private Set pictures = new HashSet();
@@ -43,13 +45,15 @@ public class Roomtype  implements java.io.Serializable {
     }
     
     /** full constructor */
-    public Roomtype(Integer id, String typeName, Float price, String remark, Hotel hotel, String typeId, String column2, Integer column4, Set grouppurchasevouchers, Set rooms, Set pictures) {
+    public Roomtype(Integer id, String typeName, Float price, Float discount, String remark, Hotel hotel, String typeId, String column2, String column1, Integer column4, Set grouppurchasevouchers, Set rooms, Set pictures) {
         this.id = id;
         this.typeName = typeName;
         this.price = price;
+        this.discount = discount;
         this.remark = remark;
         this.hotel = hotel;
         this.typeId = typeId;
+        this.column1 = column1;
         this.column2 = column2;
         this.column4 = column4;
         this.grouppurchasevouchers = grouppurchasevouchers;
@@ -84,7 +88,15 @@ public class Roomtype  implements java.io.Serializable {
         this.price = price;
     }
 
-    public String getRemark() {
+    public Float getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(Float discount) {
+		this.discount = discount;
+	}
+
+	public String getRemark() {
         return this.remark;
     }
     
@@ -108,7 +120,15 @@ public class Roomtype  implements java.io.Serializable {
         this.typeId = typeId;
     }
 
-    public String getColumn2() {
+    public String getColumn1() {
+		return column1;
+	}
+
+	public void setColumn1(String column1) {
+		this.column1 = column1;
+	}
+
+	public String getColumn2() {
         return this.column2;
     }
     
