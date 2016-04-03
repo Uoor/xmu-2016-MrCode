@@ -128,7 +128,7 @@
         <span class="footer_vertical_line">|</span>
         <a href="management.html">管理</a>
         <span class="footer_vertical_line">|</span>
-        <a href="aboutus.html">我们团队</a>
+        <a href="${ctx }/customer/profile">我的</a>
 
     </p>
     <p class="footer-bottom">
