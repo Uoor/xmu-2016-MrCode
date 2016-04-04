@@ -17,4 +17,6 @@ public interface PasswordService extends BaseService<Password>{
 	 */
 	public Boolean createPasswords(Mrcodeorder mrcodeorder,
 			String roomsIds, String contactorsIds, Date begin, Date end);
+	
+	public Password getPasswordByPhone(String phoneNumber);
 }
