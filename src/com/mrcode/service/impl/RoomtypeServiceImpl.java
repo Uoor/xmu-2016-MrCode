@@ -32,4 +32,13 @@ public class RoomtypeServiceImpl extends BaseServiceImpl<Roomtype>
 				, map);
 		return type;
 	}
+	
+	public Roomtype findRoomtypeByTypeId(Integer hotelid, String typeid) throws Exception {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("typeid", typeid);
+		map.put("hotelid", hotelid);
+		Roomtype type = findUniqueByHql("from Roomtype t where t.hotel.id=:hotelid and t.typeId=:typeid", map);
+		return type;
+	}
 }

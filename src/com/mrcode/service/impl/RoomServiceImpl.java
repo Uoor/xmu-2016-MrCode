@@ -50,4 +50,5 @@ public class RoomServiceImpl extends BaseServiceImpl<Room>
 		
 		return this.getBaseDao().findByHql(hql, new HashMap<String, Object>(), null, "r.id");
 	}
+	
 }
