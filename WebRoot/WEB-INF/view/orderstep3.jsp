@@ -22,7 +22,7 @@
 <div class="content">
     <div class="paying_information">
         <div class="paying_content">
-        <span class="paying_title">支付押金:</span><span class="paying_num">200</span>元
+        <span class="paying_title">支付押金:</span><span class="paying_num">${order.depositPrice }</span>元
         </div>
         <div class="paying_content">
             <div class="panel panel-info">
@@ -30,7 +30,7 @@
                     <h3 class="panel-title">选择支付方式</h3>
                 </div>
                 <div class="panel-body" >
-                    <a href="#">支付宝</a>
+                    <a href="${ctx }/customer/alipayHandler?id=${order.id}">支付宝</a>
                 </div>
                 <div class="panel-body">
                     <a href="#">微信</a>

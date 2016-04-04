@@ -1,6 +1,7 @@
 package com.mrcode.base;
 
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -172,5 +173,5 @@ public interface BaseDao<T> {
 	 */
 	public int executeBySql(String sql, Map<String, Object> map);
 
-	
+	public void saveOrUpdateAll(Collection<T> models);
 }
