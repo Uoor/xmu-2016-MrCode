@@ -5,11 +5,11 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<%@ include file="/common/common.jsp" %>
+<%@ include file="/common/commonPhoneLogin.jsp" %>
     <title>动态登陆</title>
      <link type="text/css" rel="stylesheet" href="${rctx }/css/login_phone.css"/>
      <link type="text/css" rel="stylesheet" href="${rctx }/css/login.css"/>
-     <script type="text/javascript" src="${rctx }/js/yj_style.js"></script>
+     <script type="text/javascript" src="${rctx }/js/yj_style_phone.js"></script>
 </head>
 <body>
 <div class="head">

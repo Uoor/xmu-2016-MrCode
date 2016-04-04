@@ -25,7 +25,15 @@ public class ContactorsServiceImpl extends BaseServiceImpl<Contactors>
 		super.setBaseDao(baseDao);
 	}
 	
+	//订房间时添加联系人=本人+未删除联系人
 	public List<Contactors> getContactorsByCustomerId(Customer cus)
+	{
+		String hql="from Contactors c left join fetch c.customer where c.customer=:cus and c.isSelf != 2";
+	    
+		return this.findByHql(hql, DataUtils.getMap("cus",cus));
+	}
+	//管理联系人=未删除联系人
+	public List<Contactors> getContactorsByCustomerIds(Customer cus)
 	{
 		String hql="from Contactors c left join fetch c.customer where c.customer=:cus and c.isSelf = 0";
 	    
