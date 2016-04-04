@@ -8,13 +8,16 @@
         if(pheight<=600){
             $(".footer-top").hide();
         }
-    }
+    };
 //设置侧边栏
-    $(function() {
+   /* $(function() {
+		$('nav#menu').mmenu();
+	});*/
+  $(function() {
         $('nav#menu').mmenu({
-            extensions	: [ 'effect-slide-menu', 'pageshadow' ],
+         /*   extensions	: [ 'effect-slide-menu', 'pageshadow' ],
             searchfield	: true,
-            counters	: true,
+            counters	: true,*/
             navbars		: [
                 {
                     position	: 'top'
@@ -68,31 +71,6 @@ $(function() {
 });
 
 
-//设置放大镜的属性
-$(function(){
-    $('#image_bigger').okzoom({
-        width: 200,
-        height: 200,
-        round: true,
-        background: "#fff",
-        backgroundRepeat: "repeat",
-        shadow: "0 0 5px #000",
-        border: "1px solid black"
-    });
-});
-
-//当选择的时间没有合适的房间的时候就提示重新选择时间
-$(function(){
-	var tempfloor=$(".hotel-floor").length;
-	if(tempfloor==0){
-     swal("没有可选的房间，请重新选择时间");	
-	}
-});
-//当还没有选房的时候就把选房列表隐藏起来
-$(function(){
-    $("#image_bigger_div").hide();
-});
-
 //在点击修改联系人的时候修改模态框中的姓名
 function change_name(e){
     var name=$(e).siblings("span");
@@ -109,7 +87,7 @@ function  add_friends_2(e){
     }
     if(name_val!=''){
     $("#add_friends_list").append(" <div class='panel-body'> <i class='fa fa-pencil search-style' data-target='#rewrite_friends' data-toggle='modal' onclick='change_name(this)'></i>"+
-        "<span class='add_friends_name'>"+name_val+"</span> <i class='fa fa-times times-style' onclick='delete_room(this)'></i> </div>")
+        "<span class='add_friends_name'>"+name_val+"</span> <i class='fa fa-times times-style' onclick='delete_room(this)'></i> </div>");
     }else {
         var txt="名字不能为空值";
         window.wxc.xcConfirm(txt,window.wxc.xcConfirm.typeEnum.info);
@@ -140,3 +118,6 @@ function delete_room(e){
         $("#add_friends_list_member").hide();
     }
 }
+
+
+
