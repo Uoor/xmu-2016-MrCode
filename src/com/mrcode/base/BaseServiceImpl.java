@@ -2,6 +2,7 @@ package com.mrcode.base;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -57,6 +58,11 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 
 	}
 
+	@Transactional
+	public void saveOrUpdateAll(Collection<T> models){
+		baseDao.saveOrUpdateAll(models);
+	}
+	
 	@Transactional
 	public T getById(Integer id) {
 		return baseDao.getById(id);
@@ -189,7 +195,7 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 		return baseDao;
 	}
 
-	// 返回json格式的数�?
+	// 返回json格式的数�?
 	@Transactional
 	public String getJsonList(PageBean pageBean, Map<String, Object> map,
 			String order, HttpServletRequest request,
@@ -236,9 +242,9 @@ public abstract class BaseServiceImpl<T> implements BaseService<T> {
 		}
 		JsonConfig config = new JsonConfig();
 		if (excludes == null) {
-			excludes = new String[] {}; // 待添�?
+			excludes = new String[] {}; // 待添�?
 		}
-		config.setExcludes(excludes);// 出去dept属�?
+		config.setExcludes(excludes);// 出去dept属�?
 		JSONObject json = JSONObject.fromObject(tempMap, config);
 		return json.toString();
 	}
