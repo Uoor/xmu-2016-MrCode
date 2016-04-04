@@ -10,6 +10,7 @@ import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import com.mrcode.service.ContactorsService;
 import com.mrcode.service.CustomerService;
 import com.mrcode.utils.Const;
 import com.mrcode.utils.DataUtils;
@@ -18,6 +19,7 @@ import com.mrcode.utils.MessageSend;
 import com.mrcode.utils.ValidateUtils;
 import com.mrcode.base.BaseAction;
 import com.mrcode.common.ViewLocation;
+import com.mrcode.model.Contactors;
 import com.mrcode.model.Customer;
 import com.opensymphony.xwork2.ActionContext;
 
@@ -29,6 +31,8 @@ public class LoginPhoneAction extends BaseAction<Customer>{
 	@Autowired
 	CustomerService customerService;
 	
+	@Autowired
+	ContactorsService contactorsService;
 
 	/**
 	 * 短信快捷登录
@@ -70,6 +74,17 @@ public class LoginPhoneAction extends BaseAction<Customer>{
 						newCust.setPassword(phone);
 						
 						customerService.save(newCust);
+						
+						Contactors cont = new Contactors();
+						cont.setCustomer(newCust);
+					//	cont.setIdentityCard(phone);
+					//	cont.setName(phone);
+						cont.setPhoneNumber(phone);
+						cont.setId(1);
+						contactorsService.save(cont);
+						
+						
+						
 						getSession().put("customer", newCust);
 						return "toIndex";
 					}

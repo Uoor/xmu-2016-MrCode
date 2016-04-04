@@ -67,8 +67,8 @@ $(function() {
     });
 });
 
-
-//设置放大镜的属性
+//注销这部分，影响短信动态登陆
+/*//设置放大镜的属性
 $(function(){
     $('#image_bigger').okzoom({
         width: 200,
@@ -79,15 +79,15 @@ $(function(){
         shadow: "0 0 5px #000",
         border: "1px solid black"
     });
-});
+});*/
 
-//当选择的时间没有合适的房间的时候就提示重新选择时间
+/*//当选择的时间没有合适的房间的时候就提示重新选择时间
 $(function(){
 	var tempfloor=$(".hotel-floor").length;
 	if(tempfloor==0){
      swal("没有可选的房间，请重新选择时间");	
 	}
-});
+});*/
 //当还没有选房的时候就把选房列表隐藏起来
 $(function(){
     $("#image_bigger_div").hide();
