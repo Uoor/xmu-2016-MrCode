@@ -16,7 +16,7 @@ public interface RoomService extends BaseService<Room>{
 	 * @return
 	 * @throws Exception
 	 */
-	public Room getByRoomNumAndType(String roomNum, Roomtype type) throws Exception;
+	public List<Room> getByRoomNumAndType(String roomNum, Roomtype type) throws Exception;
 	
 	/**
 	 * 根据房间id获得多个房间
