@@ -15,6 +15,7 @@ import java.util.Map;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import net.sf.json.JsonConfig;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
@@ -32,6 +33,7 @@ import com.mrcode.service.RoomService;
 import com.mrcode.service.RoomtypeService;
 import com.mrcode.utils.Const;
 import com.mrcode.utils.DateUtils;
+import com.mrcode.utils.JsonValueFormat;
 import com.mrcode.utils.MakeOrderNum;
 import com.mrcode.base.BaseAction;
 import com.mrcode.common.ViewLocation;
@@ -41,6 +43,7 @@ import com.mrcode.model.Customer;
 import com.mrcode.model.Floor;
 import com.mrcode.model.Grouppurchasevoucher;
 import com.mrcode.model.Mrcodeorder;
+import com.mrcode.model.Password;
 import com.mrcode.model.Room;
 import com.mrcode.model.Roomtype;
 
@@ -252,32 +255,85 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
 	public Mrcodeorder createOrder(){
 		//生成码团订单
 		//收集数据
-		Customer customer = (Customer)session.get(Const.CUSTOMER);
-		String roomIds = getParameter("room");
-		String contactorIds = getParameter("contactor");
-		Date begin = (Date)session.get("begin");
-		Date end = (Date)session.get("end");
-		List<Grouppurchasevoucher> vouchers = (List<Grouppurchasevoucher>)session.get("vouchers");
-		Float depositPrice = (float) 0;
-		for(Grouppurchasevoucher g : vouchers){
-			depositPrice += g.getPrice();
-		}
-		//生成订单
-		Mrcodeorder mrcodeorder = new Mrcodeorder(customer, 
-				MakeOrderNum.makeOrderNum(Thread.currentThread().getName()), 
-				depositPrice, new Timestamp(System.currentTimeMillis()), 
-				new HashSet<Grouppurchasevoucher>(vouchers));
-		mrcodeorder = mrcodeorderService.getById(mrcodeorderService.save(mrcodeorder));
-		//把团购券设为已使用
-		for(Grouppurchasevoucher voucher : vouchers){
-			voucher.setUsed(1);
-		}
-		grouppurchasevoucherService.saveOrUpdateAll(vouchers);
-		//生成各房间的密码钥匙
-		if (passwordService.createPasswords(mrcodeorder, roomIds, contactorIds, begin, end)) {
-			return mrcodeorder;
-		}else {
+		try {
+			Customer customer = (Customer)session.get(Const.CUSTOMER);
+			String roomIds = getParameter("room");
+			String contactorIds = getParameter("contactor");
+			Date begin = (Date)session.get("begin");
+			Date end = (Date)session.get("end");
+			List<Grouppurchasevoucher> vouchers = (List<Grouppurchasevoucher>)session.get("vouchers");
+			Float depositPrice = (float) 0;
+			for(Grouppurchasevoucher g : vouchers){
+				depositPrice += g.getPrice();
+			}
+			//生成订单
+			Mrcodeorder mrcodeorder = new Mrcodeorder(customer, 
+					MakeOrderNum.makeOrderNum(Thread.currentThread().getName()), 
+					depositPrice, new Timestamp(System.currentTimeMillis()), 
+					new HashSet<Grouppurchasevoucher>(vouchers));
+			mrcodeorder = mrcodeorderService.getById(mrcodeorderService.save(mrcodeorder));
+			//把团购券设为已使用
+			for(Grouppurchasevoucher voucher : vouchers){
+				voucher.setUsed(1);
+			}
+			grouppurchasevoucherService.saveOrUpdateAll(vouchers);
+			//生成各房间的密码钥匙
+			List<Password> passwords = null;
+			if ((passwords=passwordService.createPasswords(mrcodeorder, roomIds, contactorIds, begin, end))!=null) {
+				//请求酒店可用的房间
+				String url_str = "http://localhost:8080/JavaPrj_9/reserv.htm?action=createReservBymrcode";//获取用户认证的帐号URL
+		        URL url = new URL(url_str);
+		        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+				// connection.connect();
+				// 默认是get 方式
+				connection.setRequestMethod("POST");
+				// 设置是否向connection输出，如果是post请求，参数要放在http正文内，因此需要设为true
+				connection.setDoOutput(true);
+				// Post 请求不能使用缓存
+				connection.setUseCaches(false);
+				//要上传的参数  
+				JsonConfig config = new JsonConfig();
+				config.setExcludes(new String[] { "roomtype", "floor","roomdates","mrcodeorder","customer"});
+				config.registerJsonValueProcessor(Timestamp.class, new JsonValueFormat());
+				JSONArray jsonArray = JSONArray.fromObject(passwords,config);
+				JSONObject json = new JSONObject();
+				json.put("deposit", 0);
+				json.put("passwords", jsonArray);
+		        PrintWriter pw=new PrintWriter(connection.getOutputStream());
+		        String content = "json=" + json;  
+		        pw.print(content);
+		        pw.flush();
+		        pw.close();
+		        int code = connection.getResponseCode();
+		        if (code == 404) {
+		            throw new Exception("连接无效，找不到此次连接的会话信息！");
+		        }
+		        if (code == 500) {
+		            throw new Exception("连接服务器发生内部错误！");
+		        }
+		        if (code != 200) {
+		            throw new Exception("发生其它错误，连接服务器返回 " + code);
+		        }
+		        InputStream is = connection.getInputStream();
+		        byte[] response = new byte[is.available()];
+		        is.read(response);
+		        is.close();
+		        if (response == null || response.length == 0) {
+		            throw new Exception("连接无效，找不到此次连接的会话信息！");
+		        }
+		       /* String json = new String(response, "UTF-8");
+		        System.out.println(json);
+		        JSONObject jsonObject = JSONObject.fromObject( json );
+		        JSONArray jsonArray = JSONArray.fromObject(jsonObject.get("rooms"));*/
+		        
+				return mrcodeorder;
+			}else {
+				return null;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
 			return null;
 		}
+		
 	}
 }
