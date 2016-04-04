@@ -11,4 +11,5 @@ public interface RoomtypeService extends BaseService<Roomtype>{
 	 * @throws Exception
 	 */
 	public Roomtype getWithDetail(Integer id)throws Exception;
+	public Roomtype findRoomtypeByTypeId(Integer hotelid, String typeid) throws Exception;
 }
