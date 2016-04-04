@@ -27,8 +27,8 @@ public class ContactorsServiceImpl extends BaseServiceImpl<Contactors>
 	
 	public List<Contactors> getContactorsByCustomerId(Customer cus)
 	{
-		String hql="from Contactors c left join fetch c.customer as cus where cus.id=:id ";
+		String hql="from Contactors c left join fetch c.customer where c.customer=:cus and c.isSelf = 0";
 	    
-		return this.findByHql(hql, DataUtils.getMap("id",cus.getId()));
+		return this.findByHql(hql, DataUtils.getMap("cus",cus));
 	}
 }
