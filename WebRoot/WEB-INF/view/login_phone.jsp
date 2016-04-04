@@ -7,9 +7,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <%@ include file="/common/common.jsp" %>
     <title>动态登陆</title>
-    <script type="text/javascript" src="${rctx }/js/yj_style.js"></script>
-    <link type="text/css" href="${rctx }/css/login.css"/>
-
+     <link type="text/css" rel="stylesheet" href="${rctx }/css/login_phone.css"/>
+     <link type="text/css" rel="stylesheet" href="${rctx }/css/login.css"/>
+     <script type="text/javascript" src="${rctx }/js/yj_style.js"></script>
 </head>
 <body>
 <div class="head">
@@ -18,27 +18,22 @@
         <span class="header-word">动态登陆</span>
         <a href="${ctx }/customer/toIndex"><i class="fa fa-home head-style home-style"></i></a>
     </div>
-
     <%@ include file="header.jsp" %>
 </div>
 <div class="content">
  <div class="validate-info" style="display:none"></div>
- <form  action="${ctx }/customer/mobileLogin" onsubmit="return allok()" 
+ 	<form  action="${ctx }/customer/mobileLogin" onsubmit="return allok()" 
  method="post" class="form form--stack J-wwwtracker-form" >
     	<div id="choose-edit" style="margin-bottom: 50px;text-align: center;">
-        	 <div >
-                            <i class="icon sp-passport icon-phone"></i>
-                            <input type="text" id="login-mobile"  name="phone" value=""
-                                   placeholder="手机号"/>
-             </div>
-        	
-        	<div >
-            	<input type="text" name="dynamicCode" id="login-verify-code"  autocomplete="off"
-                                   value="" placeholder="动态码" class="login-in-input login-phone-input" placeholder="请输入验证码">
-           		<input type="button" id="sendBtnInput" value="发送动态码" class="send" />
+        	 <div class="control-group input-top" style="margin-top:50px">
+                <input type="text" id="login-mobile" class="login-in-input" name="phone" value="" placeholder="请输入手机号"/>
+             </div>       	
+        	 <div class="control-group">
+            	<input type="text" name="dynamicCode" id="login-verify-code"  autocomplete="off" value="" placeholder="请输入动态码" class="login-in-input login-phone-input">
+           		<input type="button" id="sendBtnInput" value="发送动态码" class="send login_phone_num" />
         	</div>
-        	<div >
-                            <input type="submit" class="btn b2"value="登录"/>
+        	  <div class="control-group">
+                <input type="submit" class="btn b2 login-now"value="登录"/>
             </div>
     	</div>
     </form>
