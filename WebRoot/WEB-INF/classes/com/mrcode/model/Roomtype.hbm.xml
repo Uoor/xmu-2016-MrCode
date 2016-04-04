@@ -30,6 +30,14 @@
                 <comment></comment>
             </column>
         </many-to-one>
+        <property name="discount" type="java.lang.Float">
+            <column name="discount" precision="12" scale="10">
+               <comment>折扣价</comment>
+            </column>
+        </property>
+        <property name="typeId" type="java.lang.String">
+            <column name="typeId" length="30" />
+        </property>
         <property name="column1" type="java.lang.String">
             <column name="Column_1" length="30" />
         </property>

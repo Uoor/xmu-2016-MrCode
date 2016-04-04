@@ -85,7 +85,7 @@
     };
 </script>
 <div class="content">
-    <a href="${ctx }/toOrder">
+    <a href="${ctx }/customer/toOrder">
         <div class="img" style="background:url(${rctx }/image/13809673822754.png) center no-repeat; background-size:contain;"></div>
         <div class="text">酒店入住</div>
     </a>
@@ -93,29 +93,30 @@
     <div class="img" style="background:url(${rctx }/image/13809674805918.png) center no-repeat; background-size:contain;"></div>
     <div class="text">联系人</div>
     </a>
-    <a href="groom.html">
+    
+    <a href="${ctx }/customer/perfectInformation">
     <div class="img" style="background:url(${rctx }/image/13809674461949.png) center no-repeat; background-size:contain;"></div>
-    <div class="text">猜你喜欢</div>
+    <div class="text">完善信息</div>
     </a>
     <a href="management.html">
         <div class="img" style="background:url(${rctx }/image/13809674319154.png) center no-repeat; background-size:contain;"></div>
         <div class="text">房间管理</div>
     </a>
-    <a href="restaurant.html">
+    <a href="${ctx }/customer/toCateRecommend">
     <div class="img" style="background:url(${rctx }/image/13809674157426.png) center no-repeat; background-size:contain;"></div>
     <div class="text">餐馆美食</div>
     </a>
-    <a href="visiting.html">
+    <a href="${ctx }/customer/toVisitRecommend">
     <div class="img" style="background:url(${rctx }/image/13809673974739.png) center no-repeat; background-size:contain;"></div>
     <div class="text">游玩攻略</div>
     </a>
-    <a href="traffic.html">
+    <a href="${ctx }/customer/toTrafficRecommend">
         <div class="img" style="background:url(${rctx }/image/13809674651404.png) center no-repeat; background-size:contain;"></div>
         <div class="text">交通指南</div>
     </a>
-    <a href="${ctx }/customer/perfectInformation">
+    <a href="${ctx }/customer/toAboutus">
         <div class="img" style="background:url(${rctx }/image/13809674974016.png) center no-repeat; background-size:contain;"></div>
-        <div class="text">完善信息</div>
+        <div class="text">关于我们</div>
     </a>
     </div>
 <div class="footer" style="position:absolute;bottom:0;width:100%;">
@@ -127,7 +128,7 @@
         <span class="footer_vertical_line">|</span>
         <a href="management.html">管理</a>
         <span class="footer_vertical_line">|</span>
-        <a href="aboutus.html">我们团队</a>
+        <a href="${ctx }/customer/profile">我的</a>
 
     </p>
     <p class="footer-bottom">

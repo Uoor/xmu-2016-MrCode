@@ -33,109 +33,68 @@
   <%@ include file="header.jsp" %>
 </div>
 <div class="content choose-floor" >
-    <div class="choose-floor-div">
-        <div class="hotel-floor col-xs-6">
-            <input type="radio" class="choose-style " name="choose-floor" value="floor3" onclick="know_floor(this)">
-            <span class="floor-style">
-                <i class="fa fa-building building-style"></i>
-            </span>
-            <span class="floor-num" id="f3">
-                三楼
-            </span>
-        </div>
-        <div class="hotel-floor col-xs-6">
-            <input type="radio" class="choose-style " name="choose-floor" value="floor4" onclick="know_floor(this)">
-            <span class="floor-style">
-                <i class="fa fa-building building-style"></i>
-            </span>
-            <span class="floor-num" id="f4">
-                四楼
-            </span>
-        </div>
-        <div class="hotel-floor col-xs-6">
-            <input type="radio" class="choose-style " name="choose-floor" value="floor5" onclick="know_floor(this)">
-            <span class="floor-style">
-                <i class="fa fa-building building-style"></i>
-            </span>
-            <span class="floor-num" id="f5">
-                五楼
-            </span>
-        </div>
-        <div class="hotel-floor col-xs-6">
-            <input type="radio" class="choose-style " name="choose-floor" value="floor12" onclick="know_floor(this)">
-            <span class="floor-style">
-                <i class="fa fa-building"></i>
-            </span>
-            <span class="floor-num" id="f12">
-                十二楼
-            </span>
-        </div>
+    <div class="choose-floor-div" style="display: flex;">
+        <c:forEach items="${frMap }" var="item">
+	        <div class="hotel-floor col-xs-6">
+	            <a type="radio" data-toggle="modal" class="choose-style " href="#show_room_${item.key.id }">
+		            <span class="floor-style">
+		                <i class="fa fa-building building-style"></i>
+		            </span>
+		            <span class="floor-num" id="f3">
+		                ${item.key.floorNumber }楼
+		            </span>
+	            </a>
+	        </div>
+	        
+	        <!-- 模态框展示房间 -->
+	        <div class="modal fade" id="show_room_${item.key.id }" tabindex="-1" role="dialog"
+	             aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 40px;position: absolute;margin-bottom: 50px">
+	            <div class="modal-dialog">
+	                <div class="modal-content">
+	                    <div class="modal-header">
+	                        <button type="button" class="close"
+	                                data-dismiss="modal" aria-hidden="true">
+	                            &times;
+	                        </button>
+	                        <h4 class="modal-title">
+	                            房间展示
+	                        </h4>
+	                    </div>
+	                    <div class="modal-body" class="image_bigger_contain">
+	                        <div >
+	                            <img id="image_bigger" src="${rctx }/image/floor3.jpg" >
+	                        </div>
+	                        <div class="click_for_bigger">
+	                            <i class="fa fa-hand-o-up"></i>点击图片即可放大图片
+	                        </div>
+	                        <div class="paying_content">
+	                            <div class="panel panel-info">
+	                                <div class="panel-heading">请选择房间
+	                                </div>
+	                                <div class="panel-body choose-room-panel-body" >
+	                                    <c:forEach items="${item.value }" var="room">
+	                                    	<p class="choose-room-span col-xs-4">
+	                                    		<label>
+	                                    			<input type="checkbox" class="choose_room_input" value="${room.id }">
+	                                    			<span class="choose-room-checkbox">${room.roomNumber }</span>	                                    			
+	                                    		</label>
+	                                    	</p>
+	                               		</c:forEach>     
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="modal-footer">
+	                        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">
+	                            <a class="modal-right" onclick="add_room()">确定</a>
+	                        </button>
+	                    </div>
+	                </div><!-- /.modal-content -->
+	            </div><!-- /.modal -->
+	        </div>
+        </c:forEach>
     </div>
 
-        <!-- 模态框展示房间 -->
-        <div class="modal fade" id="show_room" tabindex="-1" role="dialog"
-             aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 40px;position: absolute;margin-bottom: 50px">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close"
-                                data-dismiss="modal" aria-hidden="true">
-                            &times;
-                        </button>
-                        <h4 class="modal-title">
-                            房间展示
-                        </h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="image_bigger_contain">
-                            <img id="image_bigger" src="image/floor3.jpg">
-                        </div>
-                        <div class="click_for_bigger">
-                            <i class="fa fa-hand-o-up"></i>点击图片即可放大图片
-                        </div>
-                        <div class="paying_content">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">请选择房间
-                                </div>
-                                <div class="panel-body choose-room-panel-body" >
-                                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="301" onclick="add_room(this)"><span class="choose-room-checkbox">301</span></label></p>
-                                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="302" onclick="add_room(this)"><span class="choose-room-checkbox">302</span></label></p>
-                                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="303" onclick="add_room(this)"><span class="choose-room-checkbox">303</span></label></p>
-                                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="304" onclick="add_room(this)"><span class="choose-room-checkbox">304</span></label></p>
-                                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="305" onclick="add_room(this)"><span class="choose-room-checkbox">305</span></label></p>
-                                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="306" onclick="add_room(this)"><span class="choose-room-checkbox">306</span></label></p>
-                                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="307" onclick="add_room(this)"><span class="choose-room-checkbox">307</span></label></p>
-                                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="313" onclick="add_room(this)"><span class="choose-room-checkbox">313</span></label></p>
-                                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="314" onclick="add_room(this)"><span class="choose-room-checkbox">314</span></label></p>
-                                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="315" onclick="add_room(this)"><span class="choose-room-checkbox">315</span></label></p>
-                                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="316" onclick="add_room(this)"><span class="choose-room-checkbox">316</span></label></p>
-                                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="308" onclick="add_room(this)"><span class="choose-room-checkbox">308</span></label></p>
-                                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="309" onclick="add_room(this)"><span class="choose-room-checkbox">309</span></label></p>
-                                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="310" onclick="add_room(this)"><span class="choose-room-checkbox">310</span></label></p>
-                                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="311" onclick="add_room(this)"><span class="choose-room-checkbox">311</span></label></p>
-                                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="312" onclick="add_room(this)"><span class="choose-room-checkbox">312</span></label></p>
-                                    <p class="choose-room-span col-xs-3"><label><input type="checkbox" value="317" onclick="add_room(this)"><span class="choose-room-checkbox">317</span></label></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">
-                            <a class="modal-right">确定</a>
-                        </button>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal -->
-        </div>
-    <div class="image_bigger_style">
-        <div class="paying_content remember-room"   >
-            <div class="control-group next_step  choose-room-next-step">
-                <button class="login-now"  data-toggle="modal" data-target="#show_room" id="show_room_button"  style="display: none">
-                    <a class="next_step_color">展示房间</a>
-                </button>
-            </div>
-        </div>
-    </div>
     <div class="image_bigger_style" style="display: none" id="image_bigger_div">
         <div class="paying_content remember-room" id="choosen_room_list">
             <div class="panel panel-info" id="panel-body">
@@ -157,12 +116,68 @@
             </div>
         </div>
         <div class="control-group next_step  choose-room-next-step" id="choose-room-next-step">
-            <button class="login-now"><a href="orderstep2.html" class="next_step_color">下一步</a></button>
+            <button class="login-now" style="background-color:#33ccff"><a href="javascript:;" class="next_step_color">下一步</a></button>
         </div>
     </div>
 
 
 </div>
-  <%@ include file="footer.jsp" %>
+<%@ include file="footer.jsp" %>
+<script type="text/javascript">
+	var ids = new Array();
+	//设置选择房间页面的js
+	//用来把选择的房间添加到已选房间的列表中
+	function add_room(){
+		ids=[];
+		$("#panel-body").html('<div class="panel-heading"><h3 class="panel-title">已选房间</h3></div>');
+		$(".choose_room_input").each(function(){
+			var temp=$(this);//获得当前的其中一个的input
+			var choosen=$(this).prop("checked");//判断是否被选中
+			var room_number=$(this).next().html();//获得房间号
+			if(choosen==true){//如果被选中的话就要判断是不是已经在已选房间中，是的话就不能添加，不是的话就要添加到已选房间中
+				
+				 var room_id=$(this).val();//获得房间的id值
+				
+				 $("#panel-body").append(" <div class='panel-body' ><span class='room_value_find'>"+room_number+"</span> " +
+			        "<i class='fa fa-times times-style' param='"+room_id+"' onclick='delete_number(this)'></i> </div>");
+				 ids.push(room_id);
+				 
+			}
+		});
+		var room_list=$("#panel-body").children().length;
+		if(room_list>1){
+			 $("#image_bigger_div").show();
+		}
+	}
+	//用来把点击叉叉时删除房间
+	function delete_number(e){
+		var id = $(e).attr("param");
+		for(var i in ids){
+			if(ids[i]==id){
+				ids.splice(i, 1);
+				return ;
+			}
+		}
+		$(e).parent().remove();
+		var room_list=$("#panel-body").children().length;
+		if(room_list<=1){
+			 $("#image_bigger_div").hide();
+		}
+		var room_number=$(e).prev().html();
+		$(".choose-room-checkbox").each(function(){
+			var tempnum=$(this).html();
+		    if(tempnum===room_number){
+		    	$(this).prev().attr("checked",false);
+		    }
+		});
+	}
+	$(".next_step_color").click(function(){
+		if(ids.length*"${days}">"${validCount}"){
+			swal("您的团购券只有${validCount}张，已选了${days}天，请重新选择房间");	
+		}else{
+			location.href="${ctx}/order/toThird?ids="+ids;
+		}
+	})
+</script>
 </body>
 </html>

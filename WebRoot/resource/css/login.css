@@ -44,5 +44,25 @@
     font-size: 20px;
     color: #fff;
     width: 70%;
-    height: 40px;
+    height: 50px;
+    padding: 0px;
 }
+.quit_now{
+    text-align: center;
+    margin-top: 40px;
+}
+.login-phone-input{
+	width: 50%;
+	border-radius:0px;
+}
+.login_phone_num{
+	width: 35%;
+    border: 1px solid #33ccff;
+    color: #fff;
+    padding: 8px 0px 8px 4px;
+    background-color: #33ccff;
+}
+.login_phone_submit{
+	margin-top:40px;
+}
+

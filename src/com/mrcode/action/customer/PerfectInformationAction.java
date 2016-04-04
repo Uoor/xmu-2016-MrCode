@@ -76,6 +76,7 @@ public class PerfectInformationAction extends BaseAction<Customer>{
 				System.out.println(cus.getTrueName());
 				cus.setIdentityCard(strs[1]);
 				cus.setTrueName(strs[0]);
+				cus.setPerfectInformation(1);
 				customerService.update(cus);
 				System.out.println(cus.getTrueName());
 				
@@ -88,6 +89,8 @@ public class PerfectInformationAction extends BaseAction<Customer>{
 			
 			cus.setIdentityCard(identityCard);
 			cus.setTrueName(truename);
+			cus.setPerfectInformation(1);
+			customerService.update(cus);
 			
 			}
 			

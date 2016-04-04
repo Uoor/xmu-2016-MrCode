@@ -15,12 +15,11 @@
                 <comment>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½id</comment>
             </column>
         </many-to-one>
-        <many-to-one name="mrcodeorder" class="com.mrcode.model.Mrcodeorder" fetch="select" unique="true">
+        <many-to-one name="mrcodeorder" class="com.mrcode.model.Mrcodeorder" fetch="select">
 	        <column name="mrcodeorderId">
 				<comment>码团订单</comment>
 			</column> 
-		</many-to-one>  
-       
+		</many-to-one>
         <many-to-one name="customer" class="com.mrcode.model.Customer" fetch="select">
             <column name="customerId" not-null="true">
                 <comment>ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½id</comment>
@@ -56,8 +55,8 @@
                 <comment>ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½</comment>
             </column>
         </property>
-        <property name="column2" type="java.lang.String">
-            <column name="Column_2" length="30" />
+        <property name="expiredTime" type="java.sql.Timestamp">
+            <column name="expiredTime" length="30" />
         </property>
         <property name="column3" type="java.lang.Integer">
             <column name="Column_3" />

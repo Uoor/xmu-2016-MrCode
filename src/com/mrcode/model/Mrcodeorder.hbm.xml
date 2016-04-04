@@ -86,6 +86,16 @@
             </key>
             <one-to-many class="com.mrcode.model.Password" />
         </set>
-        <one-to-one name="grouppurchasevoucher" class="com.mrcode.model.Grouppurchasevoucher"></one-to-one>
-    </class>
+        <!-- contactors,表示本类与Contactors的多对多关系 -->
+        <set name="contactors" table="order_contactor" lazy="false"><!--  order-by="id" -->
+        	<key column="orderId"></key>
+        	<many-to-many class="com.mrcode.model.Contactors" column="contactorId"></many-to-many>
+        </set>
+        <set name="grouppurchasevouchers" inverse="true">
+            <key>
+                <column name="orderId" />
+            </key>
+            <one-to-many class="com.mrcode.model.Grouppurchasevoucher" />
+        </set>
+     </class>
 </hibernate-mapping>

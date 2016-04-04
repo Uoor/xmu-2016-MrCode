@@ -16,13 +16,12 @@ public class Password  implements java.io.Serializable {
      private Room room;
      private Mrcodeorder mrcodeorder;
      private Timestamp beginTime;
-     private Integer roomId;
      private String password;
      private Integer isValid;
      private Timestamp estimatedTime;
      private Timestamp endTime;
-
-
+     private Contactors contactors;
+     
     // Constructors
 
     /** default constructor */
@@ -36,12 +35,12 @@ public class Password  implements java.io.Serializable {
     }
     
     /** full constructor */
-    public Password(Integer id, Room room, Mrcodeorder mrcodeorder, Timestamp beginTime, Integer roomId, String password, Integer isValid, Timestamp estimatedTime, Timestamp endTime) {
+    public Password(Integer id, Room room, Mrcodeorder mrcodeorder, Timestamp beginTime, Contactors contactors, String password, Integer isValid, Timestamp estimatedTime, Timestamp endTime) {
         this.id = id;
         this.room = room;
         this.mrcodeorder = mrcodeorder;
         this.beginTime = beginTime;
-        this.roomId = roomId;
+        this.contactors = contactors;
         this.password = password;
         this.isValid = isValid;
         this.estimatedTime = estimatedTime;
@@ -51,7 +50,15 @@ public class Password  implements java.io.Serializable {
    
     // Property accessors
 
-    public Integer getId() {
+    public Contactors getContactors() {
+		return contactors;
+	}
+
+	public void setContactors(Contactors contactors) {
+		this.contactors = contactors;
+	}
+
+	public Integer getId() {
         return this.id;
     }
     
@@ -81,14 +88,6 @@ public class Password  implements java.io.Serializable {
     
     public void setBeginTime(Timestamp beginTime) {
         this.beginTime = beginTime;
-    }
-
-    public Integer getRoomId() {
-        return this.roomId;
-    }
-    
-    public void setRoomId(Integer roomId) {
-        this.roomId = roomId;
     }
 
     public String getPassword() {
