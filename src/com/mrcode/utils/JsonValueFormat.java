@@ -1,5 +1,6 @@
 package com.mrcode.utils;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -36,7 +37,7 @@ public class JsonValueFormat implements JsonValueProcessor{
 	
 	public Object processObjectValue(String arg0, Object arg1, JsonConfig arg2) {
 		// TODO Auto-generated method stub
-		if(arg1 instanceof Date){
+		if(arg1 instanceof Timestamp){
 			   String format=new SimpleDateFormat(pattern).format(arg1);
 			   return format;
 		}

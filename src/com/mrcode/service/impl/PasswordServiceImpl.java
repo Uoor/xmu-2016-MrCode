@@ -1,10 +1,11 @@
 package com.mrcode.service.impl;
 
 import java.sql.Timestamp;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.Map;import java.util.Random;
 
 import javax.annotation.Resource;
 
@@ -37,15 +38,16 @@ public class PasswordServiceImpl extends BaseServiceImpl<Password>
 		super.setBaseDao(baseDao);
 	}
 
-	public Boolean createPasswords(Mrcodeorder mrcodeorder, String roomsIds,
+	public List<Password> createPasswords(Mrcodeorder mrcodeorder, String roomsIds,
 			String contactorsIds, Date begin, Date end) {
 		// TODO 生成各房间的密码钥匙
 		try {
 			String[] roomsStrings = roomsIds.split(",");
 			String[] contactorsIdsStrings = contactorsIds.split(",");
 			if (roomsStrings.length != contactorsIdsStrings.length) {
-				return false;
+				return null;
 			}
+			List<Password> passwords = new ArrayList<Password>();
 			for(int i=0; i<roomsStrings.length; i++){
 				Room room = roomService.getById(Integer.parseInt(roomsStrings[i]));
 				Contactors contactor = contactorsService.getById(Integer.parseInt(contactorsIdsStrings[i]));
@@ -58,12 +60,13 @@ public class PasswordServiceImpl extends BaseServiceImpl<Password>
 						new Timestamp(System.currentTimeMillis()), 
 						code, new Timestamp(begin.getTime()), new Timestamp(end.getTime()),contactor);
 				this.getBaseDao().save(password);
+				passwords.add(password);
 			}
 			
-			return true;
+			return passwords;
 		} catch (Exception e) {
 			// TODO: handle exception
-			return false;
+			return null;
 		}
 		
 	}
