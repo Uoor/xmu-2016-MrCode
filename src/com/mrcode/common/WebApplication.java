@@ -1,5 +1,8 @@
 package com.mrcode.common;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,9 +12,18 @@ import org.apache.struts2.ServletActionContext;
 
 import com.mrcode.utils.Aes;
 import com.mrcode.utils.EscapeUnescape;
-import com.opensymphony.xwork2.ActionContext;
 
 public class WebApplication {
+	
+	public static String getIP(){
+		String ip = null;
+		try {
+			ip = InetAddress.getLocalHost().getHostAddress();
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
+		return ip; 
+	}
 	// ---------------get user message begin--------------------
 
 	// ---------------get user message end--------------------
@@ -54,7 +66,7 @@ public class WebApplication {
 	}
 	
 	/**
-	 * 获得资源文件的路�?
+	 * 获得资源文件的路径
 	 * @return
 	 */
 	public static String getResourcePath(){
@@ -80,7 +92,7 @@ public class WebApplication {
 			value = Aes.encrypt(EscapeUnescape.escape(value));
 		}
 		Cookie cookie = new Cookie(key, value);
-		cookie.setMaxAge(60*60*24*7);	//默认保存7�?
+		cookie.setMaxAge(60*60*24*7);	//默认保存7天
 		getResponse().addCookie(cookie);
 	}
 	/**

@@ -31,7 +31,7 @@ public class Mrcodeorder  implements java.io.Serializable {
      private String column3;
      private Integer column4;
      private Integer column5;
-     private Set passwords = new HashSet();
+     private Set<Password> passwords = new HashSet<Password>();
      private Set<Grouppurchasevoucher> grouppurchasevouchers = new HashSet<Grouppurchasevoucher>();
      /**
   	 * 联系人表 ，表示本类与Contactors的多对多关系  
@@ -67,7 +67,12 @@ public class Mrcodeorder  implements java.io.Serializable {
 	}
 
 	/** full constructor */
-    public Mrcodeorder(Integer id, Customer customer, String orderCode, Integer depositAlready, Float depositPrice, Integer hasPay, String voucherNumber, Integer hasComfirm, Timestamp createTime, Timestamp endTime, Float refund, Integer isRefund, String column1, String column2, String column3, Integer column4, Integer column5, Set passwords, Set<Grouppurchasevoucher> grouppurchasevoucher) {
+    public Mrcodeorder(Integer id, Customer customer, String orderCode, 
+    		Integer depositAlready, Float depositPrice, Integer hasPay, 
+    		String voucherNumber, Integer hasComfirm, Timestamp createTime, 
+    		Timestamp endTime, Float refund, Integer isRefund, String column1, 
+    		String column2, String column3, Integer column4, Integer column5, 
+    		Set<Password> passwords, Set<Grouppurchasevoucher> grouppurchasevoucher) {
         this.id = id;
         this.customer = customer;
         this.orderCode = orderCode;
@@ -236,11 +241,11 @@ public class Mrcodeorder  implements java.io.Serializable {
         this.column5 = column5;
     }
 
-    public Set getPasswords() {
+    public Set<Password> getPasswords() {
         return this.passwords;
     }
     
-    public void setPasswords(Set passwords) {
+    public void setPasswords(Set<Password> passwords) {
         this.passwords = passwords;
     }
 

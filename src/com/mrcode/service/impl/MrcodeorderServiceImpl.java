@@ -20,4 +20,12 @@ public class MrcodeorderServiceImpl extends BaseServiceImpl<Mrcodeorder>
 	public void setBaseDao(BaseDaoImpl<Mrcodeorder> baseDao){
 		super.setBaseDao(baseDao);
 	}
+
+	public Mrcodeorder getWithContactorsByOrderNum(String orderNum) throws Exception {
+		// TODO 根据id获得订单及相关的联系人信息
+		String hql = " from Mrcodeorder o left join fetch o.passwords p " +
+				" left join fetch p.room left join fetch p.contactors where o.orderCode="+orderNum;
+		
+		return this.getBaseDao().findUniqueByHql(hql, null);
+	}
 }

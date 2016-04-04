@@ -72,6 +72,8 @@ public class GrouppurchasevoucherServiceImpl extends BaseServiceImpl<Grouppurcha
 		List<Grouppurchasevoucher> vouchers = findByHql(hql, map, pageBean, "gp.expiredTime");
 		return vouchers;
 	}
+
+	
 	
 	
 }

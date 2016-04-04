@@ -1,6 +1,7 @@
 package com.mrcode.base;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -63,7 +64,10 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		hibernateTemplate.saveOrUpdate(model);
 
 	}
-
+	//批量更新或保存
+	public void saveOrUpdateAll(Collection<T> models){
+		hibernateTemplate.saveOrUpdateAll(models);
+	}
 	/**
 	 * 根据id获取实体
 	 */
@@ -344,5 +348,5 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		}
 	}
 
-
+	
 }
