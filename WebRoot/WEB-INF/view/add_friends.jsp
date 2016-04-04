@@ -74,7 +74,7 @@
 				                    </div>
 				                    <div class="order-item-hotel-name">
 				                        <span>证件号：</span> 
-				                        <input class="login-in-input add_friends_input"  id="rewrite_friends_id" name= "identityCard" value = "${contsList.identityCard }">
+				                        <input class="login-in-input add_friends_input friendsidcardlist"  id="rewrite_friends_id" name= "identityCard" value = "${contsList.identityCard }">
 				                    </div>
 				                </div>
 				                <div class="modal-footer">
@@ -160,7 +160,7 @@ var f3=0;
 $("#friends_name").blur(function(){
 	var name = $("#friends_name").val();
 	if(!(/^([\u4e00-\u9fa5]+|([a-z]+\s?)+)$/.test(name))){
-     alert("输入的姓名格式不正确");
+     swal("输入的姓名格式不正确");
      $("#friends_name").focus();
      return;
    }
@@ -169,7 +169,7 @@ $("#friends_name").blur(function(){
 $("#friends_phone").blur(function(){
 	var phone = $("#friends_phone").val();
 	if(!(/^1[3|4|5|8]\d{9}$/.test(phone))){
-     alert("输入的手机号格式不正确");
+     swal("输入的手机号格式不正确");
      $("#friends_phone").focus();
      return;
    }
@@ -178,20 +178,27 @@ $("#friends_phone").blur(function(){
 $("#friends_id").blur(function(){
 	var id = $("#friends_id").val();
 	if(!IdentityCodeValid(id)){
-     alert("输入身份证号格式不正确");
+     swal("输入身份证号格式不正确");
      return;
    }
+     $(".friendsidcardlist").each(function(){
+    if($(this).val()==id){
+    	swal("身份证号已存在");
+    	return;
+    }
+  });
    f3=1;
 })
 
 $("#confirm_button").click(function(){
 	if(f1==0||f2==0||f3==0)
 	{
-	alert("请核对您所输入的信息");
+	swal("请核对您所输入的信息");
 	return false;
 	}
 	
 })
+
 
 </script>
 </body>
