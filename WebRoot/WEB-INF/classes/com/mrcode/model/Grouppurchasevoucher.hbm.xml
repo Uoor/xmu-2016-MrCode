@@ -15,12 +15,11 @@
                 <comment>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½id</comment>
             </column>
         </many-to-one>
-        <many-to-one name="mrcodeorder" class="com.mrcode.model.Mrcodeorder" fetch="select" unique="true">
+        <many-to-one name="mrcodeorder" class="com.mrcode.model.Mrcodeorder" fetch="select">
 	        <column name="mrcodeorderId">
 				<comment>码团订单</comment>
 			</column> 
-		</many-to-one>  
-       
+		</many-to-one>
         <many-to-one name="customer" class="com.mrcode.model.Customer" fetch="select">
             <column name="customerId" not-null="true">
                 <comment>ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½id</comment>

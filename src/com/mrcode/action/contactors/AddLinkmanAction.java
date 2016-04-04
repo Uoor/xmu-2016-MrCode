@@ -39,7 +39,7 @@ public class AddLinkmanAction extends BaseAction<Contactors>{
 		
 		Customer cus = (Customer) session.get("customer");
 		
-		List<Contactors> contsList=  contactorsService.getContactorsByCustomerId(cus);
+		List<Contactors> contsList=  contactorsService.getContactorsByCustomerIds(cus);
 		
 		request.setAttribute("contsList", contsList);
 		
@@ -70,9 +70,13 @@ public class AddLinkmanAction extends BaseAction<Contactors>{
 		
 		int i  = getIntParameter("id",-1);
 		
+		Contactors cont = contactorsService.getById(i);
+		// isSelf = 2 联系人被删除
+		// isSelf = 1 本人，但不显示在联系人列表
+		// isSelf = 0 可用联系人 
+		cont.setIsSelf(2);
 		
-		
-		contactorsService.remove(i);
+		contactorsService.update(cont);
 		
 		return "delLinkman";
 	}
@@ -93,6 +97,7 @@ public class AddLinkmanAction extends BaseAction<Contactors>{
 		cont.setIdentityCard(identityCard);
 		cont.setName(userName);
 		cont.setPhoneNumber(phoneNumber);
+		cont.setIsSelf(0);
 		contactorsService.save(cont);
 		
 		return "toAddLinkman";

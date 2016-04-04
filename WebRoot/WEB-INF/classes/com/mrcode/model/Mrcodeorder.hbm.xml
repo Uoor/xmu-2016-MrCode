@@ -91,6 +91,11 @@
         	<key column="orderId"></key>
         	<many-to-many class="com.mrcode.model.Contactors" column="contactorId"></many-to-many>
         </set>
-        <one-to-one name="grouppurchasevoucher" class="com.mrcode.model.Grouppurchasevoucher"></one-to-one>
-    </class>
+        <set name="grouppurchasevouchers" inverse="true">
+            <key>
+                <column name="orderId" />
+            </key>
+            <one-to-many class="com.mrcode.model.Grouppurchasevoucher" />
+        </set>
+     </class>
 </hibernate-mapping>

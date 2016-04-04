@@ -22,7 +22,9 @@
         <property name="name" type="java.lang.String">
             <column name="name" length="30" />
         </property>
-        
+        <property name="isSelf" type="java.lang.Integer">
+            <column name="isSelf" default="0"/>
+        </property>
         <!-- orders,表示本类与Mrcodeorder的多对多关系 -->
         <set name="orders" table="order_contactor" lazy="false"><!--  order-by="id" -->
         	<key column="contactorId"></key>

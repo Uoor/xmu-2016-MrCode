@@ -45,12 +45,13 @@
     color: #fff;
     width: 70%;
     height: 50px;
+    padding: 0px;
 }
 .quit_now{
     text-align: center;
     margin-top: 40px;
 }
-.login_phone_input{
+.login-phone-input{
 	width: 50%;
 	border-radius:0px;
 }
@@ -65,72 +66,3 @@
 	margin-top:40px;
 }
 
-
-
-.component-unitlogin-section .validate-info {
-	padding: 5px;
-	display: none;
-}
-.validate-info {
-	/* float: none;
-	margin: 0;
-	padding: 0; */
-	position: fixed;
-	top: 0;
-	left: 0;
-	margin: 0;
-	width: 100%;
-	height: 30px;
-	border: 0;
-	background: #aaa;
-}
-
- form .validate-info {
-       margin: 10px auto;
-      padding: 10px;
-
-  }
-    
-   .form--stack .validate-info {
-      margin-bottom: 10px;
-       padding: 10px;
-  
-      padding-bottom: 3%;
-   }
-  .component-unitlogin-section .validate-info {
-       /*  margin-bottom: 10px;*/
-       border: 1px solid #F5D8A7;
- 
-   }
-   
-  .theme--waimai .component-login-section .validate-info {
-       border-color: #eee;
-       background: #f6f6f6
- 
-   }
-   
-  .theme--waimai .component-unitlogin-section .validate-info {
-       border-color: #eee;
-       background: #f6f6f6
- 
-   }
-  
- .theme--waimai-developer .component-login-section .validate-info {
-       border-color: #eee;
-       background: #f6f6f6
- 
-   }
-   
-  .theme--waimai-developer .component-unitlogin-section .validate-info {
-       border-color: #eee;
-       background: #f6f6f6
- 
-   }
-   
-  .theme--mos .component-login-section .validate-info {
-      border-color: #eee;
-       background: #f6f6f6
-}
-
-.send{
-}
