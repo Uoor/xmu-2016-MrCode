@@ -26,16 +26,19 @@ public class RoomServiceImpl extends BaseServiceImpl<Room>
 		super.setBaseDao(baseDao);
 	}
 
-	public Room getByRoomNumAndType(String roomNum, Roomtype type)
+	public List<Room> getByRoomNumAndType(String roomNums, Roomtype type)
 			throws Exception {
 		// TODO 通过房间号和酒店获得房间
-		String hql = "from Room r left join fetch r.roomtype left join fetch r.floor " +
-				" where r.roomNumber=:roomNum and r.roomtype=:type";
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("type", type);
-		map.put("roomNum", roomNum);
-		Room room = findUniqueByHql(hql, map);
-		return room;
+		if(roomNums!=null && !roomNums.equals("")){
+			String hql = "from Room r left join fetch r.roomtype left join fetch r.floor " +
+					" where r.roomNumber in ("+roomNums+") and r.roomtype=:type";
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("type", type);
+			List<Room> rooms = findByHql(hql, map);
+			return rooms;
+		}else
+			return null;
+		
 	}
 
 	public List<Room> getByIds(String ids) throws Exception {

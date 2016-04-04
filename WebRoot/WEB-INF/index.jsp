@@ -98,7 +98,7 @@
     <div class="img" style="background:url(${rctx }/image/13809674461949.png) center no-repeat; background-size:contain;"></div>
     <div class="text">完善信息</div>
     </a>
-    <a href="management.html">
+    <a href="${ctx }/customer/toRoomManage">
         <div class="img" style="background:url(${rctx }/image/13809674319154.png) center no-repeat; background-size:contain;"></div>
         <div class="text">房间管理</div>
     </a>

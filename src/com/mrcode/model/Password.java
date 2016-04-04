@@ -34,7 +34,20 @@ public class Password  implements java.io.Serializable {
         this.room = room;
     }
     
-    /** full constructor */
+    public Password(Room room, Mrcodeorder mrcodeorder, Timestamp beginTime,
+			String password, Timestamp estimatedTime, Timestamp endTime,
+			Contactors contactors) {
+		super();
+		this.room = room;
+		this.mrcodeorder = mrcodeorder;
+		this.beginTime = beginTime;
+		this.password = password;
+		this.estimatedTime = estimatedTime;
+		this.endTime = endTime;
+		this.contactors = contactors;
+	}
+
+	/** full constructor */
     public Password(Integer id, Room room, Mrcodeorder mrcodeorder, Timestamp beginTime, Contactors contactors, String password, Integer isValid, Timestamp estimatedTime, Timestamp endTime) {
         this.id = id;
         this.room = room;

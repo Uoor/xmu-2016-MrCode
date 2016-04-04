@@ -35,5 +35,6 @@ public interface GrouppurchasevoucherService extends BaseService<Grouppurchasevo
 	 * @return
 	 * @throws Exception
 	 */
-	public List<Grouppurchasevoucher> getByType(Customer customer, Roomtype roomtype, PageBean pageBean) throws Exception;
+	public List<Grouppurchasevoucher> getByType(Customer customer,
+			Roomtype roomtype, PageBean pageBean) throws Exception;
 }

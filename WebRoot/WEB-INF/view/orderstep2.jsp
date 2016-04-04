@@ -52,7 +52,7 @@
         <div class="create-order">
             <!--设置里面的内容-->
             <c:forEach items="${rooms }" var="room">
-	            <div class="order-item">
+	            <div class="order-item room" param="${room.id }">
 	                <div class="order-item-hotel-name">
 	                    <span class="order-item-title">房号:</span>
 	                    <span class="choosen-hotel-name">${room.roomNumber }</span>
@@ -75,7 +75,6 @@
 	                    <!--</div>-->
 	                    <label>
 	                    <select class="friends_list">
-	                        <option value="0">本人</option>
 	                        <c:forEach items="${contactors }" var="contactor">
 	                        	<option value="${contactor.id }">${contactor.name }</option>
 	                        </c:forEach>
@@ -110,10 +109,10 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default">
-                        <a href="orderstep4.html" class="modal-default">否</a>
+                        <a href="javascript:;" class="modal-default notDeposit">否</a>
                     </button>
                     <button type="button" class="btn btn-primary">
-                        <a href="orderstep3.html" class="modal-right">是</a>
+                        <a href="javascript:;" class="modal-right deposit">是</a>
                     </button>
                 </div>
             </div><!-- /.modal-content -->
@@ -161,7 +160,26 @@
 
 </body>
 <script type="text/javascript">
-	
+	var room = new Array();
+	var contactor = new Array();
+	//提交订单
+	$(".submit-now").click(function(){
+		room =[];
+		contactor=[];
+		$(".room").each(function(){
+			room.push($(this).attr("param"));
+			contactor.push($(this).find(".friends_list").val());
+		})
+		var temp = new Array();
+		for(var i in contactor){
+			if(temp[contactor[i]]!=1){
+				temp[contactor[i]] = 1;
+			}else{
+				swal("一个人只能选择一个房间");
+				return false;
+			}
+		}
+	})
 	//设置在填写了联系人的信息以后能够把信息加入到下拉框中
 	function add_friends(e){
 	    var name=$("#friends_name").val();
@@ -170,6 +188,13 @@
 	    $(".friends_list").append("<option>"+name+"</option>");
 	    }
 	}
-	
+	//不在线支付押金
+	$(".notDeposit").click(function(){
+		location.href="${ctx}/order/toFifth?room="+room+"&contactor="+contactor;
+	})
+	//在线支付押金
+	$(".deposit").click(function(){
+		location.href="${ctx}/order/toFourth?room="+room+"&contactor="+contactor;
+	})
 </script>
 </html>

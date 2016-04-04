@@ -1,5 +1,6 @@
 package com.mrcode.base;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -31,12 +32,19 @@ public interface BaseService<T> {
 	public void update(T model);
 
 	/**
-	 * 当实体存在时修改，不存在时保�?
+	 * 当实体存在时修改，不存在时保�?
 	 * 
 	 * @param model
 	 */
 	public void saveOrUpdate(T model);
 
+	/**
+	 * 当实体存在时修改，不存在时保�?
+	 * 
+	 * @param model
+	 */
+	public void saveOrUpdateAll(Collection<T> models);
+	
 	/**
 	 * 通过id获取实体
 	 * 
@@ -54,22 +62,22 @@ public interface BaseService<T> {
 	public List<T> getByIds(Integer[] ids);
 
 	/**
-	 * 通过id删除实体 物理删除，直接将数据从数据库中删�?
+	 * 通过id删除实体 物理删除，直接将数据从数据库中删�?
 	 * 
 	 * @param id
 	 */
 	public void remove(Integer id);
 
 	/**
-	 * 通过id删除实体 逻辑删除,将实体delflag字段�?
+	 * 通过id删除实体 逻辑删除,将实体delflag字段�?
 	 * 
 	 * @param id
 	 * @return
 	 */
 	public boolean delete(Integer id);
 
-	/**************** hql语句执行的操�?*******************/
-	// 根据hql语句查询出一个集�?
+	/**************** hql语句执行的操�?*******************/
+	// 根据hql语句查询出一个集�?
 	/**
 	 * 
 	 * @param hql
@@ -117,7 +125,7 @@ public interface BaseService<T> {
 	 * @return
 	 */
 	public List<T> findByHql(String hql, Map<String, Object> map,
-			PageBean pageBean);// 分页查询出一组实�?
+			PageBean pageBean);// 分页查询出一组实�?
 	
 	/**
 	 * 
@@ -146,7 +154,7 @@ public interface BaseService<T> {
 	 * @param map
 	 * @return
 	 */
-	public List<Object[]> findObjectsBySql(String sql, Map<String, Object> map);// 查询实体类中的某些属�?
+	public List<Object[]> findObjectsBySql(String sql, Map<String, Object> map);// 查询实体类中的某些属�?
 
 	/**
 	 * 
@@ -179,7 +187,7 @@ public interface BaseService<T> {
 	 * @param map
 	 * @return
 	 */
-	// 查询总的记录�?
+	// 查询总的记录�?
 	public int getCount(Map<String, Object> map);
 
 	/**
@@ -204,7 +212,7 @@ public interface BaseService<T> {
 	 * @param map
 	 * @return
 	 */
-	public int getCountBySql(String sql, Map<String, Object> map); // 原生sql查出总的记录�?
+	public int getCountBySql(String sql, Map<String, Object> map); // 原生sql查出总的记录�?
 
 	/**
 	 * 
@@ -212,7 +220,7 @@ public interface BaseService<T> {
 	 * @param map
 	 * @return
 	 */
-	public int getCountBySql(String sql, Object[] params); // 原生sql查出总的记录�?
+	public int getCountBySql(String sql, Object[] params); // 原生sql查出总的记录�?
 	/**
 	 * 
 	 * @param hql
@@ -237,7 +245,7 @@ public interface BaseService<T> {
 	// 原生的可执行sql语句
 	public int executeBySql(String sql, Map<String, Object> map);
 	/**
-	 * 返回json格式的数�?
+	 * 返回json格式的数�?
 	 * @param pageBean
 	 * @param map
 	 * @param order
@@ -249,7 +257,7 @@ public interface BaseService<T> {
 			String order, HttpServletRequest requset,
 			Map<String, Object> otherParams);
 	/**
-	 * 		返回json格式的数�?
+	 * 		返回json格式的数�?
 	 * @param pageBean
 	 * @param map
 	 * @param order
