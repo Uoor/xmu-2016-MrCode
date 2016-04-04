@@ -2,6 +2,8 @@ package com.mrcode.service.impl;
 
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import javax.annotation.Resource;
@@ -64,6 +66,18 @@ public class PasswordServiceImpl extends BaseServiceImpl<Password>
 			return false;
 		}
 		
+	}
+	
+	public Password getPasswordByPhone(String phoneNumber) {
+		//TODO 通过password表的isValid=1 和
+	    //    ContactId.phoneNumber == 参数phoneNumber 得到password对象
+		String hql = "from Password p left join fetch p.contactors as cont "
+				+ "where p.isValid = 1 and cont.phoneNumber =:phoneNumber ";
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("phoneNumber", phoneNumber);
+		Password passwd = findUniqueByHql(hql, map);
+		
+		return passwd;
 	}
 
 	
