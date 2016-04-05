@@ -21,6 +21,13 @@
 </div>
 <div class="content">
     <div class="traffic-maintain">
+        <div class="traffic-word">
+            <h3 class="traffic-title" style="color:#33ccff">恭喜您,房间预订成功!</h3>
+            <span>已经将您的订单信息通知酒店, 为您省去酒店办理入住手续</span>
+
+        </div>
+    </div>
+    <div class="traffic-maintain">
         <i class="fa fa-train fa-2x traffic-modal"></i>
         <div class="traffic-word">
             <h3 class="traffic-title">假日酒店-->火车站</h3>
