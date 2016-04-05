@@ -276,12 +276,12 @@ a{
 .hotel-floor{
     font-size: 20px;
     padding: 10px;
-    padding-left: 40px;
+ /*    padding-left: 40px; */
 }
 .image_bigger_style{
     text-align: center;
 }
-#image_bigger{
+.image_bigger{
     /*vertical-align: middle;*/
     /*margin: 20px;*/
     width: 90%;

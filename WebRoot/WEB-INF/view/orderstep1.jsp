@@ -7,13 +7,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <%@ include file="/common/common.jsp" %>
     <title>选择房间</title>
-     
     <!--引入放大镜功能所需的文件-->
     <script src='${rctx }/js/okzoom.js'></script>
-    <script src='${rctx }/js/choose_room.js'></script>
     <!--提示框插件-->
     <script type="text/javascript" src="${rctx }/js/xcConfirm.js"></script>
     <link type="text/css" rel="stylesheet" href="${rctx }/css/xcConfirm.css">
+    <script type="text/javascript" src='${rctx }/js/choose_room.js'></script>
     <style>
         .modal-open{
             overflow: scroll;
@@ -62,7 +61,7 @@
 	                    </div>
 	                    <div class="modal-body" class="image_bigger_contain">
 	                        <div >
-	                            <img id="image_bigger" src="${rctx }/image/floor3.jpg" >
+	                            <img id='${item.key.id }' class="image_bigger" src="${rctx }${item.key.planUrl}" >
 	                        </div>
 	                        <div class="click_for_bigger">
 	                            <i class="fa fa-hand-o-up"></i>点击图片即可放大图片
@@ -124,9 +123,7 @@
 </div>
 <%@ include file="footer.jsp" %>
 
-<!-- 以下的js被移动到choose_room.js -->
-
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 	var ids = new Array();
 	//设置选择房间页面的js
 	//用来把选择的房间添加到已选房间的列表中
@@ -151,6 +148,7 @@
 	//用来把点击叉叉时删除房间
 	function delete_number(e){
 		var id = $(e).attr("param");
+		alert("do");
 		for(var i in ids){
 			if(ids[i]==id){
 				ids.splice(i, 1);
@@ -177,6 +175,6 @@
 			location.href="${ctx}/order/toThird?ids="+ids;
 		}
 	});
-</script> -->
+</script>
 </body>
 </html>
