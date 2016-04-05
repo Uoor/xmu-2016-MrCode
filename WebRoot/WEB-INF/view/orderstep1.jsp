@@ -10,7 +10,7 @@
      
     <!--引入放大镜功能所需的文件-->
     <script src='${rctx }/js/okzoom.js'></script>
-    <script src='${rctx }/js/yj_style.js'></script>
+    <script src='${rctx }/js/choose_room.js'></script>
     <!--提示框插件-->
     <script type="text/javascript" src="${rctx }/js/xcConfirm.js"></script>
     <link type="text/css" rel="stylesheet" href="${rctx }/css/xcConfirm.css">
@@ -123,7 +123,10 @@
 
 </div>
 <%@ include file="footer.jsp" %>
-<script type="text/javascript">
+
+<!-- 以下的js被移动到choose_room.js -->
+
+<!-- <script type="text/javascript">
 	var ids = new Array();
 	//设置选择房间页面的js
 	//用来把选择的房间添加到已选房间的列表中
@@ -177,7 +180,7 @@
 		}else{
 			location.href="${ctx}/order/toThird?ids="+ids;
 		}
-	})
-</script>
+	});
+</script> -->
 </body>
 </html>

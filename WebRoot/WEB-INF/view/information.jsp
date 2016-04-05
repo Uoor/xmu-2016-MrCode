@@ -19,7 +19,7 @@
         <span class="header-word">完善信息</span>
         <a href="${ctx }/customer/toIndex"><i class="fa fa-home head-style home-style"></i></a>
     </div>
-     <%@ include file="header.jsp" %>
+    <%@ include file="header.jsp" %>
 </div>
 <div class="content">
     <div class="aboutus-content">
@@ -38,7 +38,7 @@
             
                 <p><input id="imageInput"  type="file" name="imageInput" onchange="loadImageFile();" /><br />
                 </p>
-             <button type="submit" class="login-now">提交图片</button>
+         	    <button type="submit" class="login-now">提交图片</button>       
         </div>
         <!--以上实现图片上传功能-->
         <div id="choose-edit" style="margin-bottom: 50px;text-align: center;display:none">
@@ -60,7 +60,7 @@
     </div>
 
 </div>
-     <%@ include file="footer.jsp" %>
+   <%@ include file="footer.jsp" %>
 	<script>
 	$("#checkidcard").blur(function(){
 		var idnum = $("#checkidcard").val();
