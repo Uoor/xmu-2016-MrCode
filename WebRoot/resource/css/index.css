@@ -18,9 +18,9 @@ ul{ list-style:none;}
 .content a:nth-child(2){  background:#1673D2;}
 .content a:nth-child(3){  background:#008a00; margin-right:0px;}
 .content a:nth-child(4){ width:49.25%; background:#8D0196;margin-right:0px; height:115px;}
-.content a:nth-child(5){ background:#99ff33;}
+.content a:nth-child(5){ background:#990033;}
 .content a:nth-child(6){ background:#fd5c04;}
-.content a:nth-child(7){ background:#ccff33;}
+.content a:nth-child(7){ background:#999900;}
 .content a:nth-child(8){ background:#666; margin-right:0px;}
 
 .content a div.img{ width:40px; height:40px; background:#093;  margin:0px auto; margin-top:5px;}

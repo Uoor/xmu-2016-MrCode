@@ -7,8 +7,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <%@ include file="/common/common.jsp" %>
 <title>码券列表</title>
+<!--提示框插件-->
+<script type="text/javascript" src="${rctx }/js/xcConfirm.js"></script>
+<link type="text/css" rel="stylesheet" href="${rctx }/css/xcConfirm.css">
 <script type="text/javascript" src="${rctx }/js/yj_style.js"></script>
-</head>
 <style>
     .col-xs-2{
         padding-left: 2px;
@@ -26,6 +28,8 @@
         padding-left: 0px;
     }
 </style>
+</head>
+
 <body>
 <div class="head">
     <div class="header">
@@ -33,20 +37,7 @@
         <span class="header-word">码券列表</span>
         <a href="${ctx }/customer/toIndex"><i class="fa fa-home head-style home-style"></i></a>
     </div>
-
-    <nav id="menu">
-        <ul>
-            <li class="menu-li-head"><a href="hotel.html">酒店入住 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="${ctx }/customer/perfectInformation">完善信息 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="hotel.html">房间管理 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="groom.html">猜你喜欢 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="restaurant.html">餐馆美食 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="visiting.html">游玩攻略 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="traffic.html">交通指南 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="aboutus.html">关于我们 <i class="fa fa-angle-double-right"></i></a></li>
-        </ul>
-    </nav>
-
+  <%@ include file="header.jsp" %>
 </div>
 <div class="content" >
     <div class="list-group">
@@ -123,11 +114,10 @@
 		                    </div>
 		                </div><!-- /.modal-content -->
 		            </div><!-- /.modal -->
-		        </div>
-	        </div>
+	       	  </div>
         </c:forEach>
     </div>
-
+</div>
     <!-- 模态框（Modal） -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 200px;">
@@ -157,21 +147,7 @@
         </div><!-- /.modal -->
     </div>
 
-        
-</div>
-<div class="footer">
-    <p class="footer-bottom">
-        <a href="${ctx }/customer/toIndex">首页</a>
-        <span class="footer_vertical_line">|</span>
-        <a href="groom.html">推荐</a>
-        <span class="footer_vertical_line">|</span>
-        <a href="management.html">管理</a>
-        <span class="footer_vertical_line">|</span>
-        <a href="aboutus.html">我们团队</a>
-
-    </p>
-
-</div>
+<%@ include file="footer.jsp" %>
 
 </body>
 <script>
@@ -182,9 +158,19 @@
 			typeId = $(this).attr("param");
 		}
 		location.href="${ctx}/order/toFirst?typeId="+typeId;
-	})
+	});
 	function updateType(thiz){
 		typeId = $(thiz).attr("param");
 	}
+		
+	//当码券列表的为0的时候就提示没有码券
+	$(function(){
+		var tempitem=$(".ticket-item").length;
+		if(tempitem==0){
+			 var txt="您还没有码券，快去团购吧！";
+		     window.wxc.xcConfirm(txt,window.wxc.xcConfirm.typeEnum.info);
+		}
+		
+	});	
 </script>
 </html>
