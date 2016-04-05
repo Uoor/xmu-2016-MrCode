@@ -17,7 +17,7 @@
 <div class="head">
     <div class="header">
         <a href="#menu" class="header-a"><i class="fa fa-reorder head-style"></i></a>
-        <span class="header-word">房间管理</span>
+        <span class="header-word">您的房间:${roomnumber}</span>
         <a href="${ctx }/customer/toIndex"><i class="fa fa-home head-style home-style"></i></a>
     </div>
 
@@ -29,7 +29,7 @@
 <input type="hidden" value="${customer.phoneNumber}" id="customerphoneNumber">
 <div class="content">
     <div class="container">
-        <div style="padding:0 5px 0 0;">
+          <div style="padding:0 5px 0 0;">
 
             <ul class="unstyled defaultlist pt20">
                 <li class="f" id="send_back">
@@ -39,7 +39,7 @@
                     </a>
                 </li>
                 <li class="h" id="clean">
-                    <a>
+                    <a class="cleanroom">
                         <h3>清洁房间</h3>
                         <figure class="jd_icon"></figure>
                     </a>
@@ -47,14 +47,14 @@
             </ul>
             <ul class="unstyled defaultlist">
                 <li class="a">
-                    <a href="purse.html">
+                    <a href="${ctx }/customer/toRoomManageBuy">
                         <h3>商品购买</h3>
                         <figure class="hb_icon"></figure>
                     </a>
 
                 </li>
                 <li class="p" id="wash">
-                    <a >
+                    <a class="cleanclothes">
                         <h3> 衣服清洗</h3>
                         <figure class="mp_icon"></figure>
                     </a>
@@ -62,14 +62,14 @@
             </ul>
             <ul class="unstyled defaultlist">
                 <li class="t">
-                    <a href="groom.html">
+                    <a href="${ctx }/customer/toRoomManageOrderFood">
                         <h3>送餐服务</h3>
                         <figure class="hcp_icon"></figure>
                     </a>
                 </li>
 
                 <li class="m" id="call">
-                    <a >
+                    <a class="callfordesk">
                         <h3> 呼叫总台</h3>
                         <figure class="wdxc_icon"></figure>
                     </a>
@@ -89,7 +89,6 @@ $(".returnroom").click(function(){
 	var time = $("#showtimes").text();
 	var name = $("#customertrueName").val();;
 	var demand = "房间"+roomid+"：本房间请求退房。";
-	alert(time+name+demand);
 	$.ajax({
 		type : "POST",
 		url : "http://localhost:8080/JavaPrj_9/guesthistoryctrl.htm?action=customerInformationAndNewsBymrcode",
@@ -102,6 +101,71 @@ $(".returnroom").click(function(){
 		success : function(result) {			
 			if (result == "1") {
 				swal("预约退房成功，已通知酒店前台为您退房。");
+			} 
+		}
+	});
+});
+
+$(".cleanclothes").click(function(){
+	var roomid = $("#roomid").val();
+	var time = $("#showtimes").text();
+	var name = $("#customertrueName").val();;
+	var demand = "房间"+roomid+"：本房间请求衣服送洗服务。";
+	$.ajax({
+		type : "POST",
+		url : "http://localhost:8080/JavaPrj_9/guesthistoryctrl.htm?action=customerInformationAndNewsBymrcode",
+		data : {
+			demand : demand,
+			time : time,
+			name : name,
+			roomid : roomid
+		},
+		success : function(result) {			
+			if (result == "1") {
+				swal("衣服送洗服务呼叫成功，已通知酒店服务员为您服务。");
+			} 
+		}
+	});
+});
+
+$(".callfordesk").click(function(){
+	var roomid = $("#roomid").val();
+	var time = $("#showtimes").text();
+	var name = $("#customertrueName").val();;
+	var demand = "房间"+roomid+"：本房间请求呼叫总台。";
+	$.ajax({
+		type : "POST",
+		url : "http://localhost:8080/JavaPrj_9/guesthistoryctrl.htm?action=customerInformationAndNewsBymrcode",
+		data : {
+			demand : demand,
+			time : time,
+			name : name,
+			roomid : roomid
+		},
+		success : function(result) {			
+			if (result == "1") {
+				swal("呼叫总台成功，已通知酒店总台为您服务。");
+			} 
+		}
+	});
+});
+$(".cleanroom").click(function(){
+	var roomid = $("#roomid").val();
+	var time = $("#showtimes").text();
+	var name = $("#customertrueName").val();;
+	var demand = "房间"+roomid+"：本房间请求房间清洁服务。";
+	$.ajax({
+		type : "POST",
+		url : "http://localhost:8080/JavaPrj_9/guesthistoryctrl.htm?action=customerInformationAndNewsBymrcode",
+		data : {
+			demand : demand,
+			time : time,
+			name : name,
+			roomid : roomid
+		},
+		success : function(result) {			
+			if (result == "1") {
+				swal("房间清洁服务呼叫成功，已通知酒店服务员为您服务。");
 			} 
 		}
 	});

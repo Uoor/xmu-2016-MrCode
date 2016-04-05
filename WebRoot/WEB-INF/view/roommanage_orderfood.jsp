@@ -6,117 +6,124 @@
 <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <%@ include file="/common/common.jsp" %>
-    <title>旅游攻略</title>
+      <title>送餐服务</title>
     <script type="text/javascript" src="${rctx }/js/yj_style.js"></script>
 </head>
 <body>
 <div class="head">
-    <div class="header">
+      <div class="header">
         <a href="#menu" class="header-a"><i class="fa fa-reorder head-style"></i></a>
-        <span class="header-word">旅行攻略</span>
+        <span class="header-word">送餐服务</span>
         <a href="${ctx }/customer/toIndex"><i class="fa fa-home head-style home-style"></i></a>
     </div>
+
   <%@ include file="header.jsp" %>
 
 </div>
 <div class="content">
     <div class="list-group"  href="#" >
         <a class="list-group-item"  href="#">
-            <div class="listitem-image" style="background-image: url('${rctx }/image/v_v_h1.jpg')">
+            <div class="listitem-image" style="background-image: url('${rctx }/image/food1.jpg')">
             </div>
 
             <div class="listitem-info">
                 <div class="listitem-describation-title">
-                    烟岚度
+                    日式料理虾籽卷
                 </div>
                 <div class="listitem-describation-body">
-                    <p>景色迷人，令人流连忘返</p>
+                    <p>味道很棒，环境很好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">奢华尊享400元/位</span>
+                    <span class="listitem-money">10元/份</span>
                 </div>
             </div>
         </a>
 
         <a class="list-group-item"  href="#">
-            <div class="listitem-image" style="background-image: url('${rctx }/image/v_v_h2.jpg')">
+            <div class="listitem-image" style="background-image: url('${rctx }/image/food2.jpg')">
             </div>
+
+
             <div class="listitem-info">
                 <div class="listitem-describation-title">
-                    揽月溪
+                    港式嫩滑芒果布丁
                 </div>
                 <div class="listitem-describation-body">
-                    <p>景色迷人，令人流连忘返</p>
+                    <p>味道很棒，环境很好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">奢华尊享300元/位</span>
+                    <span class="listitem-money">18元/份</span>
                 </div>
             </div>
         </a>
 
         <a class="list-group-item"  href="#">
-            <div class="listitem-image" style="background-image: url('${rctx }/image/v_v_h3.jpg')">
+            <div class="listitem-image" style="background-image: url('${rctx }/image/food3.jpeg')">
             </div>
+
+
             <div class="listitem-info">
                 <div class="listitem-describation-title">
-                    缕月云开
+                    香草森林蛋糕
                 </div>
                 <div class="listitem-describation-body">
-                    <p>景色迷人，令人流连忘返</p>
+                    <p>味道很棒，环境很好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">奢华尊享400/位</span>
+                    <span class="listitem-money">10元/份</span>
                 </div>
             </div>
         </a>
 
         <a class="list-group-item"  href="#">
-            <div class="listitem-image" style="background-image: url('${rctx }/image/v_v_h4.jpg')">
+            <div class="listitem-image" style="background-image: url('${rctx }/image/food4.jpg')">
             </div>
+
+
             <div class="listitem-info">
                 <div class="listitem-describation-title">
-                    山高水长
+                    卡卡颂
                 </div>
                 <div class="listitem-describation-body">
-                    <p>景色迷人，令人流连忘返</p>
+                    <p>味道很棒，环境很好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">奢华尊享300/位</span>
+                    <span class="listitem-money">16元/份</span>
                 </div>
             </div>
         </a>
 
         <a class="list-group-item"  href="#">
-            <div class="listitem-image" style="background-image: url('${rctx }/image/t_v_h1.jpg')">
+            <div class="listitem-image" style="background-image: url('${rctx }/image/cookie3.jpg')">
             </div>
 
 
             <div class="listitem-info">
                 <div class="listitem-describation-title">
-                    琼楼玉宇
+                    夏日风情金桔柠檬
                 </div>
                 <div class="listitem-describation-body">
-                    <p>风景秀丽，江山大好</p>
+                    <p>味道很棒，环境很好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">奢华尊享200元/位</span>
+                    <span class="listitem-money">30元/份</span>
                 </div>
             </div>
         </a>
         <a class="list-group-item"  href="#">
-            <div class="listitem-image" style="background-image: url('${rctx }/image/t_v_h2.jpg');margin-bottom: 50px">
+            <div class="listitem-image" style="background-image: url('${rctx }/image/cookie5.jpg');margin-bottom: 50px">
             </div>
 
 
             <div class="listitem-info">
                 <div class="listitem-describation-title">
-                    云踪
+                    世界杯首胜啤酒
                 </div>
                 <div class="listitem-describation-body">
-                    <p>风景秀丽，江山大好</p>
+                    <p>味道很棒，环境很好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">奢华尊享250元/位</span>
+                    <span class="listitem-money">40元/扎</span>
                 </div>
             </div>
         </a>
@@ -127,3 +134,4 @@
 
 </body>
 </html>
+

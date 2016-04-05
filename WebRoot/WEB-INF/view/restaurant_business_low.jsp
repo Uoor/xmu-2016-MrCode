@@ -34,7 +34,7 @@
                         <p>好吃，停不下</p>
                     </div>
                     <div class="listitem-buttom">
-                        <span class="listitem-money">$20</span>
+                        <span class="listitem-money">人均价格20元</span>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                         <p>好吃，停不下</p>
                     </div>
                     <div class="listitem-buttom">
-                        <span class="listitem-money">$40</span>
+                        <span class="listitem-money">人均价格30元</span>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                         <p>好吃，停不下</p>
                     </div>
                     <div class="listitem-buttom">
-                        <span class="listitem-money">$50</span>
+                        <span class="listitem-money">人均价格50元</span>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                         <p>好吃，停不下</p>
                     </div>
                     <div class="listitem-buttom">
-                        <span class="listitem-money">$80</span>
+                        <span class="listitem-money">人均价格70元</span>
                     </div>
                 </div>
             </div>
