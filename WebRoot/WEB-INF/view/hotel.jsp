@@ -115,9 +115,11 @@
 		                </div><!-- /.modal-content -->
 		            </div><!-- /.modal -->
 	       	  </div>
+	       	  </div>
         </c:forEach>
     </div>
 </div>
+
     <!-- 模态框（Modal） -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 200px;">
