@@ -51,8 +51,8 @@ public class RoomManageAction extends BaseAction<Room>{
 			
 			//3、根据roomId 获取房间类型
 			//RoomType roomtype = roomService.getRoomTypeByRoomId();
-			
-			
+			 request.setAttribute("customer", cus);
+			 request.setAttribute("roomid", room.getId());
 			return "toRoomManage";
 		}
 	
