@@ -209,18 +209,22 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
 		//TODO 添加联系人,成功返回 1,失败返回0
 		try {
 			Customer customer = (Customer)session.get(Const.CUSTOMER);
-			String	userName = getParameter("userName");
-			String phoneNumber = getParameter("phoneNumber");
-			String identityCard =	getParameter("identityCard");
-			
+			String	userName = getParameter("name");
+			String phoneNumber = getParameter("phone");
+			String identityCard =	getParameter("idCard");
+			if (contactorsService.isExist(identityCard, customer)) {
+				writeStringToResponse("0");
+				return ;
+			}
 			Contactors cont = new Contactors();
 			
 			cont.setCustomer(customer);
 			cont.setIdentityCard(identityCard);
 			cont.setName(userName);
 			cont.setPhoneNumber(phoneNumber);
-			contactorsService.save(cont);
-			writeStringToResponse("1");
+			cont.setIsSelf(0);
+			Integer id = contactorsService.save(cont);
+			writeStringToResponse(id.toString());
 		} catch (Exception e) {
 			// TODO: handle exception
 			writeStringToResponse("0");

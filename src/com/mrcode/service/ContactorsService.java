@@ -11,4 +11,12 @@ public interface ContactorsService extends BaseService<Contactors>{
 	public List<Contactors> getContactorsByCustomerId(Customer cus);
 	//管理联系人=未删除联系人
 	public List<Contactors> getContactorsByCustomerIds(Customer cus);
+	/**
+	 * 判断本用户此身份证联系人是否已存在
+	 * @param idCardNum
+	 * @param customer
+	 * @return
+	 * @throws Exception
+	 */
+	public Boolean isExist(String idCardNum, Customer customer) throws Exception;
 }
