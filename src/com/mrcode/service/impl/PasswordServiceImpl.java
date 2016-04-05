@@ -16,12 +16,14 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mrcode.base.BaseDaoImpl;
 import com.mrcode.base.BaseServiceImpl;
 import com.mrcode.model.Contactors;
+import com.mrcode.model.Customer;
 import com.mrcode.model.Mrcodeorder;
 import com.mrcode.model.Password;
 import com.mrcode.model.Room;
 import com.mrcode.service.ContactorsService;
 import com.mrcode.service.PasswordService;
 import com.mrcode.service.RoomService;
+import com.mrcode.utils.PageBean;
 
 @Service
 @Transactional
@@ -81,6 +83,28 @@ public class PasswordServiceImpl extends BaseServiceImpl<Password>
 		Password passwd = findUniqueByHql(hql, map);
 		
 		return passwd;
+	}
+
+	public String getLatestCity(Customer customer, PageBean pageBean) throws Exception {
+		// TODO 查询本用户最近五次出行的城市，如无数据，则以0填充，倒序排列
+		pageBean.setPageSize(5);
+		pageBean.setPageSize(10);
+		String hql = "from Password p left join fetch p.room r left join fetch r.roomtype t" +
+				" left join fetch t.hotel where p.contactors.identityCard=:idCard ";
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("idCard", customer.getIdentityCard());
+		List<Password> passwords = this.findByHql(hql, map, pageBean, "p.estimatedTime desc");
+		String ids = "";
+		for(Password password : passwords){
+			ids += password.getRoom().getRoomtype().getHotel().getAddressRemark()+",";
+		}
+		for(int i=5-passwords.size(); i>0; --i){
+			ids += "1,";
+		}
+		if(ids.endsWith(",")){
+			ids = ids.substring(0, ids.length()-1);
+		}
+		return ids;
 	}
 
 	
