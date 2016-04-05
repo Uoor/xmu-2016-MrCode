@@ -8,9 +8,10 @@
 <%@ include file="/common/common.jsp" %>
     <title>我的</title>
     <script type="text/javascript" src="${rctx }/js/yj_style.js"></script>
-    <link type="text/css" href="${rctx }/css/login.css"/>
-
+    <link type="text/css"  rel="stylesheet"  href="${rctx }/css/login.css"/>
+   
 </head>
+ 
 <body>
 <div class="head">
     <div class="header">
@@ -22,7 +23,7 @@
     <%@ include file="header.jsp" %>
 </div>
 <div class="content">
-    <div class="aboutus-content">
+    <div class="aboutus-content quit_now_content">
         <p class="mobile"><i class="fa fa-pencial mobile-special"></i><span class="content-word"></span> </p>
         <p class="mobile"><i class="fa fa-tag  mobile-special"></i><span class="content-word">${userName }</span></p>
         <p class="mobile"><i class="fa fa-phone mobile-special"></i><span class="content-word">${phoneNumber }</span></p>
