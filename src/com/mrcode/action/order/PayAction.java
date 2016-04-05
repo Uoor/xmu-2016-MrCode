@@ -1,5 +1,10 @@
 package com.mrcode.action.order;
 
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -9,7 +14,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+import net.sf.json.JsonConfig;
 
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
@@ -21,6 +28,7 @@ import org.springframework.stereotype.Controller;
 import com.alipay.config.AlipayConfig;
 import com.alipay.util.AlipayNotify;
 import com.alipay.util.AlipaySubmit;
+import com.mrcode.utils.JsonValueFormat;
 import com.mrcode.utils.MessageSend;
 import com.mrcode.base.BaseAction;
 import com.mrcode.common.ViewLocation;
@@ -155,11 +163,52 @@ public class PayAction extends BaseAction<Mrcodeorder> {
 				//1-1. 将orderList的状态
 				mrcodeorder.setDepositAlready(1);
 				mrcodeorderService.update(mrcodeorder);
-				//1-2. 给相应的朋友发送短信
+				//1-2. 发送付押金消息给酒店
+				
+				String url_str = "http://localhost:8080/JavaPrj_9/reserv.htm?action=updateReservByMoCode";//获取用户认证的帐号URL
+		        URL url = new URL(url_str);
+		        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+				// connection.connect();
+				// 默认是get 方式
+				connection.setRequestMethod("POST");
+				// 设置是否向connection输出，如果是post请求，参数要放在http正文内，因此需要设为true
+				connection.setDoOutput(true);
+				// Post 请求不能使用缓存
+				connection.setUseCaches(false);
+				//要上传的参数  
+				JSONObject json = new JSONObject();
+				json.put("orderCode", mrcodeorder.getOrderCode());
+				json.put("size", mrcodeorder.getPasswords().size());
+				json.put("deposit", mrcodeorder.getDepositPrice());
+				
+		        PrintWriter pw=new PrintWriter(connection.getOutputStream());
+		        String content = "json=" + json;  
+		        pw.print(content);
+		        pw.flush();
+		        pw.close();
+		        int code = connection.getResponseCode();
+		        if (code == 404) {
+		            throw new Exception("连接无效，找不到此次连接的会话信息！");
+		        }
+		        if (code == 500) {
+		            throw new Exception("连接服务器发生内部错误！");
+		        }
+		        if (code != 200) {
+		            throw new Exception("发生其它错误，连接服务器返回 " + code);
+		        }
+		        InputStream is = connection.getInputStream();
+		        byte[] response = new byte[is.available()];
+		        is.read(response);
+		        is.close();
+		        if (response == null || response.length == 0) {
+		            throw new Exception("连接无效，找不到此次连接的会话信息！");
+		        }
+				
+				//1-3. 给相应的朋友发送短信
 				Set<Password> passwords = mrcodeorder.getPasswords();
 				
 				/*for(Password p : passwords){
-					String msg = "【码先生】"+p.getContactors().getName()+"您好！您的"+mrcodeorder.getOrderCode()+
+					String msg = "【码团网】"+p.getContactors().getName()+"您好！您的"+mrcodeorder.getOrderCode()+
 							"号订单下单成功，请于"+p.getEstimatedTime().toString().substring(0,9)+
 							"日12点后至酒店前台确认身份信息，即可凭借房间密码"+p.getPassword()+"入住"+p.getRoom().getRoomNumber()+"号房间";
 					
