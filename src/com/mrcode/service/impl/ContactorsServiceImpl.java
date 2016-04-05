@@ -1,6 +1,8 @@
 package com.mrcode.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -38,5 +40,19 @@ public class ContactorsServiceImpl extends BaseServiceImpl<Contactors>
 		String hql="from Contactors c left join fetch c.customer where c.customer=:cus and c.isSelf = 0";
 	    
 		return this.findByHql(hql, DataUtils.getMap("cus",cus));
+	}
+
+	public Boolean isExist(String idCardNum, Customer customer) throws Exception {
+		// TODO 判断此身份证是否已存在
+		Map<String, Object> param = new HashMap<String, Object>();
+		if(idCardNum==null || idCardNum.equals(""))
+			return false;
+		param.put("customer", customer);
+		Integer count = this.getBaseDao().getCount(" where identityCard='"+idCardNum+"' and customer=:customer " +
+				" and isSelf<>2", param);
+		if(count>0){
+			return true;
+		}
+		return false;
 	}
 }

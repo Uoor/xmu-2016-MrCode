@@ -146,10 +146,10 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">
-                            <a href="orderstep3.html" class="modal-default">取消</a>
+                            <a href="#" class="modal-default">取消</a>
                         </button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">
-                            <a class="modal-right"  onclick="add_friends(this)">确定</a>
+                        <button type="button" class="btn btn-primary" aria-hidden="true">
+                            <a class="modal-right"  onclick="add_friends()">确定</a>
                         </button>
                     </div>
                 </div><!-- /.modal-content -->
@@ -180,13 +180,60 @@
 			}
 		}
 	})
+	
+	//判断此身份证是否已添加
+	function isExist(){
+		var id = $("#friends_idCard").val();
+		var flag = false;
+		$.ajax({
+	    	async : false,
+	    	type : "POST",
+			url : "${ctx}/customer/isExist",
+			dataType : "json",
+			data : {
+				idCard: id
+			},
+			success : function(result) {
+				if (result == "1") {
+					flag = true;
+				}
+			}
+	    })
+	    return flag;
+	}
+	$("#friends_idCard").blur(function(){
+		if(isExist()){
+			swal("此身份证已存在");
+		}
+	})
+	
 	//设置在填写了联系人的信息以后能够把信息加入到下拉框中
-	function add_friends(e){
+	function add_friends(){
 	    var name=$("#friends_name").val();
 	    var phone=$("#friends_phone").val();//获取手机号
-	    if(name!=''){
-	    $(".friends_list").append("<option>"+name+"</option>");
+	    var id = $("#friends_idCard").val();
+	    if(isExist()){
+	    	swal("此身份证已添加为联系人，请不要重复");
+	    	return ;
 	    }
+	    $.ajax({
+	    	async : false,
+	    	type : "POST",
+			url : "${ctx}/order/addContactor",
+			dataType : "json",
+			data : {
+				name : name, phone:phone, idCard: id
+			},
+			success : function(result) {
+				if (result == "0") {
+					swal("添加失败，请重试");
+				}else{
+					swal("添加成功");
+					$("#create_friends").modal("hide");
+					$(".friends_list").append("<option value='"+result+"'>"+name+"</option>");
+				}
+			}
+	    })
 	}
 	//不在线支付押金
 	$(".notDeposit").click(function(){

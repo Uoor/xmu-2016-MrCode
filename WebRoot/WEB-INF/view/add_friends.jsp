@@ -7,12 +7,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <%@ include file="/common/common.jsp" %>
     <title>我的联系人</title>
-<%--     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-    <meta http-equiv="description" content="this is my page">
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--bootstrap-->
-    <link type="text/css"  rel="stylesheet" href="${rctx }/css/static.css"> --%>
     <script type="text/javascript" src="${rctx }/js/yj_style.js"></script>
     <link type="text/css" rel="stylesheet" href="${rctx }/css/login.css">    
     <script type="text/javascript" src="${rctx }/js/check.js"></script>
@@ -49,7 +43,7 @@
                     
                     <!-- 模态框（Modal）修改联系人 -->
                     <div class="modal fade" id="rewrite_friends${contsList.id }" tabindex="-1" role="dialog"
-				         aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 100px;">
+				         aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 40px;">
 				        <div class="modal-dialog">
 				            <div class="modal-content">
 				                <div class="modal-header">
@@ -99,7 +93,7 @@
     </div>
     <!-- 模态框（Modal添加联系人 -->
     <div class="modal fade" id="add_friends" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 100px;">
+         aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top:40px;">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -140,19 +134,7 @@
     
 
 </div>
-<div class="footer">
-    <p class="footer-bottom">
-        <a href="${ctx }/customer/toIndex">首页</a>
-        <span class="footer_vertical_line">|</span>
-        <a href="groom.html">推荐</a>
-        <span class="footer_vertical_line">|</span>
-        <a href="management.html">管理</a>
-        <span class="footer_vertical_line">|</span>
-        <a href="aboutus.html">我们团队</a>
-
-    </p>
-
-</div>
+<%@ include file="footer.jsp" %>
 <script>
 var f1=0;
 var f2=0;
@@ -165,7 +147,7 @@ $("#friends_name").blur(function(){
      return;
    }
    f1=1;
-})
+});
 $("#friends_phone").blur(function(){
 	var phone = $("#friends_phone").val();
 	if(!(/^1[3|4|5|8]\d{9}$/.test(phone))){
@@ -174,7 +156,7 @@ $("#friends_phone").blur(function(){
      return;
    }
    f2=1;
-})
+});
 $("#friends_id").blur(function(){
 	var id = $("#friends_id").val();
 	if(!IdentityCodeValid(id)){
@@ -188,7 +170,7 @@ $("#friends_id").blur(function(){
     }
   });
    f3=1;
-})
+});
 
 $("#confirm_button").click(function(){
 	if(f1==0||f2==0||f3==0)
@@ -197,7 +179,7 @@ $("#confirm_button").click(function(){
 	return false;
 	}
 	
-})
+});
 
 
 </script>
