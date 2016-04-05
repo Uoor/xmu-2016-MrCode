@@ -25,6 +25,8 @@
 
 </div>
 <input type="hidden" value="${roomid}" id="roomid">
+<input type="hidden" value="${customer.userName}" id="customertrueName">
+<input type="hidden" value="${customer.phoneNumber}" id="customerphoneNumber">
 <div class="content">
     <div class="container">
         <div style="padding:0 5px 0 0;">
@@ -85,7 +87,7 @@
 $(".returnroom").click(function(){
 	var roomid = $("#roomid").val();
 	var time = $("#showtimes").text();
-	var name = "王嘉廉";
+	var name = $("#customertrueName").val();;
 	var demand = "房间"+roomid+"：本房间请求退房。";
 	alert(time+name+demand);
 	$.ajax({
@@ -94,7 +96,8 @@ $(".returnroom").click(function(){
 		data : {
 			demand : demand,
 			time : time,
-			name : name
+			name : name,
+			roomid : roomid
 		},
 		success : function(result) {			
 			if (result == "1") {

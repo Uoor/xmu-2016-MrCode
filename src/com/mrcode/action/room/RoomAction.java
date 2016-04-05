@@ -56,7 +56,12 @@ public class RoomAction extends BaseAction<Room>{
 		Integer f=Integer.parseInt(floorid);
 		Floor floor = floorService.findFloorByHotelAndFloornum(1, f);
 		Roomtype roomtype = roomtypeService.findRoomtypeByTypeId(1, roomType);
-		Room room = roomService.getByRoomNumAndType(roomNumber, roomtype);
+		List<Room> roomlist = roomService.getByRoomNumAndType(roomNumber, roomtype);
+		if(roomlist.size()==0){
+			response.getWriter().write("{success:true}");
+			return;
+		}
+		Room room = roomlist.get(0);
 		System.out.println();
 		if(room==null){
 		    room = new Room();
@@ -125,15 +130,6 @@ public class RoomAction extends BaseAction<Room>{
 		}
 		response.getWriter().write("{success:true}");
 		return;
-	}
-	
-	@Action(value="toRoomManage", results={@Result(name="roomManageUI", location=ViewLocation.View_ROOT+
-			"management.jsp")})
-	public String toRoomManage() throws Exception{
-		Integer roomid = 13;
-		request.setAttribute("roomid", roomid);
-		
-		return "roomManageUI";
 	}
 	
 }
