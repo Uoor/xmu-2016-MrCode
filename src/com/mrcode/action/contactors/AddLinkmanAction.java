@@ -55,6 +55,13 @@ public class AddLinkmanAction extends BaseAction<Contactors>{
 		String phoneNumber  = getParameter("phoneNumber");
 		String identityCard  = getParameter("identityCard");
 		System.out.println(name + phoneNumber + identityCard);
+		
+		Customer cus = (Customer)session.get("customer");
+		
+		if (contactorsService.isExist(identityCard, cus)) {
+			return "editLinkman";
+		}
+		
 		cont.setIdentityCard(identityCard);
 		cont.setName(name);
 		cont.setPhoneNumber(phoneNumber);
@@ -89,10 +96,16 @@ public class AddLinkmanAction extends BaseAction<Contactors>{
 		String phoneNumber = getParameter("phoneNumber");
 		String identityCard =	getParameter("identityCard");
 		
+		
 		System.out.println(userName + phoneNumber + identityCard);
 		Contactors cont = new Contactors();
 		
 		Customer cus = (Customer)session.get("customer");
+		
+		if (contactorsService.isExist(identityCard, cus)) {
+			return "toAddLinkman";
+		}
+		
 		cont.setCustomer(cus);
 		cont.setIdentityCard(identityCard);
 		cont.setName(userName);
@@ -104,4 +117,15 @@ public class AddLinkmanAction extends BaseAction<Contactors>{
 		
 	}
 	
+	@Action(value="isExist")
+	public void isExist() throws Exception{
+		//判断是否此身份证联系人已添加
+		Customer cus = (Customer)session.get("customer");
+		String identityCard =	getParameter("idCard");
+		if(contactorsService.isExist(identityCard, cus)){
+			writeStringToResponse("1");
+		}else {
+			writeStringToResponse("0");
+		}
+	}
 }
