@@ -24,7 +24,9 @@
 <script type="text/javascript" src="${rctx }/js/jquery-2.1.3.min.js"></script>
 <script type="text/javascript" src="${rctx }/js/common.js"></script>
 <script type="text/javascript" src="${rctx }/js/yj_style.js"></script>
-
+<link rel="stylesheet" href="${rctx }/css/common/example.css"/>
+<script src="${rctx }/js/sweet-alert.min.js"></script>
+<link rel="stylesheet" href="${rctx }/css/common/sweet-alert.css"/>
 <script type="text/javascript">
     var myScroll;
     function loaded() {
@@ -98,7 +100,7 @@
     <div class="img" style="background:url(${rctx }/image/13809674461949.png) center no-repeat; background-size:contain;"></div>
     <div class="text">完善信息</div>
     </a>
-    <a href="${ctx }/customer/toRoomManage">
+    <a class="toRoomManage" href="#">
         <div class="img" style="background:url(${rctx }/image/13809674319154.png) center no-repeat; background-size:contain;"></div>
         <div class="text">房间管理</div>
     </a>
@@ -106,7 +108,7 @@
     <div class="img" style="background:url(${rctx }/image/13809674157426.png) center no-repeat; background-size:contain;"></div>
     <div class="text">餐馆美食</div>
     </a>
-    <a href="${ctx }/customer/toVisitRecommend">
+    <a class="toRoomManage">
     <div class="img" style="background:url(${rctx }/image/13809673974739.png) center no-repeat; background-size:contain;"></div>
     <div class="text">游玩攻略</div>
     </a>
@@ -136,4 +138,25 @@
     </p>
 </div>
 </body>
+<script>
+$(".toRoomManage").click(function(){
+	
+	$.ajax({
+		type : "POST",
+		url : "${ctx}/customer/toRoomManageFail",
+		data : {
+			
+		},
+		success : function(result) {			
+			if (result == "1") {
+				swal("无可管理房间");
+			} 
+			else
+			{
+			window.location.href="${ctx}/customer/toRoomManage";
+			}
+		}
+	});
+});
+</script>
 </html>

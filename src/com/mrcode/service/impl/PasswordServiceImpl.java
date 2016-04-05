@@ -74,7 +74,7 @@ public class PasswordServiceImpl extends BaseServiceImpl<Password>
 	public Password getPasswordByPhone(String phoneNumber) {
 		//TODO 通过password表的isValid=1 和
 	    //    ContactId.phoneNumber == 参数phoneNumber 得到password对象
-		String hql = "from Password p left join fetch p.contactors as cont "
+		String hql = "from Password p left join fetch p.contactors as cont left join fetch p.room "
 				+ "where p.isValid = 1 and cont.phoneNumber =:phoneNumber ";
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("phoneNumber", phoneNumber);

@@ -29,6 +29,27 @@ public class RoomManageAction extends BaseAction<Room>{
 	private RoomService roomService;
 	
 	//登录页面
+		@Action(value = "toRoomManageFail")
+		public void toRoomManageFail() throws Exception{
+			if(ActionContext.getContext().get("msg")!=null)
+				request.setAttribute("msg", ActionContext.getContext().get("msg"));
+			Customer cus = (Customer) session.get("customer");
+			String phoneNumber = cus.getPhoneNumber();
+			System.out.println("phoneNumber--" + phoneNumber );
+			
+			//1、先根据该用户电话号码得到，password对象
+			
+			Password passwd = passwordService.getPasswordByPhone (phoneNumber);	
+			
+			if(passwd == null) {
+				// 代表无可用房间
+				writeStringToResponse("1");
+			} else 
+				writeStringToResponse("0");
+			
+		
+		}
+		
 		@Action(value = "toRoomManage", results = { @Result(name = "toRoomManage", location = ViewLocation.View_ROOT
 				+ "management.jsp") })
 		public String toRoomManage() throws Exception{
@@ -40,7 +61,12 @@ public class RoomManageAction extends BaseAction<Room>{
 			
 			//1、先根据该用户电话号码得到，password对象
 			
-			Password passwd = passwordService.getPasswordByPhone (phoneNumber);			
+			Password passwd = passwordService.getPasswordByPhone (phoneNumber);	
+			
+//			if(passwd == null) {
+//				
+//				writeStringToResponse("1");
+//			}
 			
 			System.out.println("输出Password id--" + passwd.getId());
 			//2、根据该password对象，得到roomId
