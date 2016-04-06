@@ -22,20 +22,9 @@
     <div class="header">
         <a href="#menu" class="header-a"><i class="fa fa-reorder head-style"></i></a>
         <span class="header-word">选择时间</span>
-        <a href="index.html"><i class="fa fa-home head-style home-style"></i></a>
+        <a href="${ctx }/customer/toIndex"><i class="fa fa-home head-style home-style"></i></a>
     </div>
-    <nav id="menu">
-        <ul>
-            <li class="menu-li-head"><a href="hotel.html">酒店入住 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="${ctx }/customer/perfectInformation">完善信息 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="hotel.html">房间管理 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="groom.html">猜你喜欢 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="restaurant.html">餐馆美食 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="visiting.html">游玩攻略 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="traffic.html">交通指南 <i class="fa fa-angle-double-right"></i></a></li>
-            <li class="menu-li-head"><a href="aboutus.html">关于我们 <i class="fa fa-angle-double-right"></i></a></li>
-        </ul>
-    </nav>
+    <%@ include file="header.jsp" %>
 </div>
 
 <div class="content">
@@ -60,19 +49,7 @@
 	    </div>
 	</form>
 </div>
-<div class="footer">
-    <p class="footer-bottom">
-        <a href="${ctx }/customer/toIndex">首页</a>
-        <span class="footer_vertical_line">|</span>
-        <a href="groom.html">推荐</a>
-        <span class="footer_vertical_line">|</span>
-        <a href="management.html">管理</a>
-        <span class="footer_vertical_line">|</span>
-        <a href="aboutus.html">我们团队</a>
-
-    </p>
-
-</div>
+<%@ include file="footer.jsp" %>
 <script>
 	//判断是否选择日期
 	function check(){
