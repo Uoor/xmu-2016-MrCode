@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.mrcode.service.CustomerService;
+import com.mrcode.service.PasswordService;
 import com.mrcode.utils.Const;
 import com.mrcode.utils.DigestUtil;
 import com.mrcode.base.BaseAction;
@@ -23,6 +24,8 @@ public class LoginAction extends BaseAction<Customer>{
 
 	@Autowired
 	CustomerService customerService;
+	@Autowired
+	PasswordService passwordService;
 	
 	//登录页面
 	@Action(value = "toLogin", results = { @Result(name = "loginUI", location = ViewLocation.View_ROOT
@@ -47,6 +50,9 @@ public class LoginAction extends BaseAction<Customer>{
 		if((customer = customerService.checkLogin(loginName, DigestUtil.encryptPWD(password)))!=null){
 			session.put(Const.CUSTOMER, customer);
 			System.out.println("登陆成功");
+			
+			String ids = passwordService.getLatestCity(customer, pageBean);
+			
 			return "toIndex";
 		} else {
 		System.out.println("登陆失败");
