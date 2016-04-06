@@ -163,7 +163,7 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
         	rmIds += rmId+",";
         }
         if (rmIds.contains(",")) {
-			rmIds = rmIds.substring(0, rmIds.length()-2);
+			rmIds = rmIds.substring(0, rmIds.length()-1);
 		}
         List<Room> rooms = roomService.getByRoomNumAndType(rmIds, roomtype);
         //把楼层和房间变成map
