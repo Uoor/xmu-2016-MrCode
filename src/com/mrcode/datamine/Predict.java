@@ -6,14 +6,14 @@ public  class Predict {
 	static String tra1 = "1,2,3,1,1";
 	static String tra2 = "1,2,3,4,5";
 
-	public static String trafficOrVisit ( String  XX) {
+	public static int trafficOrVisit ( String  XX) {
 	if(EditDistance(XX, tra1) < EditDistance(XX, tra2)) {
-					 //classMap.put(uname, 1);
-					return "1";
+					 //classMap.put(uname, 1); 1表示出差
+					return 1;
 	}
 				else  {
-//					classMap.put(uname, 2);
-					return "2";
+//					classMap.put(uname, 2); 2表示游玩
+					return 2;
 				}
 
 	}

@@ -163,7 +163,7 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
         	rmIds += rmId+",";
         }
         if (rmIds.contains(",")) {
-			rmIds = rmIds.substring(0, rmIds.length()-2);
+			rmIds = rmIds.substring(0, rmIds.length()-1);
 		}
         List<Room> rooms = roomService.getByRoomNumAndType(rmIds, roomtype);
         //把楼层和房间变成map
@@ -302,6 +302,7 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
 				JSONArray jsonArray = JSONArray.fromObject(passwords,config);
 				JSONObject json = new JSONObject();
 				json.put("deposit", 0);
+				json.put("orderCode", mrcodeorder.getOrderCode());
 				json.put("passwords", jsonArray);
 		        PrintWriter pw=new PrintWriter(connection.getOutputStream());
 		        String content = "json=" + json;  

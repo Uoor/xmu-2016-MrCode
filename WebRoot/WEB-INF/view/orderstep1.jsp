@@ -152,9 +152,10 @@
 		for(var i in ids){
 			if(ids[i]==id){
 				ids.splice(i, 1);
-				return ;
+				break ;
 			}
-		}var room_number=$(e).prev().html();
+		}
+		var room_number=$(e).prev().html();
 		$(e).parent().remove();
 		var room_list=$("#panel-body").children().length;
 		if(room_list<=1){

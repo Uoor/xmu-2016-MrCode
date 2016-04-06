@@ -58,8 +58,8 @@ public class Identification {
 	
 	//识别API的URL
 	public static final String ENGINE_URL="http://www.yunmaiocr.com/SrvXMLAPI";
-	public static final String username="2183b206-94f4-4a3a-8eaa-d3eb8faa861e";//替换OCR SDK开发者平台API帐号
-	public static final String password="yjtyBslbECVChQBBCLvagpZCMiPlnd";//替换OCR SDK开发者平台API密码
+	public static final String username="1058c65c-b342-48e6-8105-5ab6ba74a4bc";//替换OCR SDK开发者平台API帐号
+	public static final String password="DtvhdaePSatEnHxiDGzhMnlSbsoIgo";//替换OCR SDK开发者平台API密码
 
 	public static String Scan(byte[] file,String ext){
 		String xml = getSendXML( "idcard.scan",ext);

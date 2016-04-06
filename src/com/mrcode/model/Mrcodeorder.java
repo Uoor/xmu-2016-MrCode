@@ -56,11 +56,7 @@ public class Mrcodeorder  implements java.io.Serializable {
 		super();
 		this.customer = customer;
 		this.orderCode = orderCode;
-		if(depositPrice==null || depositPrice<=0){
-			this.depositAlready = 0;
-		}else if(depositPrice > 0){
-			this.depositAlready = 1;
-		}
+		this.depositAlready = 0;
 		this.depositPrice = depositPrice;
 		this.createTime = createTime;
 		this.grouppurchasevouchers = grouppurchasevouchers;

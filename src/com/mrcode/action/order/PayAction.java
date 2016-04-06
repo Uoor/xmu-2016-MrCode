@@ -4,20 +4,12 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-import net.sf.json.JsonConfig;
-
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
@@ -28,11 +20,9 @@ import org.springframework.stereotype.Controller;
 import com.alipay.config.AlipayConfig;
 import com.alipay.util.AlipayNotify;
 import com.alipay.util.AlipaySubmit;
-import com.mrcode.utils.JsonValueFormat;
 import com.mrcode.utils.MessageSend;
 import com.mrcode.base.BaseAction;
 import com.mrcode.common.ViewLocation;
-import com.mrcode.model.Contactors;
 import com.mrcode.model.Mrcodeorder;
 import com.mrcode.model.Password;
 import com.mrcode.service.MrcodeorderService;
@@ -207,13 +197,12 @@ public class PayAction extends BaseAction<Mrcodeorder> {
 				//1-3. 给相应的朋友发送短信
 				Set<Password> passwords = mrcodeorder.getPasswords();
 				
-				/*for(Password p : passwords){
-					String msg = "【码团网】"+p.getContactors().getName()+"您好！您的"+mrcodeorder.getOrderCode()+
-							"号订单下单成功，请于"+p.getEstimatedTime().toString().substring(0,9)+
-							"日12点后至酒店前台确认身份信息，即可凭借房间密码"+p.getPassword()+"入住"+p.getRoom().getRoomNumber()+"号房间";
+				for(Password p : passwords){
+					String msg = "【码团网】"+p.getContactors().getName()+"您好！您已下单成功，日期:"+p.getEstimatedTime().toString().substring(0,9)+
+							"，房间:"+p.getRoom().getRoomNumber()+"。酒店正为您办理入住手续，至酒店确认本人身份后，凭房间密码"+p.getPassword()+"即可入住。";
 					
 					JSONObject o = JSONObject.fromObject(MessageSend.sendSms(msg, p.getContactors().getPhoneNumber()));
-				}*/
+				}
 				
 				//2.准备显示数据
 				request.setAttribute("orderNum", mrcodeorder.getOrderCode());
