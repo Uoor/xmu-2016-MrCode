@@ -302,6 +302,7 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
 				JSONArray jsonArray = JSONArray.fromObject(passwords,config);
 				JSONObject json = new JSONObject();
 				json.put("deposit", 0);
+				json.put("orderCode", mrcodeorder.getOrderCode());
 				json.put("passwords", jsonArray);
 		        PrintWriter pw=new PrintWriter(connection.getOutputStream());
 		        String content = "json=" + json;  

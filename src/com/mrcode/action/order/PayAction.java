@@ -207,13 +207,12 @@ public class PayAction extends BaseAction<Mrcodeorder> {
 				//1-3. 给相应的朋友发送短信
 				Set<Password> passwords = mrcodeorder.getPasswords();
 				
-				/*for(Password p : passwords){
-					String msg = "【码团网】"+p.getContactors().getName()+"您好！您的"+mrcodeorder.getOrderCode()+
-							"号订单下单成功，请于"+p.getEstimatedTime().toString().substring(0,9)+
-							"日12点后至酒店前台确认身份信息，即可凭借房间密码"+p.getPassword()+"入住"+p.getRoom().getRoomNumber()+"号房间";
+				for(Password p : passwords){
+					String msg = "【码团网】"+p.getContactors().getName()+"您好！您已下单成功，日期:"+p.getEstimatedTime().toString().substring(0,9)+
+							"，房间:"+p.getRoom().getRoomNumber()+"。酒店正为您办理入住手续，至酒店确认本人身份后，凭房间密码"+p.getPassword()+"即可入住。";
 					
 					JSONObject o = JSONObject.fromObject(MessageSend.sendSms(msg, p.getContactors().getPhoneNumber()));
-				}*/
+				}
 				
 				//2.准备显示数据
 				request.setAttribute("orderNum", mrcodeorder.getOrderCode());
