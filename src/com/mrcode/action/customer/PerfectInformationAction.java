@@ -48,7 +48,9 @@ public class PerfectInformationAction extends BaseAction<Customer>{
 			if(ActionContext.getContext().get("msg")!=null)
 				request.setAttribute("msg", ActionContext.getContext().get("msg"));
 			Customer cus = (Customer) session.get("customer");
-			MultiPartRequestWrapper multipartRequest = (MultiPartRequestWrapper)request;
+		/*	
+		 * 图片识别身份证功能，接口bug
+		 * MultiPartRequestWrapper multipartRequest = (MultiPartRequestWrapper)request;
 			if ( multipartRequest.getFiles("imageInput") != null) { 
 			File imgFile = multipartRequest.getFiles("imageInput")[0];
 			String imgFileName = multipartRequest.getFileNames("imageInput")[0];
@@ -81,7 +83,8 @@ public class PerfectInformationAction extends BaseAction<Customer>{
 				System.out.println(cus.getTrueName());
 				
 			}
-			} else if(getParameter("identityCard") != null && getParameter("identityCard")!=""){
+			} else */
+				if(getParameter("identityCard") != null && getParameter("identityCard")!=""){
 			
 			String truename = getParameter("truename");
 			String identityCard = getParameter("identityCard");

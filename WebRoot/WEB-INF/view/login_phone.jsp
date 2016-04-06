@@ -14,11 +14,9 @@
 <body>
 <div class="head">
     <div class="header">
-        <a href="#menu" class="header-a"><i class="fa fa-reorder head-style"></i></a>
         <span class="header-word">动态登陆</span>
-        <a href="${ctx }/customer/toIndex"><i class="fa fa-home head-style home-style"></i></a>
+       
     </div>
-    <%@ include file="header.jsp" %>
 </div>
 <div class="content">
  <div class="validate-info" style="display:none"></div>
@@ -33,12 +31,12 @@
            		<input type="button" id="sendBtnInput" value="发送动态码" class="send login_phone_num" />
         	</div>
         	  <div class="control-group">
-                <input type="submit" class="btn b2 login-now"value="登录"/>
+                <input type="submit" class="btn b2 login-now" style="background-color: #33ccff" value="登录"/>
             </div>
+             <div style="margin-top:20px"><a href="${ctx }/customer/toIndex" class="forget-password">返回密码登陆</a></div>
     	</div>
     </form>
 </div>
-<%@ include file="footer.jsp" %>
 
 </body>
  <script>
