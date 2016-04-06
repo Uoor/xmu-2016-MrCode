@@ -34,7 +34,7 @@
                     <p>味道很棒，环境很好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">$800</span>
+                    <span class="listitem-money">奢华尊享880/位</span>
                 </div>
             </div>
         </a>
@@ -52,7 +52,7 @@
                     <p>味道很棒，环境很好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">$900</span>
+                    <span class="listitem-money">奢华尊享1080/位</span>
                 </div>
             </div>
         </a>
@@ -70,7 +70,7 @@
                     <p>味道很棒，环境很好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">$1000</span>
+                    <span class="listitem-money">奢华尊享880/位</span>
                 </div>
             </div>
         </a>
@@ -88,7 +88,7 @@
                     <p>味道很棒，环境很好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">$700</span>
+                    <span class="listitem-money">奢华尊享999/位</span>
                 </div>
             </div>
         </a>
@@ -106,7 +106,7 @@
                     <p>味道很棒，环境很好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">$800</span>
+                    <span class="listitem-money">奢华尊享888/位</span>
                 </div>
             </div>
         </a>
@@ -123,7 +123,7 @@
                     <p>味道很棒，环境很好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">$800</span>
+                    <span class="listitem-money">奢华尊享800/位</span>
                 </div>
             </div>
         </a>

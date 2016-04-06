@@ -19,29 +19,30 @@
         <span class="header-word">完善信息</span>
         <a href="${ctx }/customer/toIndex"><i class="fa fa-home head-style home-style"></i></a>
     </div>
-     <%@ include file="header.jsp" %>
+    <%@ include file="header.jsp" %>
 </div>
 <div class="content">
     <div class="aboutus-content">
         <p class="mobile choose-style-p"><i class=" mobile-special information-name">用户名：</i><span class="content-word">${userName}</span></p>
         <p class="mobile choose-style-p"><i class=" mobile-special information-name">手机号：</i><span class="content-word">${phoneNumber}</span> </p>
-        <p class="mobile choose-style-p" id="choose-type"><i class=" mobile-special information-name">身份证填写：</i>
-            <span class="choose-style-span"><input type="radio" class="choose-style " name="choose" checked="true" value="camera" onclick="changechoose(this)"><i class="fa fa-camera choose-style-i"></i></span>
-            <span class="choose-style-span"><input type="radio" class="choose-style" name="choose" value="edit" onclick="changechoose(this)"><i class="fa fa-edit choose-style-i"></i></span>
+       <!-- <p class="mobile choose-style-p" id="choose-type"><i class=" mobile-special information-name">身份证填写：</i>
+             <span class="choose-style-span"><input type="radio" class="choose-style " name="choose" checked="true" value="camera" onclick="changechoose(this)"><i class="fa fa-camera choose-style-i"></i></span>
+            <span class="choose-style-span"><input type="radio" class="choose-style" name="choose" value="edit" onclick="changechoose(this)"><i class="fa fa-edit choose-style-i"></i></span> -->
         </p>
         <!--以下一行是显示上传的框用的是jquery的zyupload插件-->
         <form  class="form-style" action="${ctx }/customer/addInformation"  enctype="multipart/form-data" method="post">
-         <!--以下实现图片上传功能-->
+        <!--  
+       
         <div id="choose-picture">
             <div id="imagePreview"></div>
 
             
                 <p><input id="imageInput"  type="file" name="imageInput" onchange="loadImageFile();" /><br />
                 </p>
-             <button type="submit" class="login-now">提交图片</button>
+         	    <button type="submit" class="login-now">提交图片</button>       
         </div>
-        <!--以上实现图片上传功能-->
-        <div id="choose-edit" style="margin-bottom: 50px;text-align: center;display:none">
+      -->
+        <div id="choose-edit" style="margin-bottom: 50px;text-align: center;"> 
             <div class="control-group input-top" style="margin-top:50px">
                 <input type="text" name="identityCard" id="checkidcard" class="login-in-input" placeholder="请输入身份证号">
             </div>
@@ -53,14 +54,11 @@
             </div>
         </div>
         </form>
-        <!--一下一个按钮是为了回到码券继续预定-->
-        <div class="back_to_order">
-            <button  class="login-now"><a class="back_order" href="orderstep1.html">继续预定</a></button>
-        </div>
+     
     </div>
 
 </div>
-     <%@ include file="footer.jsp" %>
+   <%@ include file="footer.jsp" %>
 	<script>
 	$("#checkidcard").blur(function(){
 		var idnum = $("#checkidcard").val();

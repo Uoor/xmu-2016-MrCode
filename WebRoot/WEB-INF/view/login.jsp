@@ -14,12 +14,9 @@
 <body>
 <div class="head">
     <div class="header">
-        <a href="#menu" class="header-a"><i class="fa fa-reorder head-style"></i></a>
         <span class="header-word">登录</span>
-        <a href="${ctx }/customer/toIndex"><i class="fa fa-home head-style home-style"></i></a>
     </div>
 
-   <%@ include file="header.jsp" %>
 
 </div>
 <div class="content">
@@ -43,13 +40,9 @@
         <div class="control-group">
             <button class="login-now" type="submit">立即登录</button>
         </div>
-        <div class="control-group">
-            <span class="no-login-word">还没账号？</span>
-            <span class="no-login-href">立即注册</span>
-        </div>
+      
     </form>
 </div>
-<%@ include file="footer.jsp" %>
 
 </body>
 </html>

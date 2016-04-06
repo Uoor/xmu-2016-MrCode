@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 
 import com.mrcode.service.ContactorsService;
 import com.mrcode.service.CustomerService;
+import com.mrcode.service.PasswordService;
 import com.mrcode.utils.Const;
 import com.mrcode.utils.DataUtils;
 import com.mrcode.utils.DigestUtil;
@@ -19,6 +20,7 @@ import com.mrcode.utils.MessageSend;
 import com.mrcode.utils.ValidateUtils;
 import com.mrcode.base.BaseAction;
 import com.mrcode.common.ViewLocation;
+import com.mrcode.datamine.Predict;
 import com.mrcode.model.Contactors;
 import com.mrcode.model.Customer;
 import com.opensymphony.xwork2.ActionContext;
@@ -30,6 +32,9 @@ public class LoginPhoneAction extends BaseAction<Customer>{
 
 	@Autowired
 	CustomerService customerService;
+	
+	@Autowired
+	PasswordService passwordService;
 	
 	@Autowired
 	ContactorsService contactorsService;
@@ -63,6 +68,14 @@ public class LoginPhoneAction extends BaseAction<Customer>{
 					System.out.println(customer);
 					if (customer != null) {
 						// 如果数据库中存在该手机的账号，则直接登录
+
+						String ids = passwordService.getLatestCity(customer, pageBean);
+						customer.setCusType(Predict.trafficOrVisit(ids));
+						//消费水平 1高 2低
+						int shopLevel = passwordService.getShopLevel(customer, pageBean) > 300 ? 1 : 2 ;
+						customer.setShopLevel(shopLevel );
+						customerService.update(customer);
+						
 						getSession().put("customer", customer);
 						return "toIndex";
 					} else {
@@ -72,6 +85,10 @@ public class LoginPhoneAction extends BaseAction<Customer>{
 						newCust.setUserName(phone);
 						newCust.setPhoneNumber(phone);
 						newCust.setPassword(phone);
+						
+						//第一次注册 默认是游玩的、消费水平低的
+						newCust.setCusType(2);
+						newCust.setShopLevel(2);
 						
 						customerService.save(newCust);
 						

@@ -58,6 +58,7 @@
 }
 .back_to_order{
     text-align: center;
+    margin-bottom:80px;
 }
 
 
@@ -275,12 +276,12 @@ a{
 .hotel-floor{
     font-size: 20px;
     padding: 10px;
-    padding-left: 40px;
+ /*    padding-left: 40px; */
 }
 .image_bigger_style{
     text-align: center;
 }
-#image_bigger{
+.image_bigger{
     /*vertical-align: middle;*/
     /*margin: 20px;*/
     width: 90%;
@@ -373,3 +374,28 @@ a{
 a:hover,a:focus{
 	text-decoration:none;
 }
+
+/*设置侧边栏的形式*/
+.mm-menu .mm-navbar > a {
+    color:#fff
+}
+.mm-listview > li > a, .mm-listview > li > span{
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #fff;
+    line-height: 20px;
+    display: block;
+    padding: 10px 10px 10px 20px;
+    margin: 0;
+    opacity:1;
+}
+.mm-menu {
+    background: #888;
+    color: rgba(0, 0, 0, 0.7);
+}
+.menu-li-head > a{
+	color:#fff;
+	opacity: 0
+}
+ li {list-style-type:none;}

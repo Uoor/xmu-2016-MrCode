@@ -7,13 +7,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <%@ include file="/common/common.jsp" %>
     <title>选择房间</title>
-     
     <!--引入放大镜功能所需的文件-->
     <script src='${rctx }/js/okzoom.js'></script>
-    <script src='${rctx }/js/yj_style.js'></script>
     <!--提示框插件-->
     <script type="text/javascript" src="${rctx }/js/xcConfirm.js"></script>
     <link type="text/css" rel="stylesheet" href="${rctx }/css/xcConfirm.css">
+    <script type="text/javascript" src='${rctx }/js/choose_room.js'></script>
     <style>
         .modal-open{
             overflow: scroll;
@@ -62,7 +61,7 @@
 	                    </div>
 	                    <div class="modal-body" class="image_bigger_contain">
 	                        <div >
-	                            <img id="image_bigger" src="${rctx }/image/floor3.jpg" >
+	                            <img id='${item.key.id }' class="image_bigger" src="${rctx }${item.key.planUrl}" >
 	                        </div>
 	                        <div class="click_for_bigger">
 	                            <i class="fa fa-hand-o-up"></i>点击图片即可放大图片
@@ -123,6 +122,7 @@
 
 </div>
 <%@ include file="footer.jsp" %>
+
 <script type="text/javascript">
 	var ids = new Array();
 	//设置选择房间页面的js
@@ -130,19 +130,15 @@
 	function add_room(){
 		ids=[];
 		$("#panel-body").html('<div class="panel-heading"><h3 class="panel-title">已选房间</h3></div>');
-		$(".choose_room_input").each(function(){
+		 
+		$(":checked").each(function(){
 			var temp=$(this);//获得当前的其中一个的input
-			var choosen=$(this).prop("checked");//判断是否被选中
 			var room_number=$(this).next().html();//获得房间号
-			if(choosen==true){//如果被选中的话就要判断是不是已经在已选房间中，是的话就不能添加，不是的话就要添加到已选房间中
-				
-				 var room_id=$(this).val();//获得房间的id值
-				
-				 $("#panel-body").append(" <div class='panel-body' ><span class='room_value_find'>"+room_number+"</span> " +
-			        "<i class='fa fa-times times-style' param='"+room_id+"' onclick='delete_number(this)'></i> </div>");
-				 ids.push(room_id);
-				 
-			}
+			var room_id=$(this).val();//获得房间的id值
+			
+			$("#panel-body").append(" <div class='panel-body' ><span class='room_value_find'>"+room_number+"</span> " +
+			      "<i class='fa fa-times times-style' param='"+room_id+"' onclick='delete_number(this)'></i> </div>");
+			ids.push(room_id);
 		});
 		var room_list=$("#panel-body").children().length;
 		if(room_list>1){
@@ -152,18 +148,20 @@
 	//用来把点击叉叉时删除房间
 	function delete_number(e){
 		var id = $(e).attr("param");
+		alert("do");
 		for(var i in ids){
 			if(ids[i]==id){
 				ids.splice(i, 1);
-				return ;
+				break ;
 			}
 		}
+		var room_number=$(e).prev().html();
 		$(e).parent().remove();
 		var room_list=$("#panel-body").children().length;
 		if(room_list<=1){
 			 $("#image_bigger_div").hide();
 		}
-		var room_number=$(e).prev().html();
+		
 		$(".choose-room-checkbox").each(function(){
 			var tempnum=$(this).html();
 		    if(tempnum===room_number){
@@ -177,7 +175,7 @@
 		}else{
 			location.href="${ctx}/order/toThird?ids="+ids;
 		}
-	})
+	});
 </script>
 </body>
 </html>
