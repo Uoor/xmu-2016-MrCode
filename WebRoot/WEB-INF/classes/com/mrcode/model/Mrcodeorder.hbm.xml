@@ -41,7 +41,7 @@
             </column>
         </property>
         <property name="hasComfirm" type="java.lang.Integer">
-            <column name="hasComfirm">
+            <column name="hasComfirm" default="0">
                 <comment>Ç°Ì¨ï¿½Ç·ï¿½ï¿½ï¿½È·ï¿½Ï£ï¿½1ï¿½ï¿½ï¿½Ç£ï¿½2ï¿½ï¿½ï¿½ï¿½</comment>
             </column>
         </property>

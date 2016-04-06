@@ -33,7 +33,7 @@
                         <p>不一样的尊贵享受</p>
                     </div>
                     <div class="listitem-buttom">
-                        <span class="listitem-money">$2000</span>
+                        <span class="listitem-money">奢华尊享2100元/位</span>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                         <p>尊贵服务，为您打造</p>
                     </div>
                     <div class="listitem-buttom">
-                        <span class="listitem-money">$2500</span>
+                        <span class="listitem-money">奢华尊享1800元/位</span>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                         <p>香榭为您服务，只为宾至如归</p>
                     </div>
                     <div class="listitem-buttom">
-                        <span class="listitem-money">$1000</span>
+                        <span class="listitem-money">奢华尊享2500元/位</span>
                     </div>
                 </div>
             </div>
@@ -84,7 +84,7 @@
                         <p>这是一场盛宴</p>
                     </div>
                     <div class="listitem-buttom">
-                        <span class="listitem-money">$3000</span>
+                        <span class="listitem-money">奢华尊享1200元/位</span>
                     </div>
                 </div>
             </div>

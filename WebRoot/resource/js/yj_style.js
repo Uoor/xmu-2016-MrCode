@@ -53,7 +53,7 @@ function changechoose(e){
 $(function() {
 
     $("#send_back").click(function () {
-        var txt = "您已退房成功，请到前台确认";
+        var txt = "预约退房成功，离开时请携带好个人物品。";
         window.wxc.xcConfirm(txt, window.wxc.xcConfirm.typeEnum.info);
     });
     $("#wash").click(function(){
