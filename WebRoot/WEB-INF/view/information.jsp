@@ -53,10 +53,7 @@
             </div>
         </div>
         </form>
-        <!--一下一个按钮是为了回到码券继续预定-->
-        <div class="back_to_order">
-            <button  class="login-now"><a class="back_order" href="orderstep1.html">继续预定</a></button>
-        </div>
+     
     </div>
 
 </div>

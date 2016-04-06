@@ -2,6 +2,9 @@ package com.mrcode.utils;
 
 public class Recommend {
 	
+	//        cusType:1 出差      2游玩
+	//        shopLevel:1高消费      2：低消费
+	//
     //         cusType   shopLevel     
 	//  num       1          1    business_high    
 	//	num       1          2    business_low

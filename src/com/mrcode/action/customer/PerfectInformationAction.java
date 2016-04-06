@@ -53,7 +53,7 @@ public class PerfectInformationAction extends BaseAction<Customer>{
 			File imgFile = multipartRequest.getFiles("imageInput")[0];
 			String imgFileName = multipartRequest.getFileNames("imageInput")[0];
 			if(imgFile.exists()){
-				String path1 = WebApplication.getContextPath()+"\\resource\\upload\\user";
+				String path1 = WebApplication.getContextPath()+"\\resource\\upload";
 				System.out.println(path1);
 				String img = ImageUtils.save(imgFile, path1, imgFileName, UUID.randomUUID().toString(), null);
 				System.out.println(img);

@@ -1,11 +1,13 @@
 package com.mrcode.service.impl;
 
 import java.sql.Timestamp;
+import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;import java.util.Random;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
@@ -17,6 +19,7 @@ import com.mrcode.base.BaseDaoImpl;
 import com.mrcode.base.BaseServiceImpl;
 import com.mrcode.model.Contactors;
 import com.mrcode.model.Customer;
+import com.mrcode.model.Hotel;
 import com.mrcode.model.Mrcodeorder;
 import com.mrcode.model.Password;
 import com.mrcode.model.Room;
@@ -86,7 +89,7 @@ public class PasswordServiceImpl extends BaseServiceImpl<Password>
 	}
 
 	public String getLatestCity(Customer customer, PageBean pageBean) throws Exception {
-		// TODO 查询本用户最近五次出行的城市，如无数据，则以0填充，倒序排列
+		// TODO 查询本用户最近五次出行的城市，如无数据，则以1填充，倒序排列
 		pageBean.setPageSize(5);
 		pageBean.setPageSize(10);
 		String hql = "from Password p left join fetch p.room r left join fetch r.roomtype t" +
@@ -95,16 +98,50 @@ public class PasswordServiceImpl extends BaseServiceImpl<Password>
 		map.put("idCard", customer.getIdentityCard());
 		List<Password> passwords = this.findByHql(hql, map, pageBean, "p.estimatedTime desc");
 		String ids = "";
+		int  k = 0;
+		//passwords 超过5 只取5个,不取重复数据
+		Set<Hotel> hotel = new HashSet<Hotel>();
 		for(Password password : passwords){
-			ids += password.getRoom().getRoomtype().getHotel().getAddressRemark()+",";
+			if (k == 5) break;
+			hotel.add(password.getRoom().getRoomtype().getHotel());
+			// ids += password.getRoom().getRoomtype().getHotel().getAddressRemark()+",";
+			k ++;
 		}
-		for(int i=5-passwords.size(); i>0; --i){
+		int j = hotel.size();
+		for (int i = 1;i <= j ; i++) {
+			ids += (i + ",");
+		}
+		//不足5个，补1 
+		for(int i=5 - j;i > 0; --i){
 			ids += "1,";
 		}
 		if(ids.endsWith(",")){
 			ids = ids.substring(0, ids.length()-1);
 		}
 		return ids;
+	}
+	
+	
+	public int getShopLevel(Customer customer, PageBean pageBean) throws Exception {
+		// TODO 查询本用户最近五次出行的城市，如无数据，则以1填充，倒序排列
+		pageBean.setPageSize(5);
+		pageBean.setPageSize(10);
+		String hql = "from Password p left join fetch p.room r left join fetch r.roomtype t " +
+				"where p.contactors.identityCard=:idCard ";
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("idCard", customer.getIdentityCard());
+		List<Password> passwords = this.findByHql(hql, map, pageBean, "p.estimatedTime desc");
+		Float sum = (float) 0;
+		int ave = 0;
+		if ( passwords.size()!=0 ) {
+		for(Password password : passwords){
+			 sum += password.getRoom().getRoomtype().getPrice();
+		}
+		
+		ave = (int) (sum/ passwords.size());
+		}
+		
+		return ave;
 	}
 
 	
