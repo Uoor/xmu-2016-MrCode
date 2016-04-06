@@ -1,6 +1,5 @@
 package com.alipay.config;
 
-import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 import com.mrcode.common.WebApplication;
@@ -18,7 +17,7 @@ import com.mrcode.common.WebApplication;
 
 public class AlipayConfig {
 	
-	static String bus_site = "www.pzcnet.com/customer/alipayResultHandler.do";
+	static String bus_site = "www.monkeyhorse.cn/MrCode/customer/alipayResultHandler.do";
 //↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 	// 合作身份者ID，签约账号，以2088开头由16位纯数字组成的字符串，查看地址：https://b.alipay.com/order/pidAndKey.htm
