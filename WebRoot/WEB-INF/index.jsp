@@ -108,7 +108,7 @@
     <div class="img" style="background:url(${rctx }/image/13809674157426.png) center no-repeat; background-size:contain;"></div>
     <div class="text">餐馆美食</div>
     </a>
-    <a class="toRoomManage">
+    <a class="${ctx }/customer/toVisitRecommend">
     <div class="img" style="background:url(${rctx }/image/13809673974739.png) center no-repeat; background-size:contain;"></div>
     <div class="text">游玩攻略</div>
     </a>
