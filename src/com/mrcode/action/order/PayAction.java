@@ -198,7 +198,7 @@ public class PayAction extends BaseAction<Mrcodeorder> {
 				Set<Password> passwords = mrcodeorder.getPasswords();
 				
 				for(Password p : passwords){
-					String msg = "【码团网】"+p.getContactors().getName()+"您好！您已下单成功，日期:"+p.getEstimatedTime().toString().substring(0,9)+
+					String msg = "【码团网】"+p.getContactors().getName()+"您好!您已下单成功，日期:"+p.getEstimatedTime().toString().substring(0,10)+
 							"，房间:"+p.getRoom().getRoomNumber()+"。酒店正为您办理入住手续，至酒店确认本人身份后，凭房间密码"+p.getPassword()+"即可入住。";
 					
 					JSONObject o = JSONObject.fromObject(MessageSend.sendSms(msg, p.getContactors().getPhoneNumber()));

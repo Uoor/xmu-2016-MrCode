@@ -35,6 +35,7 @@ import com.mrcode.utils.Const;
 import com.mrcode.utils.DateUtils;
 import com.mrcode.utils.JsonValueFormat;
 import com.mrcode.utils.MakeOrderNum;
+import com.mrcode.utils.MessageSend;
 import com.mrcode.base.BaseAction;
 import com.mrcode.common.ViewLocation;
 import com.mrcode.common.WebApplication;
@@ -168,15 +169,16 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
         List<Room> rooms = roomService.getByRoomNumAndType(rmIds, roomtype);
         //把楼层和房间变成map
         Map<Floor, List<Room>> frMap = new LinkedHashMap<Floor, List<Room>>();
-        for(Room room : rooms){
-        	if(!frMap.containsKey(room.getFloor())){
-        		List<Room> rs = new ArrayList<Room>();
-        		frMap.put(room.getFloor(), rs);
-        	}
-        	frMap.get(room.getFloor()).add(room);
-        }
-        request.setAttribute("frMap", frMap);
-        
+       if(rooms!=null){
+	        for(Room room : rooms){
+	        	if(!frMap.containsKey(room.getFloor())){
+	        		List<Room> rs = new ArrayList<Room>();
+	        		frMap.put(room.getFloor(), rs);
+	        	}
+	        	frMap.get(room.getFloor()).add(room);
+	        }
+	        request.setAttribute("frMap", frMap);
+       }
 		return "stepSecondUI";
 	}
 	
@@ -250,7 +252,15 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
 	public String toFifth() throws Exception{
 		//未支付押金订单生成 
 		
-		if(createOrder()!=null){
+		Mrcodeorder order = null;
+		if((order=createOrder())!=null){
+			for(Password p : order.getPasswords()){
+				String msg = "【码团网】"+p.getContactors().getName()+"您好!您已下单成功，日期:"+p.getEstimatedTime().toString().substring(0,10)+
+						"，房间:"+p.getRoom().getRoomNumber()+"。酒店正为您办理入住手续，至酒店确认本人身份后，凭房间密码"+p.getPassword()+"即可入住。";
+				System.out.println("message:"+msg);
+				JSONObject o = JSONObject.fromObject(MessageSend.sendSms(msg, p.getContactors().getPhoneNumber()));
+				System.out.println("result:"+o);
+			}
 			request.setAttribute("msg", "已完成房间入住手续，请至酒店前台核对身份证，并支付押金，即可入住，谢谢！");
 		}
 		return "stepFifthUI";
@@ -326,11 +336,7 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
 		        if (response == null || response.length == 0) {
 		            throw new Exception("连接无效，找不到此次连接的会话信息！");
 		        }
-		       /* String json = new String(response, "UTF-8");
-		        System.out.println(json);
-		        JSONObject jsonObject = JSONObject.fromObject( json );
-		        JSONArray jsonArray = JSONArray.fromObject(jsonObject.get("rooms"));*/
-		        
+		        mrcodeorder.setPasswords(new HashSet<Password>(passwords));
 				return mrcodeorder;
 			}else {
 				return null;

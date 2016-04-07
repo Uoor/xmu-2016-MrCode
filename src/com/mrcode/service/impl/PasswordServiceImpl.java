@@ -147,11 +147,10 @@ public class PasswordServiceImpl extends BaseServiceImpl<Password>
 
 	public void active(String roomId) throws Exception {
 		// TODO 激活相应的房间钥匙
-		String hql = "from Password p where p.room.roomNumber=:roomId and p.estimatedTime<=:time " +
-				" and p.endTime>=:time and p.isValid=0";
+		String hql = "from Password p where p.room.roomNumber=:roomId " +
+				" and ( p.isValid=0 or p.isValid is null)";
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("roomId", roomId);
-		map.put("time", DateUtils.currentTime().toDate());
 		Password password = this.getBaseDao().findUniqueByHql(hql, map);
 		if(password!=null){
 			password.setIsValid(1);
