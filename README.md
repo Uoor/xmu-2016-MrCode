@@ -46,7 +46,7 @@
 
     
 * 酒店管理系统，用于与MrCode交互
-*管理员登陆（已有`admin/admin`）
+* 管理员登陆（已有`admin/admin`）
 	* [酒店管理系统 主页](http://www.monkeyhorse.cn/JavaPrj_9).
 	* [酒店管理系统 Github](https://github.com/wjialian/hotelSystem).
 
