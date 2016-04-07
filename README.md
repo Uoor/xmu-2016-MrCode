@@ -8,11 +8,6 @@ MrCode
 - 团队队长：张羽中
 - 团队成员：邹辛怀、吴敏、朱源、王嘉廉、吴燕晶
 - 项目简介：MrCode 自助酒店终端管理系统！旨在简化目前酒店入住繁琐的登记退房过程。用户自助入住、基于DataMining进行吃喝出行推荐、一键退房。项目源于美团点评杯，项目流程基于用户已购买美团卷。
-
-==========================
-
-[MrCode](https://www.monkeyhorse.cn/MrCode) | [文档手册](https://github.com/Uoor/xmu-2016-MrCode/tree/dev/dos) | [酒店管理系统<==>MrCode](https://www.monkeyhorse.cn/JavaPrj_9).
-
 欢迎star、fork、试用 :)
 
 
@@ -24,6 +19,10 @@ MrCode
 * 房间管理、一键退房
 * 退出
 
+---
+
+相关链接：
+[MrCode](https://www.monkeyhorse.cn/MrCode)   |   [文档手册](https://github.com/Uoor/xmu-2016-MrCode/tree/dev/dos)   |   [酒店管理系统<==>MrCode](https://www.monkeyhorse.cn/JavaPrj_9).
 
 
 依赖
