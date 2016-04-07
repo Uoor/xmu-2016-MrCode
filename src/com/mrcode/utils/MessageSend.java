@@ -130,7 +130,7 @@ public class MessageSend {
      * @throws IOException
      */
     public static String sendDynamicVerification(String verificationCode, String mobile) throws IOException {
-    	String text = "【我知盘中餐】"+verificationCode+"（动态登录验证码）。工作人员不会向您索要，请勿向任何人泄露。";
+    	String text = "【码团网】"+verificationCode+"（动态登录验证码）。工作人员不会向您索要，请勿向任何人泄露。";
 		return sendSms(text, mobile);
     }
 
