@@ -31,7 +31,7 @@
 ---
 
 * LAM+SSH
-* [Kmeans](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/dos/datamining)
+* [Kmeans](https://github.com/Uoor/xmu-2016-MrCode/tree/dev/dos/DataMining)
 * Jquery
 
 
@@ -40,14 +40,14 @@
 * 码团用户寓意于美团用户
 
 * 用户身份登陆(已有`admin/111111`)，也可动态登陆。
-    * [MrCode 主页](www.monkeyhorse.cn/MrCode)
+    * [MrCode 主页](http://www.monkeyhorse.cn/MrCode)
     * [MrCode Github](https://github.com/Uoor/xmu-2016-MrCode/)
 
 
     
 * 酒店管理系统，用于与MrCode交互
 *管理员登陆（已有`admin/admin`）
-	* [酒店管理系统 主页](www.monkeyhorse.cn/JavaPrj_9).
+	* [酒店管理系统 主页](http://www.monkeyhorse.cn/JavaPrj_9).
 	* [酒店管理系统 Github](https://github.com/wjialian/hotelSystem).
 
 
