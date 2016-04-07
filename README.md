@@ -43,7 +43,7 @@
     * [MrCode 主页](http://www.monkeyhorse.cn/MrCode)
     * [MrCode Github](https://github.com/Uoor/xmu-2016-MrCode/)
     * 关注微信公众号：厦大开发精英小组
-    *![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/dos/flowchart/publicNumber.jpg)
+    ![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/dos/flowchart/publicNumber.jpg)
 
 
     
