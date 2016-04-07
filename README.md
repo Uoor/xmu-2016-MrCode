@@ -2,11 +2,11 @@
 MrCode
 ==========================
 
-MrCode 一个酒店终端管理系统！旨在简化目前酒店入住繁琐的登记退房过程。用户自助入住、基于DataMining进行吃喝出行推荐、一键退房。项目源于美团点评杯。
+MrCode 自助酒店终端管理系统！旨在简化目前酒店入住繁琐的登记退房过程。用户自助入住、基于DataMining进行吃喝出行推荐、一键退房。项目源于美团点评杯，项目流程基于用户已购买美团卷。
 
-[MrCode主页](https://www.monkeyhorse.cn/MrCode) | [文档手册](https://github.com/Uoor/xmu-2016-MrCode/tree/dev/dos) | [酒店管理系统主页，用于与MrCode交互](https://www.monkeyhorse.cn/JavaPrj_9).
+[MrCode](https://www.monkeyhorse.cn/MrCode) | [文档手册](https://github.com/Uoor/xmu-2016-MrCode/tree/dev/dos) | [酒店管理系统<-->MrCode](https://www.monkeyhorse.cn/JavaPrj_9).
 
-欢迎star、fork、试用 ：）
+欢迎star、fork、试用 :)
 
 
 * 用户登录
@@ -22,7 +22,6 @@ MrCode 一个酒店终端管理系统！旨在简化目前酒店入住繁琐的�
 依赖
 ---
 
-* Bash(git、github、ssh)
 * LAM+SSH
 * Kmeans
 * Jquery
@@ -31,6 +30,7 @@ MrCode 一个酒店终端管理系统！旨在简化目前酒店入住繁琐的�
 快速开始
 -------
 * 码团用户寓意于美团用户
+
 * 用户身份登陆(已有`admin/111111`)，也可动态登陆。
     * [MrCode 主页](https://www.monkeyhorse.cn/MrCode)
     * [MrCode Github](https://github.com/Uoor/xmu-2016-MrCode/)
@@ -46,6 +46,9 @@ MrCode 一个酒店终端管理系统！旨在简化目前酒店入住繁琐的�
 
 截图
 ---
+
+#### 流程图
+![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/dos/flowchart/mrcode.jpg)
 
 #### 登陆
 ![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/dos/pic/login.jpg)
@@ -80,4 +83,5 @@ MrCode 一个酒店终端管理系统！旨在简化目前酒店入住繁琐的�
 交流讨论
 -------
 - [文档手册](https://github.com/Uoor/xmu-2016-MrCode/tree/dev/dos)
-- contact me：i@monkeyhorse.cn
+- 若因数据库问题影响运行，请联系我
+- email: monkeyhorse.cn
