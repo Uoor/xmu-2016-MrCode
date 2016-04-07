@@ -148,7 +148,7 @@ public class PayAction extends BaseAction<Mrcodeorder> {
 					//如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
 					//如果有做过处理，不执行商户的业务程序
 				//根据订单号找到订单
-				Mrcodeorder mrcodeorder = mrcodeorderService.getWithContactorsByOrderNum(trade_no);
+				Mrcodeorder mrcodeorder = mrcodeorderService.getWithContactorsByOrderNum(out_trade_no);
 				//1.处理业务逻辑
 				//1-1. 将orderList的状态
 				mrcodeorder.setDepositAlready(1);
