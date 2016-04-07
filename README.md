@@ -24,7 +24,7 @@
 
 相关链接
 ---
-[MrCode](https://www.monkeyhorse.cn/MrCode)   |   [文档手册](https://github.com/Uoor/xmu-2016-MrCode/tree/dev/dos)   |   [酒店管理系统<==>MrCode](https://www.monkeyhorse.cn/JavaPrj_9).
+[MrCode](http://www.monkeyhorse.cn/MrCode)   |   [文档手册](https://github.com/Uoor/xmu-2016-MrCode/tree/dev/dos)   |   [酒店管理系统<==>MrCode](http://www.monkeyhorse.cn/JavaPrj_9).
 
 
 依赖
