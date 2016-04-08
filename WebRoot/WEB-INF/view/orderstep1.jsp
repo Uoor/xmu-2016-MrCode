@@ -148,7 +148,6 @@
 	//用来把点击叉叉时删除房间
 	function delete_number(e){
 		var id = $(e).attr("param");
-		alert("do");
 		for(var i in ids){
 			if(ids[i]==id){
 				ids.splice(i, 1);
