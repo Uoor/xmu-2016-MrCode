@@ -108,4 +108,11 @@ list-style: none;
     position:fixed;
     bottom:0;
     width:100%;
+    z-index:9999;
 }
+/*适应不同的手机*/
+.index-content{
+	overflow: scroll;
+    margin-bottom: 50px;
+}
+
