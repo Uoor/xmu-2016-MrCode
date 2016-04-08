@@ -58,20 +58,16 @@ public class RoomAction extends BaseAction<Room>{
 		Roomtype roomtype = roomtypeService.findRoomtypeByTypeId(1, roomType);
 		List<Room> roomlist = roomService.getByRoomNumAndType(roomNumber, roomtype);
 		if(roomlist.size()==0){
-			response.getWriter().write("{success:true}");
-			return;
-		}
-		Room room = roomlist.get(0);
-		System.out.println();
-		if(room==null){
-		    room = new Room();
+			Room room = new Room();
 			room.setFloor(floor);
 			room.setRoomtype(roomtype);
 			room.setRoomNumber(roomNumber);
 			room.setState(0);
 			roomService.save(room);
 		}
+		
 		else{
+			Room room = roomlist.get(0);
 			room.setFloor(floor);
 			room.setRoomtype(roomtype);
 			room.setRoomNumber(roomNumber);

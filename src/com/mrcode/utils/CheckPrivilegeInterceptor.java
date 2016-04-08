@@ -27,7 +27,8 @@ public class CheckPrivilegeInterceptor  extends MethodFilterInterceptor {
 		if (cus == null ) {
 			if (actionName.startsWith("toLogin") || actionName.startsWith("login")
 					||actionName.startsWith("sendVerification") || actionName.startsWith("mobileLogin") 
-					|| actionName.startsWith("updateRoom"))		{ 					
+					|| actionName.startsWith("updateRoom") || actionName.startsWith("activePassword")
+					|| actionName.startsWith("updateRoomInfo") || actionName.startsWith("updateRoomTypeInfo"))		{ 					
 		// 如果是去登录，就放行
 				return invocation.invoke();
 			} else {

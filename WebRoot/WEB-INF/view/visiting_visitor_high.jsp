@@ -33,7 +33,7 @@
                     <p>景色迷人，令人流连忘返</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">$300</span>
+                    <span class="listitem-money">奢华尊享400元/位</span>
                 </div>
             </div>
         </a>
@@ -49,7 +49,7 @@
                     <p>景色迷人，令人流连忘返</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">$350</span>
+                    <span class="listitem-money">奢华尊享300元/位</span>
                 </div>
             </div>
         </a>
@@ -65,7 +65,7 @@
                     <p>景色迷人，令人流连忘返</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">$400</span>
+                    <span class="listitem-money">奢华尊享400/位</span>
                 </div>
             </div>
         </a>
@@ -81,7 +81,7 @@
                     <p>景色迷人，令人流连忘返</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">$400</span>
+                    <span class="listitem-money">奢华尊享300/位</span>
                 </div>
             </div>
         </a>
@@ -99,7 +99,7 @@
                     <p>风景秀丽，江山大好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">$200</span>
+                    <span class="listitem-money">奢华尊享200元/位</span>
                 </div>
             </div>
         </a>
@@ -116,7 +116,7 @@
                     <p>风景秀丽，江山大好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">$250</span>
+                    <span class="listitem-money">奢华尊享250元/位</span>
                 </div>
             </div>
         </a>

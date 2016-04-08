@@ -14,6 +14,7 @@ import com.mrcode.utils.Const;
 import com.mrcode.utils.DigestUtil;
 import com.mrcode.base.BaseAction;
 import com.mrcode.common.ViewLocation;
+import com.mrcode.datamine.Predict;
 import com.mrcode.model.Customer;
 import com.opensymphony.xwork2.ActionContext;
 
@@ -48,10 +49,17 @@ public class LoginAction extends BaseAction<Customer>{
 		
 		Customer customer = null;
 		if((customer = customerService.checkLogin(loginName, DigestUtil.encryptPWD(password)))!=null){
+			//顾客类型 1出差  2游玩
+			String ids = passwordService.getLatestCity(customer, pageBean);
+			customer.setCusType(Predict.trafficOrVisit(ids));
+			//消费水平 1高 2低
+			int shopLevel = passwordService.getShopLevel(customer, pageBean) > 300 ? 1 : 2 ;
+			customer.setShopLevel(shopLevel );
+			customerService.update(customer);
 			session.put(Const.CUSTOMER, customer);
 			System.out.println("登陆成功");
 			
-			String ids = passwordService.getLatestCity(customer, pageBean);
+			
 			
 			return "toIndex";
 		} else {

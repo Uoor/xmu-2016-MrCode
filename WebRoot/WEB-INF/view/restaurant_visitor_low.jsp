@@ -34,7 +34,7 @@
                     <p>味道很棒，环境很好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">￥60</span>
+                    <span class="listitem-money">人均价格30元</span>
                 </div>
             </div>
         </a>
@@ -52,7 +52,7 @@
                     <p>味道很棒，环境很好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">$50</span>
+                    <span class="listitem-money">人均价格60元</span>
                 </div>
             </div>
         </a>
@@ -70,7 +70,7 @@
                     <p>味道很棒，环境很好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">$20</span>
+                    <span class="listitem-money">人均价格50元</span>
                 </div>
             </div>
         </a>
@@ -88,7 +88,7 @@
                     <p>味道很棒，环境很好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">$20</span>
+                    <span class="listitem-money">人均价格60元</span>
                 </div>
             </div>
         </a>
@@ -106,7 +106,7 @@
                     <p>味道很棒，环境很好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">$30</span>
+                    <span class="listitem-money">人均价格30元</span>
                 </div>
             </div>
         </a>
@@ -123,7 +123,7 @@
                     <p>味道很棒，环境很好</p>
                 </div>
                 <div class="listitem-buttom">
-                    <span class="listitem-money">$25</span>
+                    <span class="listitem-money">人均价格40元</span>
                 </div>
             </div>
         </a>

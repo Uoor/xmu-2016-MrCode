@@ -33,4 +33,9 @@ public interface PasswordService extends BaseService<Password>{
 	 * @throws Exception
 	 */
 	public String getLatestCity(Customer customer, PageBean pageBean) throws Exception;
-}
+/**
+	 * 激活相应的房间钥匙
+	 * @param roomId
+	 * @throws Exception
+	 */
+	public void active(String roomId) throws Exception;public int getShopLevel(Customer customer, PageBean pageBean) throws Exception;}

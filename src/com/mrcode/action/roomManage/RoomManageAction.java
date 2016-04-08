@@ -79,7 +79,20 @@ public class RoomManageAction extends BaseAction<Room>{
 			//RoomType roomtype = roomService.getRoomTypeByRoomId();
 			 request.setAttribute("customer", cus);
 			 request.setAttribute("roomid", room.getId());
+			 request.setAttribute("roomnumber", room.getRoomNumber());
 			return "toRoomManage";
 		}
-	
+		
+		//订餐页面
+		@Action(value = "toRoomManageOrderFood", results = { @Result(name = "roomManageOrderFoodUI", location = ViewLocation.View_ROOT
+				+ "roommanage_orderfood.jsp") })
+		public String toRoomManageOrderFood() throws Exception{
+			return "roomManageOrderFoodUI";
+		}
+		//日用品页面
+		@Action(value = "toRoomManageBuy", results = { @Result(name = "roomManageBuyUI", location = ViewLocation.View_ROOT
+				+ "roommanage_buy.jsp") })
+		public String toRoomManageBuy() throws Exception{
+			return "roomManageBuyUI";
+		}
 }
