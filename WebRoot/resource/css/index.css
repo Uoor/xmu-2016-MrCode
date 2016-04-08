@@ -1,12 +1,12 @@
 *{ margin:0px; padding:0px;}
-body{ font-family:微软雅黑; font-size:14px; background:#66ccff;}
+body{ font-family:寰蒋闆呴粦; font-size:14px; background:#66ccff;}
 a{ text-decoration:none;}
 img{ border:0px; width:100%; height:auto;}
 ul{ list-style:none;}
 .ui-body-c, .ui-dialog.ui-overlay-c{ background:none; text-shadow:none;}
-.ui-body-c, .ui-body-c input, .ui-body-c select, .ui-body-c textarea, .ui-body-c button{ font-family:微软雅黑; }
+.ui-body-c, .ui-body-c input, .ui-body-c select, .ui-body-c textarea, .ui-body-c button{ font-family:寰蒋闆呴粦; }
 
-/*---------脚部内容-------*/
+/*---------鑴氶儴鍐呭-------*/
 .footer{ line-height:40px; text-align:center;}
 .footer-top{ color:#fff; font-weight:bold;}
 .footer-bottom{ background:#333; color:#FFF; font-weight:bold;}
@@ -30,7 +30,7 @@ ul{ list-style:none;}
 .content a:nth-child(4) div.img{ width:50px; height:50px; margin-top:10px;}
 
 
-/*幻灯片*/
+/*骞荤伅鐗�/
 header{text-align:center;   position:relative;      overflow:hidden;}
 ul{ margin:0px; padding:0px;}
 #nav{ position:absolute; width:100%; height:20px; line-height:20px;   bottom:0px;}
@@ -100,7 +100,7 @@ list-style: none;
     background-color: #000000;
     opacity: 0;
 }
-/*设置底部*/
+/*璁剧疆搴曢儴*/
 .footer_vertical_line{
     padding:5px;
 }
@@ -108,4 +108,11 @@ list-style: none;
     position:fixed;
     bottom:0;
     width:100%;
+    z-index:9999;
 }
+/*适应不同的手机*/
+.index-content{
+	overflow: scroll;
+    margin-bottom: 50px;
+}
+
