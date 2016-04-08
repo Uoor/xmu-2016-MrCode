@@ -86,7 +86,7 @@
         document.getElementById("scroller").style.cssText = " width:" + document.body.clientWidth * count + "px";
     };
 </script>
-<div class="content">
+<div class="content index-content">
     <a href="${ctx }/customer/toOrder">
         <div class="img" style="background:url(${rctx }/image/13809673822754.png) center no-repeat; background-size:contain;"></div>
         <div class="text">酒店入住</div>

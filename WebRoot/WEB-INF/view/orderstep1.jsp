@@ -49,7 +49,7 @@
 	        <div class="modal fade" id="show_room_${item.key.id }" tabindex="-1" role="dialog"
 	             aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 40px;position: absolute;margin-bottom: 50px">
 	            <div class="modal-dialog">
-	                <div class="modal-content">
+	                <div class="modal-content" style=”margin-bottom:50px”>
 	                    <div class="modal-header">
 	                        <button type="button" class="close"
 	                                data-dismiss="modal" aria-hidden="true">
