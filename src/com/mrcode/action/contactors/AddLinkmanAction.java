@@ -58,9 +58,9 @@ public class AddLinkmanAction extends BaseAction<Contactors>{
 		
 		Customer cus = (Customer)session.get("customer");
 		
-		if (contactorsService.isExist(identityCard, cus)) {
-			return "editLinkman";
-		}
+//		if (contactorsService.isExist(identityCard, cus)) {
+//			return "editLinkman";
+//		}
 		
 		cont.setIdentityCard(identityCard);
 		cont.setName(name);

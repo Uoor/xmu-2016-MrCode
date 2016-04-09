@@ -39,7 +39,7 @@
                 <div class="panel-body" >
                     <i class="fa fa-pencil search-style" data-target="#rewrite_friends${contsList.id }" data-toggle="modal" ></i>
                     <span class="add_friends_name">${contsList.name }</span>
-                    <a class='fa fa-times times-style' href="${ctx}/customer/delLinkman?id=${contsList.id} "></a>
+                    <a class='fa fa-times times-style a_deletefriends' param="${contsList.id}" href="#"></a>
                     
                     <!-- 模态框（Modal）修改联系人 -->
                     <div class="modal fade" id="rewrite_friends${contsList.id }" tabindex="-1" role="dialog"
@@ -180,7 +180,15 @@ $("#confirm_button").click(function(){
 	}
 	
 });
-
+$(".a_deletefriends").click(function(){
+	var id = $(this).attr("param");
+	var a=confirm("确认要删除联系人吗？");
+	if(a==true){
+		window.location.href="${ctx}/customer/delLinkman?id="+id;
+	}
+	else{
+	}
+})
 
 </script>
 </body>
