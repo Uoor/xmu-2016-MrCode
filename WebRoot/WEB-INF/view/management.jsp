@@ -27,6 +27,7 @@
 <input type="hidden" value="${roomid}" id="roomid">
 <input type="hidden" value="${customer.userName}" id="customertrueName">
 <input type="hidden" value="${customer.phoneNumber}" id="customerphoneNumber">
+<input type="hidden" value="${roomnumber}" id="roomNumber">
 <div class="content">
     <div class="container">
           <div style="padding:0 5px 0 0;">
@@ -85,7 +86,7 @@
    <%@ include file="footer.jsp" %>
 <script>
 $(".returnroom").click(function(){
-	var roomid = $("#roomid").val();
+	var roomid = $("#roomNumber").val();
 	var time = $("#showtimes").text();
 	var name = $("#customertrueName").val();;
 	var demand = "房间"+roomid+"：本房间请求退房。";
@@ -107,7 +108,7 @@ $(".returnroom").click(function(){
 });
 
 $(".cleanclothes").click(function(){
-	var roomid = $("#roomid").val();
+	var roomid = $("#roomNumber").val();
 	var time = $("#showtimes").text();
 	var name = $("#customertrueName").val();;
 	var demand = "房间"+roomid+"：本房间请求衣服送洗服务。";
@@ -129,7 +130,7 @@ $(".cleanclothes").click(function(){
 });
 
 $(".callfordesk").click(function(){
-	var roomid = $("#roomid").val();
+	var roomid = $("#roomNumber").val();
 	var time = $("#showtimes").text();
 	var name = $("#customertrueName").val();;
 	var demand = "房间"+roomid+"：本房间请求呼叫总台。";
@@ -150,7 +151,7 @@ $(".callfordesk").click(function(){
 	});
 });
 $(".cleanroom").click(function(){
-	var roomid = $("#roomid").val();
+	var roomid = $("#roomNumber").val();
 	var time = $("#showtimes").text();
 	var name = $("#customertrueName").val();;
 	var demand = "房间"+roomid+"：本房间请求房间清洁服务。";
