@@ -35,7 +35,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">联系人列表</h3>
                 </div>
-               <c:forEach items="${contsList}" var="contsList">
+                <c:forEach items="${contsList}" var="contsList">
                 <div class="panel-body" >
                     <i class="fa fa-pencil search-style" data-target="#rewrite_friends${contsList.id }" data-toggle="modal" ></i>
                     <span class="add_friends_name">${contsList.name }</span>
@@ -43,7 +43,7 @@
                     
                     <!-- 模态框（Modal）修改联系人 -->
                     <div class="modal fade" id="rewrite_friends${contsList.id }" tabindex="-1" role="dialog"
-				         aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 40px;">
+				         aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 40px;height:100px">
 				        <div class="modal-dialog">
 				            <div class="modal-content">
 				                <div class="modal-header">
@@ -117,7 +117,7 @@
                         <input class="login-in-input" placeholder="身份证" name="identityCard" id="friends_id">
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer footer-style">
                     <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">
                         <a href="orderstep3.html" class="modal-default">取消</a>
                     </button>
