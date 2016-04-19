@@ -30,7 +30,7 @@
 
 
 </head>
-<body>
+<body >
 <div class="head">
     <div class="header">
         <a href="#menu" class="header-a"><i class="fa fa-reorder head-style"></i></a>

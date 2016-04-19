@@ -112,7 +112,6 @@ list-style: none;
 }
 /*适应不同的手机*/
 .index-content{
-	overflow: scroll;
+	/* overflow: scroll; */
     margin-bottom: 50px;
 }
-

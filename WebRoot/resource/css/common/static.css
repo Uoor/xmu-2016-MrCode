@@ -176,6 +176,8 @@
     color: #fff;
     height: 40px;
     width: 100%;
+    margin:0px;
+    padding:0px;
 }
 .create_new{
     background-color: #33ccff;
@@ -308,7 +310,9 @@ a{
 #choose-room-next-step{
     margin-bottom: 80px;
 }
-
+.next-step-button{
+	width:70%;
+}
 /*上传图片的样式设置*/
 #imagePreview {
     width:100%;/*用来控制图片的宽度*/
@@ -328,6 +332,7 @@ a{
 /*设置添加联系人页面的样式*/
 .add_friends_now{
     text-align: center;
+    margin-bottom:100px;
 }
 .add_friends_now_word{
     width: 90%;
@@ -399,3 +404,25 @@ a:hover,a:focus{
 	opacity: 0
 }
  li {list-style-type:none;}
+ .choose-room-before-step{
+ display:none;
+ }
+ #confirm_button{
+ margin:0px;
+ }
+ .footer-style{
+ padding:5px;
+ }
+ .btn-primary{
+ margin:0px;
+ }
+  .btn-default{
+ margin:0px;
+ }
+ .create_new{
+ padding:5px;
+ margin:0px;
+ }
+ .zhifubao{
+ color:#33ccff;
+ }

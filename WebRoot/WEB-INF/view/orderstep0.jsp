@@ -24,7 +24,7 @@
         <span class="header-word">选择时间</span>
         <a href="${ctx }/customer/toIndex"><i class="fa fa-home head-style home-style"></i></a>
     </div>
-    <%@ include file="header.jsp" %>
+     <%@ include file="header.jsp" %>
 </div>
 
 <div class="content">
@@ -49,7 +49,7 @@
 	    </div>
 	</form>
 </div>
-<%@ include file="footer.jsp" %>
+  <%@ include file="footer.jsp" %>
 <script>
 	//判断是否选择日期
 	function check(){

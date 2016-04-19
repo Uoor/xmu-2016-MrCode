@@ -30,7 +30,7 @@
                     <h3 class="panel-title">选择支付方式</h3>
                 </div>
                 <div class="panel-body" >
-                    <a href="${ctx }/customer/alipayHandler?id=${order.id}">支付宝</a>
+                    <a href="${ctx }/customer/alipayHandler?id=${order.id}" class="zhifubao">支付宝</a>
                 </div>
                 <div class="panel-body">
                     <a href="#">微信</a>
