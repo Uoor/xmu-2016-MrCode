@@ -86,7 +86,7 @@
         document.getElementById("scroller").style.cssText = " width:" + document.body.clientWidth * count + "px";
     };
 </script>
-<div class="content">
+<div class="content index-content">
     <a href="${ctx }/customer/toOrder">
         <div class="img" style="background:url(${rctx }/image/13809673822754.png) center no-repeat; background-size:contain;"></div>
         <div class="text">酒店入住</div>
@@ -121,14 +121,14 @@
         <div class="text">关于我们</div>
     </a>
     </div>
-<div class="footer" style="position:absolute;bottom:0;width:100%;">
+<div class="footer" ">
     <p class="footer-top">&COPY;码先生团队</p>
     <p class="footer-bottom">
         <a href="${ctx }/customer/toIndex">首页</a>
         <span class="footer_vertical_line">|</span>
         <a href="${ctx }/customer/toOrder">入住</a>
         <span class="footer_vertical_line">|</span>
-        <a href="${ctx }/customer/toRoomManage">管理</a>
+        <a class="toRoomManage" href="#">管理</a>
         <span class="footer_vertical_line">|</span>
         <a href="${ctx }/customer/profile">我的</a>
 
