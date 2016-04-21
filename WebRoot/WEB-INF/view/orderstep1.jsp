@@ -131,13 +131,18 @@
 	//用来把选择的房间添加到已选房间的列表中
 	function add_room(){
 		ids=[];
+
 		/* $("#panel-body").html('<div class="panel-heading"><h3 class="panel-title">已选房间</h3></div>'); */
-		$(".haschoosenroom").remove(); 
+		
+
+		$("#panel-body").html('<div class="panel-heading"><h3 class="panel-title">已选房间</h3></div>');
+		 
+
 		$(":checked").each(function(){
 			var temp=$(this);//获得当前的其中一个的input
 			var room_number=$(this).next().html();//获得房间号
 			var room_id=$(this).val();//获得房间的id值
-			$("#panel-body").append(" <div class='panel-body haschoosenroom' ><span class='room_value_find'>"+room_number+"</span> " +
+			$("#panel-body").append(" <div class='panel-body ' ><span class='room_value_find'>"+room_number+"</span> " +
 			      "<i class='fa fa-times times-style' param='"+room_id+"' onclick='delete_number(this)'></i> </div>");
 			ids.push(room_id);
 		});
@@ -170,6 +175,7 @@
 		    }
 		});
 	}
+	//检查团购券是否足够
 	$(".next_step_color").click(function(){
 		if(ids.length*"${days}">"${validCount}"){
 			swal("您的团购券只有${validCount}张，已选了${days}天，请重新选择房间");	
