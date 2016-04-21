@@ -1,6 +1,7 @@
 package com.mrcode.action.order;
 
 import java.io.InputStream;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -314,7 +315,7 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
 				json.put("deposit", 0);
 				json.put("orderCode", mrcodeorder.getOrderCode());
 				json.put("passwords", jsonArray);
-		        PrintWriter pw=new PrintWriter(connection.getOutputStream());
+		        PrintWriter pw=new PrintWriter(new OutputStreamWriter(connection.getOutputStream(),"utf-8"));
 		        String content = "json=" + json;  
 		        pw.print(content);
 		        pw.flush();

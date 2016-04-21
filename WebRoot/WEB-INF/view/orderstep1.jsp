@@ -132,12 +132,12 @@
 	function add_room(){
 		ids=[];
 		/* $("#panel-body").html('<div class="panel-heading"><h3 class="panel-title">已选房间</h3></div>'); */
-		 
+		$(".haschoosenroom").remove(); 
 		$(":checked").each(function(){
 			var temp=$(this);//获得当前的其中一个的input
 			var room_number=$(this).next().html();//获得房间号
 			var room_id=$(this).val();//获得房间的id值
-			$("#panel-body").append(" <div class='panel-body' ><span class='room_value_find'>"+room_number+"</span> " +
+			$("#panel-body").append(" <div class='panel-body haschoosenroom' ><span class='room_value_find'>"+room_number+"</span> " +
 			      "<i class='fa fa-times times-style' param='"+room_id+"' onclick='delete_number(this)'></i> </div>");
 			ids.push(room_id);
 		});
