@@ -44,10 +44,10 @@
       -->
         <div id="choose-edit" style="margin-bottom: 50px;text-align: center;"> 
             <div class="control-group input-top" style="margin-top:50px">
-                <input type="text" name="identityCard" id="checkidcard" class="login-in-input" placeholder="请输入身份证号">
+                <input type="text" name="identityCard" id="checkidcard" class="login-in-input" placeholder="请输入身份证号" value = ${ identityCard}>
             </div>
             <div class="control-group">
-                <input type="text" name="truename" class="login-in-input" placeholder="请输入姓名">
+                <input type="text" name="truename" class="login-in-input" placeholder="请输入姓名" value = ${ truename}>
             </div>
             <div class="control-group">
                 <button type="submit" class="login-now">提交</button>
