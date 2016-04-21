@@ -131,7 +131,7 @@
 	//用来把选择的房间添加到已选房间的列表中
 	function add_room(){
 		ids=[];
-		/* $("#panel-body").html('<div class="panel-heading"><h3 class="panel-title">已选房间</h3></div>'); */
+		$("#panel-body").html('<div class="panel-heading"><h3 class="panel-title">已选房间</h3></div>');
 		 
 		$(":checked").each(function(){
 			var temp=$(this);//获得当前的其中一个的input
@@ -170,6 +170,7 @@
 		    }
 		});
 	}
+	//检查团购券是否足够
 	$(".next_step_color").click(function(){
 		if(ids.length*"${days}">"${validCount}"){
 			swal("您的团购券只有${validCount}张，已选了${days}天，请重新选择房间");	
