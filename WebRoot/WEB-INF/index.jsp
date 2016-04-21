@@ -128,7 +128,7 @@
         <span class="footer_vertical_line">|</span>
         <a href="${ctx }/customer/toOrder">入住</a>
         <span class="footer_vertical_line">|</span>
-        <a href="${ctx }/customer/toRoomManage">管理</a>
+        <a class="toRoomManage" href="#">管理</a>
         <span class="footer_vertical_line">|</span>
         <a href="${ctx }/customer/profile">我的</a>
 
