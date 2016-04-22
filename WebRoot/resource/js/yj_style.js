@@ -7,7 +7,13 @@
        var pheight= document.documentElement.clientHeight;
         if(pheight<=600){
             $(".footer-top").hide();
+          
         }
+        if(pheight<=550){
+            $(".index_content").addClass("index-content-fix");
+        }
+        pheight=pheight-90;
+        $(".modal").attr("style","height:"+pheight+"px;"+"margin-top:40px;");
     };
 //设置侧边栏
    /* $(function() {

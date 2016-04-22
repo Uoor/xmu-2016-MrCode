@@ -1,6 +1,7 @@
 package com.mrcode.action.order;
 
 import java.io.InputStream;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -81,6 +82,98 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
 		session.put("validCount", validCount); //团购券数量
 		
 		return "stepFirstUI";
+	}
+	
+	@Action(value = "checkRoom")
+	public void checkRoom() throws Exception {
+		//TODO 查看是否有可用的房间
+		// 获得住宿日期
+		Date begin = null, end = null;
+		try {
+			begin = DateUtils.parseDate(getParameter("begin"), "yyyy-MM-dd");
+		} catch (Exception e) {
+			// TODO: handle exception
+			begin = null;
+		}
+		try {
+			end = DateUtils.parseDate(getParameter("end"), "yyyy-MM-dd");
+		} catch (Exception e) {
+			// TODO: handle exception
+			end = null;
+		}
+
+		long days = DateUtils.lengthBetween(new DateTime(begin), new DateTime(
+				end), DurationFieldType.days());
+
+		Integer typeId = null;
+		// 查询所订房间类型的具体信息
+		try {
+			typeId = ((Roomtype) session.get("roomtype")).getId();
+		} catch (Exception e) {
+			// TODO: 未选择团购券,跳转到选择团购券页面
+			WebApplication.getResponse().sendRedirect(
+					WebApplication.getRequest().getContextPath()
+							+ "/customer/toOrder");
+		}
+
+		Roomtype roomtype = roomtypeService.getWithDetail(typeId);
+
+		// 请求酒店可用的房间
+		String url_str = "http://localhost:8080/JavaPrj_9/reserv.htm?action=findAvailRoomsInJson";// 获取用户认证的帐号URL
+		URL url = new URL(url_str);
+		HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+		// connection.connect();
+		// 默认是get 方式
+		connection.setRequestMethod("POST");
+		// 设置是否向connection输出，如果是post请求，参数要放在http正文内，因此需要设为true
+		connection.setDoOutput(true);
+		// Post 请求不能使用缓存
+		connection.setUseCaches(false);
+		// 要上传的参数
+		PrintWriter pw = new PrintWriter(connection.getOutputStream());
+		String content = "from="
+				+ URLEncoder.encode(DateUtils.formatStr(begin), "UTF-8")
+				+ "&to=" + URLEncoder.encode(DateUtils.formatStr(end), "UTF-8");
+		pw.print(content);
+		pw.flush();
+		pw.close();
+		int code = connection.getResponseCode();
+		if (code == 404) {
+			throw new Exception("连接无效，找不到此次连接的会话信息！");
+		}
+		if (code == 500) {
+			throw new Exception("连接服务器发生内部错误！");
+		}
+		if (code != 200) {
+			throw new Exception("发生其它错误，连接服务器返回 " + code);
+		}
+		InputStream is = connection.getInputStream();
+		byte[] response = new byte[is.available()];
+		is.read(response);
+		is.close();
+		if (response == null || response.length == 0) {
+			throw new Exception("连接无效，找不到此次连接的会话信息！");
+		}
+		String json = new String(response, "UTF-8");
+		System.out.println(json);
+		JSONObject jsonObject = JSONObject.fromObject(json);
+		JSONArray jsonArray = JSONArray.fromObject(jsonObject.get("rooms"));
+		//把获得的json组装成对象
+        String rmIds = "";
+        for(Object object : jsonArray){
+        	String rmId = ((JSONObject)object).getString("rmId");
+        	rmIds += rmId+",";
+        }
+        if (rmIds.contains(",")) {
+			rmIds = rmIds.substring(0, rmIds.length()-1);
+		}
+        List<Room> rooms = roomService.getByRoomNumAndType(rmIds, roomtype);
+		
+		if(rooms==null || rooms.isEmpty()){
+			writeStringToResponse("0");
+		}else {
+			writeStringToResponse("1");
+		}
 	}
 	
 	@Action(value = "toSecond", results = { @Result(name = "stepSecondUI", location = ViewLocation.View_ROOT
@@ -233,6 +326,22 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
 		}
 	}
 	
+	@Action(value = "checkID")
+	public void checkID() throws Exception{
+		//判断此身份证是否已预定了房间,未预定返回1,已预定返回0
+		Integer cid = getIntParameter("cid", -1);
+		Date begin = (Date)session.get("begin");
+		Date end = (Date)session.get("end");
+		Contactors contactor = contactorsService.getById(cid);
+		
+		if(passwordService.checkIDCard(contactor.getIdentityCard(), begin, end)){
+			writeStringToResponse("1");
+		}else {
+			writeStringToResponse("0");
+		}
+			
+	}
+	
 	@Action(value = "toFourth", results = { @Result(name = "stepFourthUI", location = ViewLocation.View_ROOT
 			+ "orderstep3.jsp") })
 	public String toFourth() throws Exception{
@@ -314,7 +423,7 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
 				json.put("deposit", 0);
 				json.put("orderCode", mrcodeorder.getOrderCode());
 				json.put("passwords", jsonArray);
-		        PrintWriter pw=new PrintWriter(connection.getOutputStream());
+		        PrintWriter pw=new PrintWriter(new OutputStreamWriter(connection.getOutputStream(),"utf-8"));
 		        String content = "json=" + json;  
 		        pw.print(content);
 		        pw.flush();

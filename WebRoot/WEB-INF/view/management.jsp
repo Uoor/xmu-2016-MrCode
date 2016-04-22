@@ -25,7 +25,7 @@
 
 </div>
 <input type="hidden" value="${roomid}" id="roomid">
-<input type="hidden" value="${customer.userName}" id="customertrueName">
+<input type="hidden" value="${customer.trueName}" id="customertrueName">
 <input type="hidden" value="${customer.phoneNumber}" id="customerphoneNumber">
 <input type="hidden" value="${roomnumber}" id="roomNumber">
 <div class="content">

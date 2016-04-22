@@ -179,6 +179,26 @@
 				return false;
 			}
 		}
+		//判断此身份证是否已订房
+		var flag = true;
+		$(".friends_list").each(function(){
+			var cid = $(this).val();
+			var thiz = this;
+			$.ajax({
+		    	async : false,
+		    	type : "POST",
+				url : "${ctx}/order/checkID?cid="+cid,
+				dataType : "json",
+				success : function(result) {
+					if (result == "0") {
+						swal($(thiz).find("option:selected").html()+"在该时间段已订房,请不要重复预订");
+						flag = false;
+					}
+				}
+		    })
+			return flag;
+		})
+		return flag;
 	})
 	
 	//判断此身份证是否已添加
@@ -235,6 +255,23 @@
 			}
 	    })
 	}
+	//判断此身份证是否已订房
+	$(".friends_list").change(function(){
+		var cid = $(this).val();
+		$.ajax({
+	    	async : false,
+	    	type : "POST",
+			url : "${ctx}/order/checkID?cid="+cid,
+			dataType : "json",
+			success : function(result) {
+				if (result == "0") {
+					swal("此用户在该时间段已订房");
+					 
+					
+				}
+			}
+	    })
+	})
 	//不在线支付押金
 	$(".notDeposit").click(function(){
 		location.href="${ctx}/order/toFifth?room="+room+"&contactor="+contactor;

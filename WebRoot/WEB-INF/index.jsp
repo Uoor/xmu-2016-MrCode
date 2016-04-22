@@ -121,7 +121,7 @@
         <div class="text">关于我们</div>
     </a>
     </div>
-<div class="footer" ">
+<div class="footer">
     <p class="footer-top">&COPY;码先生团队</p>
     <p class="footer-bottom">
         <a href="${ctx }/customer/toIndex">首页</a>
