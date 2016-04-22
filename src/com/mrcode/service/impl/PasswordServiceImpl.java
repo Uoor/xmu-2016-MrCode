@@ -157,5 +157,19 @@ public class PasswordServiceImpl extends BaseServiceImpl<Password>
 		}
 	}
 
+	public Boolean checkIDCard(String IDNum, Date begin, Date end)
+			throws Exception {
+		// TODO  判断此身份证号是否在相应的时段已预定了房间,已预定返回false,未预定返回true
+		String hql = "from Password p where p.contactors.identityCard=:IDNum and p.estimatedTime<:end and p.endTime>:begin " ;
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("IDNum", IDNum);
+		map.put("end", end);
+		map.put("begin", begin);
+		List<Password> passwords = this.getBaseDao().findByHql(hql, map, null, null);
+		if(passwords==null || passwords.isEmpty())
+			return true;
+		else return false;
+	}
+
 	
 }

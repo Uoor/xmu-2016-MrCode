@@ -326,6 +326,22 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
 		}
 	}
 	
+	@Action(value = "checkID")
+	public void checkID() throws Exception{
+		//判断此身份证是否已预定了房间,未预定返回1,已预定返回0
+		Integer cid = getIntParameter("cid", -1);
+		Date begin = (Date)session.get("begin");
+		Date end = (Date)session.get("end");
+		Contactors contactor = contactorsService.getById(cid);
+		
+		if(passwordService.checkIDCard(contactor.getIdentityCard(), begin, end)){
+			writeStringToResponse("1");
+		}else {
+			writeStringToResponse("0");
+		}
+			
+	}
+	
 	@Action(value = "toFourth", results = { @Result(name = "stepFourthUI", location = ViewLocation.View_ROOT
 			+ "orderstep3.jsp") })
 	public String toFourth() throws Exception{
