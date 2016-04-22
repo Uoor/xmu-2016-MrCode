@@ -37,6 +37,8 @@ public class PerfectInformationAction extends BaseAction<Customer>{
 			Customer cus = (Customer) session.get("customer");
 			request.setAttribute("userName", cus.getUserName());
 			request.setAttribute("phoneNumber",cus.getPhoneNumber());
+			request.setAttribute("identityCard",cus.getIdentityCard());
+			request.setAttribute("truename",cus.getTrueName());
 			
 			return "perfectInformation";
 		}
