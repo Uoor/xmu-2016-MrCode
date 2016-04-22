@@ -45,6 +45,7 @@ public class Password  implements java.io.Serializable {
 		this.estimatedTime = estimatedTime;
 		this.endTime = endTime;
 		this.contactors = contactors;
+		this.isValid = 0;
 	}
 
 	/** full constructor */

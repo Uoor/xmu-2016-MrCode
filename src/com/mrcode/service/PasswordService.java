@@ -38,4 +38,17 @@ public interface PasswordService extends BaseService<Password>{
 	 * @param roomId
 	 * @throws Exception
 	 */
-	public void active(String roomId) throws Exception;public int getShopLevel(Customer customer, PageBean pageBean) throws Exception;}
+	public void active(String roomId) throws Exception;
+	
+	public int getShopLevel(Customer customer, PageBean pageBean) throws Exception;
+
+	/**
+	 * 判断此身份证号是否在相应的时段已预定了房间,已预定返回false,未预定返回true
+	 * @param IDNum
+	 * @param begin
+	 * @param end
+	 * @return
+	 * @throws Exception
+	 */
+	public Boolean checkIDCard(String IDNum, Date begin, Date end)throws Exception;
+}

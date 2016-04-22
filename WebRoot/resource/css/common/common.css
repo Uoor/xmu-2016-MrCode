@@ -2,7 +2,7 @@
 /*设置底部*/
 .footer{ line-height:40px; text-align:center;}
 .footer-top{ color:#fff; font-weight:bold;}
-.footer-bottom{ background:#333; color:#FFF; font-weight:bold;}
+.footer-bottom{ background:#333; color:#FFF; font-weight:bold;margin:0px;}
 .footer-bottom a{ color:#fff;}
 .footer_vertical_line{
     padding:5px;

@@ -32,9 +32,9 @@
   <%@ include file="header.jsp" %>
 </div>
 <div class="content choose-floor" >
-    <div class="choose-floor-div" style="display: flex;">
+    <div class="choose-floor-div" style="display: flex;width:100%;">
         <c:forEach items="${frMap }" var="item">
-	        <div class="hotel-floor col-xs-6">
+	        <div class="hotel-floor col-xs-4">
 	            <a type="radio" data-toggle="modal" class="choose-style " href="#show_room_${item.key.id }">
 		            <span class="floor-style">
 		                <i class="fa fa-building building-style"></i>
@@ -42,14 +42,13 @@
 		            <span class="floor-num" id="f3">
 		                ${item.key.floorNumber }楼
 		            </span>
-	            </a>
+	            </a>	           
 	        </div>
-	        
 	        <!-- 模态框展示房间 -->
 	        <div class="modal fade" id="show_room_${item.key.id }" tabindex="-1" role="dialog"
 	             aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 40px;position: absolute;margin-bottom: 50px">
 	            <div class="modal-dialog">
-	                <div class="modal-content" style=”margin-bottom:50px”>
+	                <div class="modal-content" style="margin-bottom:50px;">
 	                    <div class="modal-header">
 	                        <button type="button" class="close"
 	                                data-dismiss="modal" aria-hidden="true">
@@ -78,7 +77,7 @@
 	                                    			<span class="choose-room-checkbox">${room.roomNumber }</span>	                                    			
 	                                    		</label>
 	                                    	</p>
-	                               		</c:forEach>     
+	                               		</c:forEach>
 	                                </div>
 	                            </div>
 	                        </div>
@@ -94,7 +93,7 @@
         </c:forEach>
     </div>
 
-    <div class="image_bigger_style" style="display: none" id="image_bigger_div">
+    <div class="image_bigger_style" style="display: none;" id="image_bigger_div">
         <div class="paying_content remember-room" id="choosen_room_list">
             <div class="panel panel-info" id="panel-body">
                 <div class="panel-heading">
@@ -115,10 +114,13 @@
             </div>
         </div>
         <div class="control-group next_step  choose-room-next-step" id="choose-room-next-step">
-            <button class="login-now" style="background-color:#33ccff"><a href="javascript:;" class="next_step_color">下一步</a></button>
+            <button class="login-now next-step-button" style="background-color:#33ccff"><a href="javascript:;" class="next_step_color">下一步</a></button>
         </div>
+        
     </div>
-
+    <div class="control-group next_step  choose-room-before-step">
+            <button class="login-now" style="background-color:#33ccff"><a href="javascript:;" class="next_step_color">上一步</a></button>
+    </div>
 
 </div>
 <%@ include file="footer.jsp" %>
@@ -129,19 +131,24 @@
 	//用来把选择的房间添加到已选房间的列表中
 	function add_room(){
 		ids=[];
+
+		/* $("#panel-body").html('<div class="panel-heading"><h3 class="panel-title">已选房间</h3></div>'); */
+		
+
 		$("#panel-body").html('<div class="panel-heading"><h3 class="panel-title">已选房间</h3></div>');
 		 
+
 		$(":checked").each(function(){
 			var temp=$(this);//获得当前的其中一个的input
 			var room_number=$(this).next().html();//获得房间号
 			var room_id=$(this).val();//获得房间的id值
-			
-			$("#panel-body").append(" <div class='panel-body' ><span class='room_value_find'>"+room_number+"</span> " +
+			$("#panel-body").append(" <div class='panel-body ' ><span class='room_value_find'>"+room_number+"</span> " +
 			      "<i class='fa fa-times times-style' param='"+room_id+"' onclick='delete_number(this)'></i> </div>");
 			ids.push(room_id);
 		});
 		var room_list=$("#panel-body").children().length;
 		if(room_list>1){
+/* 		     alert("do2"); */
 			 $("#image_bigger_div").show();
 		}
 	}
@@ -168,6 +175,7 @@
 		    }
 		});
 	}
+	//检查团购券是否足够
 	$(".next_step_color").click(function(){
 		if(ids.length*"${days}">"${validCount}"){
 			swal("您的团购券只有${validCount}张，已选了${days}天，请重新选择房间");	

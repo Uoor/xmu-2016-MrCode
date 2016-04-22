@@ -24,11 +24,11 @@
         <span class="header-word">选择时间</span>
         <a href="${ctx }/customer/toIndex"><i class="fa fa-home head-style home-style"></i></a>
     </div>
-    <%@ include file="header.jsp" %>
+     <%@ include file="header.jsp" %>
 </div>
 
 <div class="content">
-	<form action="${ctx }/order/toSecond" method="post" onsubmit="return check()">
+	<form id="selectTime" action="${ctx }/order/toSecond" method="post" onsubmit="return check()">
 	    <!--<h3>日期输入框</h3>-->
 	    <div class="date_leave">
 	        <span class="leave_word">入住时间：</span>
@@ -49,7 +49,7 @@
 	    </div>
 	</form>
 </div>
-<%@ include file="footer.jsp" %>
+  <%@ include file="footer.jsp" %>
 <script>
 	//判断是否选择日期
 	function check(){
@@ -72,7 +72,27 @@
 			swal("您的团购券只有${validCount}张，选择的天数不能超过${validCount}天");
 			return false;
 		}
-		return true;
+		 //查看是否有可用的房间
+		 var flag = false;
+		 var timeForm = new FormData($("#selectTime")[0]);
+		$.ajax({
+			async : false,
+			type : "POST",
+			url : "${ctx }/order/checkRoom",
+			dataType : "json",
+			contentType : false,
+			processData : false,
+			data : timeForm,
+			success : function(result) {
+				if (result == "1") {
+					flag = true;
+				} else if (result == "0") {
+					swal("对不起，您选择的时间已无可用房间！");
+				}
+			}
+		});
+		
+		return flag;
 	}
     //在是IPhone5的时候隐藏码先生
     window.onload = function()
@@ -103,7 +123,6 @@
         $(".mm-title").text("首页");
         $(".mm-navbar-bottom").hide();
     });
- 	
 </script>
 </body>
 </html>
