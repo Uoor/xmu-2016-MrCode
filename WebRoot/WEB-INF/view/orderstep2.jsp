@@ -191,7 +191,7 @@
 				dataType : "json",
 				success : function(result) {
 					if (result == "0") {
-						swal($(thiz).find("option:selected").html()+"在相应时间已订房,请不要重复预订");
+						swal($(thiz).find("option:selected").html()+"在该时间段已订房,请不要重复预订");
 						flag = false;
 					}
 				}
@@ -265,7 +265,9 @@
 			dataType : "json",
 			success : function(result) {
 				if (result == "0") {
-					alert("此用户在相应时间已订房");
+					swal("此用户在该时间段已订房");
+					 
+					
 				}
 			}
 	    })

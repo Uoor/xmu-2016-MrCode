@@ -24,14 +24,14 @@
 
 相关链接
 ---
-[MrCode](http://www.monkeyhorse.cn/MrCode)   |   [文档手册](https://github.com/Uoor/xmu-2016-MrCode/tree/dev/dos)   |   [酒店管理系统<==>MrCode](http://www.monkeyhorse.cn/JavaPrj_9).
+[MrCode](http://www.monkeyhorse.cn/MrCode)   |   [文档手册](https://github.com/Uoor/xmu-2016-MrCode/tree/dev/doc)   |   [酒店管理系统<==>MrCode](http://www.monkeyhorse.cn/JavaPrj_9).
 
 
 依赖
 ---
 
 * LAM+SSH
-* [Kmeans](https://github.com/Uoor/xmu-2016-MrCode/tree/dev/dos/DataMining)
+* [Kmeans](https://github.com/Uoor/xmu-2016-MrCode/tree/dev/doc/DataMining)
 * Jquery
 
 
@@ -53,7 +53,7 @@
 扫描以下二维码，或关注微信公众号（厦大开发精英小组），即可享受自助入住体验
 ---
 
-  ![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/dos/pic/publicNumber.jpg)
+  ![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/doc/pic/publicNumber.jpg)
 
 
 
@@ -61,40 +61,40 @@
 ---
 
 #### 流程图
-![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/dos/flowchart/mrcode.jpg)
+![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/doc/flowchart/mrcode.jpg)
 
 #### 登陆
-![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/dos/pic/login.jpg)
+![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/doc/pic/login.jpg)
 
 #### 主页
-![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/dos/pic/index.jpg)
+![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/doc/pic/index.jpg)
 
 #### 团购券列表
-![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/dos/pic/order0.jpg)
+![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/doc/pic/order0.jpg)
 
 #### 选择日期
-![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/dos/pic/order2.jpg)
+![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/doc/pic/order2.jpg)
 
 #### 房间选择
-![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/dos/pic/order3.jpg)
+![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/doc/pic/order3.jpg)
 
 #### 入住人选择并生成订单
-![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/dos/pic/order4.jpg)
+![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/doc/pic/order4.jpg)
 
 #### 支付宝支付
-![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/dos/pic/order5.jpg)
+![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/doc/pic/order5.jpg)
 
 #### 酒店管理
-![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/dos/pic/manage.jpg)
+![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/doc/pic/manage.jpg)
 
 #### 侧栏
-![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/dos/pic/side.jpg)
+![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/doc/pic/side.jpg)
 
 #### 用于交互用的酒店管理系统
-![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/dos/pic/hotel.jpg)
+![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/doc/pic/hotel.jpg)
 
 交流讨论
 -------
-- [文档手册](https://github.com/Uoor/xmu-2016-MrCode/tree/dev/dos)
+- [文档手册](https://github.com/Uoor/xmu-2016-MrCode/tree/dev/doc)
 - 若因数据库问题影响运行，请联系我
 - email: i@monkeyhorse.cn
