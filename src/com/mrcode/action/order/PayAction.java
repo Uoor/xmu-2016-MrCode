@@ -205,9 +205,9 @@ public class PayAction extends BaseAction<Mrcodeorder> {
 				}
 				
 				//2.准备显示数据
-				request.setAttribute("orderNum", mrcodeorder.getOrderCode());
+				/*request.setAttribute("orderNum", mrcodeorder.getOrderCode());
 				request.setAttribute("buyer_email", buyer_email);
-				request.setAttribute("orderMoney", mrcodeorder.getDepositPrice());
+				request.setAttribute("orderMoney", mrcodeorder.getDepositPrice());*/
 			}
 			
 			//该页面可做页面美工编辑

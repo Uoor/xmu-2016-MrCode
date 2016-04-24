@@ -1,11 +1,6 @@
 
 #MrCode
 
-
-- 队伍名称：码先生
-- 项目名称：MrCode
-- 团队队长：张羽中
-- 团队成员：邹辛怀、吴敏、朱源、王嘉廉、吴燕晶
 - 项目简介：MrCode 自助酒店终端管理系统！旨在简化目前酒店入住繁琐的登记退房过程。用户自助入住，一键退房，通过DataMining推荐吃喝、玩乐、出行。项目源于美团点评杯，项目流程基于用户已购买美团券。
 
 
@@ -22,14 +17,11 @@
 
 
 
-相关链接
----
-[MrCode](http://www.monkeyhorse.cn/MrCode)   |   [文档手册](https://github.com/Uoor/xmu-2016-MrCode/tree/dev/doc)   |   [酒店管理系统<==>MrCode](http://www.monkeyhorse.cn/JavaPrj_9).
-
 
 依赖
 ---
 
+* HTML5
 * LAM+SSH
 * [Kmeans](https://github.com/Uoor/xmu-2016-MrCode/tree/dev/doc/DataMining)
 * Jquery
@@ -39,21 +31,13 @@
 -------
 * 码团用户寓意于美团用户
 
-* 用户身份登陆(已有`admin/111111`)，也可动态登陆。
-    * [MrCode 主页](http://www.monkeyhorse.cn/MrCode)
+* 用户身份登陆，也可动态登陆。
     * [MrCode Github](https://github.com/Uoor/xmu-2016-MrCode/)
 
     
 * 酒店管理系统，用于与MrCode交互
-* 管理员登陆（已有`admin/admin`）
-	* [酒店管理系统 主页](http://www.monkeyhorse.cn/JavaPrj_9).
+* 管理员登陆
 	* [酒店管理系统 Github](https://github.com/wjialian/hotelSystem).
-
-
-扫描以下二维码，或关注微信公众号（厦大开发精英小组），即可享受自助入住体验
----
-
-  ![](https://github.com/Uoor/xmu-2016-MrCode/blob/dev/doc/pic/publicNumber.jpg)
 
 
 
@@ -96,5 +80,4 @@
 交流讨论
 -------
 - [文档手册](https://github.com/Uoor/xmu-2016-MrCode/tree/dev/doc)
-- 若因数据库问题影响运行，请联系我
 - email: i@monkeyhorse.cn

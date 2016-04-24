@@ -126,7 +126,6 @@ public class PasswordServiceImpl extends BaseServiceImpl<Password>
 	public int getShopLevel(Customer customer, PageBean pageBean) throws Exception {
 		// TODO 查询本用户最近五次出行的城市，如无数据，则以1填充，倒序排列
 		pageBean.setPageSize(5);
-		pageBean.setPageSize(10);
 		String hql = "from Password p left join fetch p.room r left join fetch r.roomtype t " +
 				"where p.contactors.identityCard=:idCard ";
 		Map<String, Object> map = new HashMap<String, Object>();
