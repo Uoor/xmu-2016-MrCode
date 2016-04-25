@@ -27,6 +27,7 @@ import org.joda.time.DurationFieldType;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.mrcode.service.ContactorsService;
+import com.mrcode.service.CustomerService;
 import com.mrcode.service.GrouppurchasevoucherService;
 import com.mrcode.service.MrcodeorderService;
 import com.mrcode.service.PasswordService;
@@ -40,6 +41,7 @@ import com.mrcode.utils.MessageSend;
 import com.mrcode.base.BaseAction;
 import com.mrcode.common.ViewLocation;
 import com.mrcode.common.WebApplication;
+import com.mrcode.datamine.Predict;
 import com.mrcode.model.Contactors;
 import com.mrcode.model.Customer;
 import com.mrcode.model.Floor;
@@ -65,11 +67,14 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
 	MrcodeorderService mrcodeorderService;
 	@Autowired
 	PasswordService passwordService;
+	@Autowired
+	CustomerService customerService;
 	
 	@Action(value = "toFirst", results = { @Result(name = "stepFirstUI", location = ViewLocation.View_ROOT
 			+ "orderstep0.jsp") })
 	public String toFirst() throws Exception{
 		//跳转至入住第一步，选择日期页面
+		
 		
 		Customer customer = (Customer)session.get(Const.CUSTOMER);
 		//获得房间类型
@@ -395,6 +400,14 @@ public class OrderAction extends BaseAction<Mrcodeorder>{
 					depositPrice, new Timestamp(System.currentTimeMillis()), 
 					new HashSet<Grouppurchasevoucher>(vouchers));
 			mrcodeorder = mrcodeorderService.getById(mrcodeorderService.save(mrcodeorder));
+			//顾客类型 1出差  2游玩
+			String ids = passwordService.getLatestCity(customer, pageBean);
+			customer.setCusType(Predict.trafficOrVisit(ids));
+			//消费水平 1高 2低
+			int shopLevel = passwordService.getShopLevel(customer, pageBean) > 300 ? 1 : 2 ;
+			customer.setShopLevel(shopLevel );
+			customerService.update(customer);
+			
 			//把团购券设为已使用
 			for(Grouppurchasevoucher voucher : vouchers){
 				voucher.setUsed(1);
